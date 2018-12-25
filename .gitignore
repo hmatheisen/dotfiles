@@ -1,0 +1,9 @@
+# Backup folders 
+auto-save-list
+backups
+
+# Installed Packages
+elpa
+
+# Auto added files
+.DS_Store
