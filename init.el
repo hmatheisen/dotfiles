@@ -19,7 +19,7 @@
  )
 
 ;; Global settings
-;;------------------------------
+;; ------------------------------
 
 ;; Don't show the startup screen
 (setq inhibit-startup-message t)
@@ -68,7 +68,8 @@
 
 
 ;; Key-Bindings
-;;------------------------------
+;; ------------------------------
+(global-set-key (kbd "C-<tab>") 'other-window)
 
 ;; Avoid MacOS Troubles 
 (setq mac-option-modifier nil
@@ -80,7 +81,7 @@
 (global-set-key (kbd "M-+") 'enlarge-window)
 
 ;; Org-mode
-;;------------------------------
+;; ------------------------------
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
@@ -88,7 +89,7 @@
 
 
 ;; Doom Themes
-;;------------------------------
+;; ------------------------------
 (require 'doom-themes)
 
 ;; Global settings (defaults)
@@ -109,5 +110,6 @@
 
 
 ;; NeoTree
+;; ------------------------------
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
