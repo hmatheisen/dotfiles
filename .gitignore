@@ -2,6 +2,9 @@
 auto-save-list
 backups
 
+# Games folder
+games
+
 # Installed Packages
 elpa
 

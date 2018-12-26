@@ -10,7 +10,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (neotree doom-themes go-mode))))
+ '(package-selected-packages (quote (magit neotree doom-themes go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -66,6 +66,13 @@
 ;; Set tabs to 4
 (setq-default tab-width 4)
 
+;; Use ibuffers
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+    (autoload 'ibuffer "ibuffer" "List buffers." t)
+
+;; Use IDO Mode
+(require 'ido)
+(ido-mode t)
 
 ;; Key-Bindings
 ;; ------------------------------
