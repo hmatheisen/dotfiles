@@ -8,5 +8,6 @@ games
 # Installed Packages
 elpa
 
-# Auto added files
+# Auto generated
 .DS_Store
+recentf
