@@ -7,3 +7,4 @@
 (personal 'theme)
 (personal 'env)
 (personal 'ivy)
+(personal 'magit)

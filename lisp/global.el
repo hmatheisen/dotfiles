@@ -53,3 +53,5 @@
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
+;; Auto close
+(electric-pair-mode t)

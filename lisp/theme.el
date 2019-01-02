@@ -1,5 +1,6 @@
 ;; Doom Themes
 ;; ------------------------------
+
 (require 'doom-themes)
 
 ;; Global settings (defaults)
@@ -19,7 +20,11 @@
 ;; Corrects (and improves) org-mode's native fontification.
 (doom-themes-org-config)
 
+
+
 ;; Doom Modeline
+;; -------------------------------
+
 (require 'doom-modeline)
 (doom-modeline-init)
 
