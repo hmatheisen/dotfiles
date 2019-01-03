@@ -12,7 +12,7 @@
  '(async-bytecomp-package-mode t)
  '(package-selected-packages
    (quote
-	(js2-mode company-go company counsel flymake-go exec-path-from-shell doom-modeline magit neotree doom-themes go-mode))))
+	(material-theme js2-mode company-go company counsel flymake-go exec-path-from-shell doom-modeline magit neotree doom-themes go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

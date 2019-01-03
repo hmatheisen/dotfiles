@@ -11,8 +11,7 @@
 (global-linum-mode t)
 
 ;; Line numbers settings
-(setq linum-format "%4d")
-(setq left-fringe-width 20)
+(setq linum-format "%4d ")
 
 ;; Modeline info
 (display-time-mode 1)
