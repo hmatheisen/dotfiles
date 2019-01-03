@@ -13,7 +13,6 @@
 ;; Resize frames
 (global-set-key (kbd "M--") 'shrink-window)
 (global-set-key (kbd "M-+") 'enlarge-window)
+(global-set-key (kbd "C--") 'shrink-window-horizontally)
+(global-set-key (kbd "C-+") 'enlarge-window-horizontally)
 
-;; Company Mode
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
