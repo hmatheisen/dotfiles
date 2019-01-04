@@ -11,7 +11,7 @@
 (global-linum-mode t)
 
 ;; Line numbers settings
-(setq linum-format "%4d ")
+(setq linum-format "%4d  ")
 
 ;; Modeline info
 (display-time-mode 1)
@@ -32,7 +32,7 @@
 (show-paren-mode t)
 
 ;; Don't truncate lines
-(toggle-truncate-lines t)
+(setq-default truncate-lines t)
 
 ;; Trash can support
 (setq delete-by-moving-to-trash t)

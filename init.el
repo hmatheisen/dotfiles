@@ -11,7 +11,7 @@
  '(async-bytecomp-package-mode t)
  '(package-selected-packages
    (quote
-	(company-tern xref-js2 js2-refactor material-theme js2-mode company-go company counsel flymake-go exec-path-from-shell doom-modeline magit neotree doom-themes go-mode))))
+	(company-tern xref-js2 js2-refactor js2-mode company-go company counsel flymake-go exec-path-from-shell doom-modeline magit neotree doom-themes go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -24,11 +24,12 @@
 (personal 'global)
 (personal 'bindings)
 (personal 'org-mode)
-(personal 'theme)
+(personal 'material)
+;; I have some troubles using my theme with the doom-mode-line
+;; (personal 'doom-mode-line)
 (personal 'env)
 (personal 'ivy-mode)
 (personal 'magit)
 (personal 'golang)
 (personal 'javascript)
 (personal 'company-mode)
-
