@@ -32,8 +32,7 @@
 (show-paren-mode t)
 
 ;; Don't truncate lines
-(setq truncate-lines t)
-(setq truncate-partial-width-windows nil)
+(toggle-truncate-lines t)
 
 ;; Trash can support
 (setq delete-by-moving-to-trash t)
@@ -52,9 +51,11 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
     (autoload 'ibuffer "ibuffer" "List buffers." t)
 
-;; Title Bar
+;; Title Bar Settings 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
+(setq ns-use-proxy-icon  nil)
+(setq frame-title-format nil)
 
 ;; Auto close
 (electric-pair-mode t)

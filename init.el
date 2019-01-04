@@ -3,7 +3,6 @@
 (require 'package)
 (add-to-list 'package-archives
 			 '("melpa" . "http://melpa.milkbox.net/packages/"))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -12,7 +11,7 @@
  '(async-bytecomp-package-mode t)
  '(package-selected-packages
    (quote
-	(material-theme js2-mode company-go company counsel flymake-go exec-path-from-shell doom-modeline magit neotree doom-themes go-mode))))
+	(company-tern xref-js2 js2-refactor material-theme js2-mode company-go company counsel flymake-go exec-path-from-shell doom-modeline magit neotree doom-themes go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -32,3 +31,4 @@
 (personal 'golang)
 (personal 'javascript)
 (personal 'company-mode)
+
