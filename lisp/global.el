@@ -59,3 +59,6 @@
 
 ;; Auto close
 (electric-pair-mode t)
+
+;; Set fringe color to nil
+(set-face-attribute 'fringe nil :background nil)
