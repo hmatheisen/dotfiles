@@ -12,7 +12,7 @@
  '(base16-distinct-fringe-background nil)
  '(package-selected-packages
    (quote
-	(powerline ample-theme base16-theme company-tern xref-js2 js2-refactor js2-mode company-go company counsel flymake-go exec-path-from-shell doom-modeline magit neotree doom-themes go-mode))))
+	(org-bullets poet-theme powerline ample-theme base16-theme company-tern xref-js2 js2-refactor js2-mode company-go company counsel flymake-go exec-path-from-shell doom-modeline magit neotree doom-themes go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -26,7 +26,7 @@
 (personal 'global)
 (personal 'bindings)
 (personal 'org-mode)
-(personal 'mode-line)
+(personal 'modeline)
 (personal 'env)
 (personal 'ivy-mode)
 (personal 'magit)

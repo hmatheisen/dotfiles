@@ -15,4 +15,3 @@
 (global-set-key (kbd "M-+") 'enlarge-window)
 (global-set-key (kbd "C--") 'shrink-window-horizontally)
 (global-set-key (kbd "C-+") 'enlarge-window-horizontally)
-
