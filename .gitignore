@@ -12,3 +12,7 @@ elpa
 .DS_Store
 recentf
 ac-comphist.dat
+
+# Calendar credentials
+lisp/calendar.el
+org-gcal/
