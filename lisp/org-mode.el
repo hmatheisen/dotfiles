@@ -57,6 +57,7 @@
  )
 
 (add-hook 'org-mode-hook 'variable-pitch-mode)
+(add-hook 'org-mode-hook (lambda () (linum-mode -1)))
 
 ;; Org Agenda
 ;; -------------------------------
