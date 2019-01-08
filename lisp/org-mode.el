@@ -17,7 +17,10 @@
 ;; Org Settings
 ;; -------------------------------
 
-(setq org-hide-emphasis-markers t)
+(setq org-hide-emphasis-markers t
+	  org-pretty-entities t
+	  org-hide-emphasis-markers t
+	  )
 
 (font-lock-add-keywords 'org-mode
                         '(("^ *\\([-]\\) "
@@ -39,7 +42,7 @@
  '(org-level-7               ((t ,@headline)))
  '(org-level-8               ((t ,@headline)))
  '(variable-pitch            ((t (:family "Source Sans Pro" :height 180 :weight light))))
- '(fixed-pitch               ((t ( :family "Inconsolata" :slant normal :weight normal :height 1.0 :width normal))))
+ '(fixed-pitch               ((t (:family "Inconsolata" :slant normal :weight normal :height 1.0 :width normal))))
  '(org-block                 ((t (:inherit fixed-pitch))))
  '(org-document-info         ((t (:foreground "dark orange"))))
  '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
@@ -49,6 +52,8 @@
  '(org-special-keyword       ((t (:inherit (font-lock-comment-face fixed-pitch)))))
  '(org-tag                   ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
  '(org-verbatim              ((t (:inherit (shadow fixed-pitch)))))
+ '(org-document-title        ((t (:height 1.9 :weight bold))))
+ '(org-document-info-keyword ((t (:foreground "#555"))))
  )
 
 (add-hook 'org-mode-hook 'variable-pitch-mode)
@@ -56,5 +61,5 @@
 ;; Org Agenda
 ;; -------------------------------
 
-(setq org-agenda-include-diary t)
-(setq org-agenda-files '("~/Documents/Org"))
+(setq org-agenda-include-diary t
+	  org-agenda-files '("~/Documents/Org"))
