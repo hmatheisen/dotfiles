@@ -12,6 +12,7 @@ elpa
 .DS_Store
 recentf
 ac-comphist.dat
+projectile-bookmarks.eld
 
 # Calendar credentials
 lisp/calendar.el
