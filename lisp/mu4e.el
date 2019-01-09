@@ -32,13 +32,13 @@
   (imagemagick-register-types))
 
 ;; convert html emails properly
-;; Possible options:
-;;   - html2text -utf8 -width 72
-;;   - textutil -stdin -format html -convert txt -stdout
-;;   - html2markdown | grep -v '&nbsp_place_holder;' (Requires html2text pypi)
-;;   - w3m -dump -cols 80 -T text/html
-;;   - view in browser (provided below)
-(setq mu4e-html2text-command "textutil -stdin -format html -convert txt -stdout")
+(require 'mu4e-contrib)
+(setq mu4e-html2text-command 'mu4e-shr2text)
+(add-hook 'mu4e-view-mode-hook
+          (lambda()
+            ;; try to emulate some of the eww key-bindings
+            (local-set-key (kbd "<tab>") 'shr-next-link)
+            (local-set-key (kbd "<backtab>") 'shr-previous-link)))
 
 ;; spell check
 (add-hook 'mu4e-compose-mode-hook
