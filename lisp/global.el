@@ -1,6 +1,9 @@
 ;; Global settings
 ;; ------------------------------
 
+;; Default binary for *ansi-term*
+(setq explicit-shell-file-name "/usr/local/bin/fish")
+
 ;; Don't show the startup screen
 (setq inhibit-startup-message t)
 
@@ -22,6 +25,8 @@
 ;; Remove Toolbar
 (tool-bar-mode -1)
 
+;; Disable menu bar
+(menu-bar-mode -1)
 ;; Line-wrapping
 (set-default 'fill-column 78)
 
@@ -62,9 +67,3 @@
 
 ;; Set fringe color to nil
 (set-face-attribute 'fringe nil :background nil)
-
-;; Hardcore Mode
-(global-unset-key (kbd "<left>"))
-(global-unset-key (kbd "<right>"))
-(global-unset-key (kbd "<up>"))
-(global-unset-key (kbd "<down>"))
