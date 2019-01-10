@@ -77,7 +77,7 @@
 
 ;; Ibuffer
 ;; *Messages* is so annoying. Also, I really like ibuffer
-g
+
 (require 'ibuf-ext)
 (add-to-list 'ibuffer-never-show-predicates "^\\*Messages")
 (add-to-list 'ibuffer-never-show-predicates "^\\*Completions")
