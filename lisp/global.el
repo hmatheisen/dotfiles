@@ -27,6 +27,7 @@
 
 ;; Disable menu bar
 (menu-bar-mode -1)
+
 ;; Line-wrapping
 (set-default 'fill-column 78)
 
@@ -67,3 +68,49 @@
 
 ;; Set fringe color to nil
 (set-face-attribute 'fringe nil :background nil)
+
+;; "y or n" instead of "yes or no"
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; ibuffer config
+;; ---------------------------------
+
+;; Ibuffer
+;; *Messages* is so annoying. Also, I really like ibuffer
+g
+(require 'ibuf-ext)
+(add-to-list 'ibuffer-never-show-predicates "^\\*Messages")
+(add-to-list 'ibuffer-never-show-predicates "^\\*Completions")
+(global-set-key (kbd "C-b") 'ibuffer)
+
+(setq ibuffer-saved-filter-groups
+      '(("home"
+	 ("emacs-config" (or (filename . ".emacs.d")
+			     (filename . "emacs-config")))
+	 ("Org" (or (mode . org-mode)
+		    (filename . "OrgMode")))
+         ("code" (filename . "code"))
+	 ("Go" (mode . go-mode))
+	 ("Shell" (mode . sh-mode))
+	 ("PHP" (mode . php-mode))
+	 ("Web Dev" (or (mode . html-mode)
+			(mode . css-mode)
+			(mode . mhtml-mode)))
+	 ("Subversion" (name . "\*svn"))
+	 ("Magit" (name . "\*magit"))
+	 ("ERC" (mode . erc-mode))
+	 ("Help" (or (name . "\*Help\*")
+		     (name . "\*Apropos\*")
+		     (name . "\*info\*"))))))
+(add-hook 'ibuffer-mode-hook
+	  '(lambda ()
+	     (ibuffer-switch-to-saved-filter-groups "home")))
+
+(setq ibuffer-expert t)
+
+(setq ibuffer-show-empty-filter-groups nil)
+
+(add-hook 'ibuffer-mode-hook
+	  '(lambda ()
+	     (ibuffer-auto-mode 1)
+	     (ibuffer-switch-to-saved-filter-groups "home")))
