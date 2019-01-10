@@ -62,5 +62,4 @@
 ;; Org Agenda
 ;; -------------------------------
 
-(setq org-agenda-include-diary t
-	  org-agenda-files '("~/Documents/Org"))
+(setq org-agenda-files '("~/Documents/Org/gcal"))

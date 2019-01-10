@@ -25,5 +25,5 @@
 (global-unset-key (kbd "<up>"))
 (global-unset-key (kbd "<down>"))
 
-
-
+;; Open Terminal
+(global-set-key (kbd "M-p") 'ansi-term)

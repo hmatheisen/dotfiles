@@ -2,7 +2,7 @@
 ;; ------------------------------
 
 ;; Default binary for *ansi-term*
-(setq explicit-shell-file-name "/usr/local/bin/fish")
+(setq explicit-shell-file-name "/bin/bash")
 
 ;; Don't show the startup screen
 (setq inhibit-startup-message t)
@@ -77,18 +77,16 @@
 
 ;; Ibuffer
 ;; *Messages* is so annoying. Also, I really like ibuffer
-
 (require 'ibuf-ext)
 (add-to-list 'ibuffer-never-show-predicates "^\\*Messages")
 (add-to-list 'ibuffer-never-show-predicates "^\\*Completions")
-(global-set-key (kbd "C-b") 'ibuffer)
 
 (setq ibuffer-saved-filter-groups
       '(("home"
 	 ("emacs-config" (or (filename . ".emacs.d")
 			     (filename . "emacs-config")))
 	 ("Org" (or (mode . org-mode)
-		    (filename . "OrgMode")))
+		    (filename . "Org")))
          ("code" (filename . "code"))
 	 ("Go" (mode . go-mode))
 	 ("Shell" (mode . sh-mode))
@@ -101,7 +99,8 @@
 	 ("ERC" (mode . erc-mode))
 	 ("Help" (or (name . "\*Help\*")
 		     (name . "\*Apropos\*")
-		     (name . "\*info\*"))))))
+		     (name . "\*info\*")))
+	 ("Terminal" (name . "\*ansi-term\*")))))
 (add-hook 'ibuffer-mode-hook
 	  '(lambda ()
 	     (ibuffer-switch-to-saved-filter-groups "home")))
@@ -114,3 +113,7 @@
 	  '(lambda ()
 	     (ibuffer-auto-mode 1)
 	     (ibuffer-switch-to-saved-filter-groups "home")))
+
+;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
