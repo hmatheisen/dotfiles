@@ -5,7 +5,7 @@
 (setq explicit-shell-file-name "/bin/bash")
 
 ;; Don't show the startup screen
-(setq inhibit-startup-message t)
+;; (setq inhibit-startup-message t)
 
 ;; "y or n" instead of "yes or no"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -14,7 +14,7 @@
 (global-linum-mode t)
 
 ;; Line numbers settings
-(setq linum-format "%4d  ")
+(setq linum-format "%4d")
 
 ;; Modeline info
 (display-time-mode 1)
@@ -84,23 +84,26 @@
 (setq ibuffer-saved-filter-groups
       '(("home"
 	 ("emacs-config" (or (filename . ".emacs.d")
-			     (filename . "emacs-config")))
+						 (filename . "emacs-config")))
 	 ("Org" (or (mode . org-mode)
-		    (filename . "Org")))
-         ("code" (filename . "code"))
+				(filename . "Org")
+				(name . "\*Org Agenda\*")))
+     ("code" (filename . "code"))
 	 ("Go" (mode . go-mode))
 	 ("Shell" (mode . sh-mode))
 	 ("PHP" (mode . php-mode))
 	 ("Web Dev" (or (mode . html-mode)
-			(mode . css-mode)
-			(mode . mhtml-mode)))
+					(mode . css-mode)
+					(mode . mhtml-mode)))
 	 ("Subversion" (name . "\*svn"))
 	 ("Magit" (name . "\*magit"))
 	 ("ERC" (mode . erc-mode))
 	 ("Help" (or (name . "\*Help\*")
-		     (name . "\*Apropos\*")
-		     (name . "\*info\*")))
-	 ("Terminal" (name . "\*ansi-term\*")))))
+				 (name . "\*Apropos\*")
+				 (name . "\*info\*")))
+	 ("Terminal" (name . "\*ansi-term\*"))
+	 ("Mail" (or (name . "\*mu4e-headers\*")
+				 (name . "\*mu4e-view\*"))))))
 (add-hook 'ibuffer-mode-hook
 	  '(lambda ()
 	     (ibuffer-switch-to-saved-filter-groups "home")))

@@ -41,23 +41,13 @@
  '(org-level-6               ((t ,@headline)))
  '(org-level-7               ((t ,@headline)))
  '(org-level-8               ((t ,@headline)))
- '(variable-pitch            ((t (:family "Source Sans Pro" :height 180 :weight light))))
- '(fixed-pitch               ((t (:family "Inconsolata" :slant normal :weight normal :height 1.0 :width normal))))
- '(org-block                 ((t (:inherit fixed-pitch))))
- '(org-document-info         ((t (:foreground "dark orange"))))
  '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
- '(org-link                  ((t (:foreground "royal blue" :underline t))))
- '(org-meta-line             ((t (:inherit (font-lock-comment-face fixed-pitch)))))
- '(org-property-value        ((t (:inherit fixed-pitch))) t)
- '(org-special-keyword       ((t (:inherit (font-lock-comment-face fixed-pitch)))))
- '(org-tag                   ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
- '(org-verbatim              ((t (:inherit (shadow fixed-pitch)))))
+ '(org-special-keyword       ((t (:inherit (font-lock-comment-face fixed-pitch) :foreground "#555"))))
  '(org-document-title        ((t (:height 1.9 :weight bold))))
- '(org-document-info-keyword ((t (:foreground "#555"))))
  )
 
-(add-hook 'org-mode-hook 'variable-pitch-mode)
 (add-hook 'org-mode-hook (lambda () (linum-mode -1)))
+
 
 ;; Org Agenda
 ;; -------------------------------

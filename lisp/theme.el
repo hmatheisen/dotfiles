@@ -1,36 +1,32 @@
-;; Doom Theme
-;; ------------------------------
+;; ;; Apmple Theme
+;; ;; -------------------------------
 
-;; (require 'doom-themes)
+;; ;; then in your init you can load all of the themes
+;; ;; without enabling theme (or just load one)
+;; (load-theme 'ample t t)
+;; (load-theme 'ample-flat t t)
+;; (load-theme 'ample-light t t)
 
-;; ;; Global settings (defaults)
-;; (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-;;       doom-themes-enable-italic t) ; if nil, italics is universally disabled
+;; ;; choose one to enable
+;; (enable-theme 'ample)
+;; ;; (enable-theme 'ample-flat)
+;; ;; (enable-theme 'ample-light)
 
-;; ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-;; ;; may have their own settings.
-;; (load-theme 'doom-one t)
+;; ;; Moe-Theme
+;; ;; ----------------------------------
 
-;; ;; Enable flashing mode-line on errors
-;; (doom-themes-visual-bell-config)
+;; (require 'moe-theme)
+;; (require 'moe-theme-switcher)
 
-;; ;; Enable custom neotree theme (all-the-icons must be installed!)
-;; (doom-themes-neotree-config)
+;; ;; Show highlighted buffer-id as decoration. (Default: nil)
+;; (setq moe-theme-highlight-buffer-id t)
 
-;; ;; Corrects (and improves) org-mode's native fontification.
-;; (doom-themes-org-config)
+;; ;; Resize titles (optional).
+;; (setq moe-theme-resize-markdown-title '(1.5 1.4 1.3 1.2 1.0 1.0))
+;; (setq moe-theme-resize-org-title '(1.5 1.4 1.3 1.2 1.1 1.0 1.0 1.0 1.0))
+;; (setq moe-theme-resize-rst-title '(1.5 1.4 1.3 1.2 1.1 1.0))
 
+;; (powerline-moe-theme)
 
-;; Apmple Theme
-;; -------------------------------
+;; (setq show-paren-style 'expression)
 
-;; then in your init you can load all of the themes
-;; without enabling theme (or just load one)
-(load-theme 'ample t t)
-(load-theme 'ample-flat t t)
-(load-theme 'ample-light t t)
-
-;; choose one to enable
-(enable-theme 'ample)
-;; (enable-theme 'ample-flat)
-;; (enable-theme 'ample-light)
