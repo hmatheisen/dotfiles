@@ -18,3 +18,4 @@ network-security.data
 # Calendar credentials
 lisp/calendar.el
 org-gcal/
+lisp/spotify.el

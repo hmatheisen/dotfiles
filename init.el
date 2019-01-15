@@ -16,37 +16,19 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-	(dracula-theme markdown-mode cyberpunk-theme moe-theme base16-theme projectile org-gcal org-bullets powerline ample-theme company-tern xref-js2 js2-refactor js2-mode company-go company counsel flymake-go exec-path-from-shell magit neotree go-mode))))
+	(counsel-spotify dracula-theme markdown-mode cyberpunk-theme moe-theme base16-theme projectile org-gcal org-bullets powerline ample-theme company-tern xref-js2 js2-refactor js2-mode company-go company counsel flymake-go exec-path-from-shell magit neotree go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-block ((((class color) (min-colors 89)) (:foreground "#005f87" :background "#d7d7ff"))))
- '(org-document-info ((((class color) (min-colors 89)) (:foreground "#5fafd7" :background "#fdfde7" :weight bold))))
- '(org-document-info-keyword ((((class color) (min-colors 89)) (:foreground "#d75f00" :background "#ffffaf"))))
- '(org-document-title ((((class color) (min-colors 89)) (:foreground "#005f87" :background "#fdfde7" :weight bold))))
- '(org-level-1 ((((class color) (min-colors 89)) (:bold t :foreground "#5fafd7"))))
- '(org-level-2 ((((class color) (min-colors 89)) (:bold t :foreground "#5fd700"))))
- '(org-level-3 ((((class color) (min-colors 89)) (:bold t :foreground "#ff8700"))))
- '(org-level-4 ((((class color) (min-colors 89)) (:bold t :foreground "#00d7af"))))
- '(org-level-5 ((((class color) (min-colors 89)) (:bold t :foreground "#cc0000"))))
- '(org-level-6 ((((class color) (min-colors 89)) (:bold t :foreground "#b218b2"))))
- '(org-level-7 ((((class color) (min-colors 89)) (:bold t :foreground "#ff4ea3"))))
- '(org-level-8 ((((class color) (min-colors 89)) (:bold t :foreground "#ffd700"))))
- '(org-link ((((class color) (min-colors 89)) (:foreground "#1f5bff" :underline "#1f5bff"))))
  '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
- '(org-property-value ((t (:inherit fixed-pitch))) t)
- '(org-special-keyword ((((class color) (min-colors 89)) (:background "#fce94f" :foreground "#875f00"))))
- '(org-tag ((((class color) (min-colors 89)) (:background "#9e9e9e" :foreground "#ffffff" :bold t :weight bold))))
- '(org-verbatim ((((class color) (min-colors 89)) (:foreground "#005f87" :background "#d7d7ff" :bold nil)))))
+ '(org-property-value ((t (:inherit fixed-pitch))) t))
 
 (load "~/.emacs.d/lisp/defuns")
 
-;; KISS :
-;; (personal 'modeline)
-;; (personal 'theme)
-
+(personal 'modeline)
+(personal 'theme)
 (personal 'global)
 (personal 'bindings)
 (personal 'org-mode)
@@ -59,3 +41,4 @@
 (personal 'calendar)
 (personal 'projectile)
 (personal 'mu4e)
+(personal 'spotify)
