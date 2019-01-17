@@ -16,18 +16,29 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-	(counsel-spotify dracula-theme markdown-mode cyberpunk-theme moe-theme base16-theme projectile org-gcal org-bullets powerline ample-theme company-tern xref-js2 js2-refactor js2-mode company-go company counsel flymake-go exec-path-from-shell magit neotree go-mode))))
+	(darktooth-theme web-mode tide ng2-mode typescript-mode counsel-spotify dracula-theme markdown-mode cyberpunk-theme moe-theme base16-theme projectile org-gcal org-bullets powerline ample-theme company-tern xref-js2 js2-refactor js2-mode company-go company counsel flymake-go exec-path-from-shell magit neotree go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+ '(org-document-title ((t (:height 1.9 :weight bold))))
+ '(org-level-1 ((t (\,@ headline))))
+ '(org-level-2 ((t (\,@ headline))))
+ '(org-level-3 ((t (\,@ headline))))
+ '(org-level-4 ((t (\,@ headline))))
+ '(org-level-5 ((t (\,@ headline))))
+ '(org-level-6 ((t (\,@ headline))))
+ '(org-level-7 ((t (\,@ headline))))
+ '(org-level-8 ((t (\,@ headline))))
  '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
- '(org-property-value ((t (:inherit fixed-pitch))) t))
+ '(org-property-value ((t (:inherit fixed-pitch))) t)
+ '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch) :foreground "#555")))))
 
 (load "~/.emacs.d/lisp/defuns")
 
-(personal 'modeline)
+;; (personal 'modeline)
 (personal 'theme)
 (personal 'global)
 (personal 'bindings)
@@ -42,3 +53,5 @@
 (personal 'projectile)
 (personal 'mu4e)
 (personal 'spotify)
+(personal 'typescript)
+(personal 'angular)
