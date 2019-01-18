@@ -16,7 +16,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-	(darktooth-theme web-mode tide ng2-mode typescript-mode counsel-spotify dracula-theme markdown-mode cyberpunk-theme moe-theme base16-theme projectile org-gcal org-bullets powerline ample-theme company-tern xref-js2 js2-refactor js2-mode company-go company counsel flymake-go exec-path-from-shell magit neotree go-mode))))
+	(darktooth-theme web-mode tide ng2-mode typescript-mode counsel-spotify markdown-mode cyberpunk-theme moe-theme base16-theme projectile org-gcal org-bullets powerline ample-theme company-tern xref-js2 js2-refactor js2-mode company-go company counsel flymake-go exec-path-from-shell magit neotree go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

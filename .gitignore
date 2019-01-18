@@ -5,6 +5,9 @@ backups
 # Games folder
 games
 
+# Elpa
+elpa
+
 # Auto generated
 .DS_Store
 recentf
