@@ -6,7 +6,7 @@ backups
 games
 
 # Elpa
-elpa
+# elpa
 
 # Auto generated
 .DS_Store
@@ -15,7 +15,7 @@ ac-comphist.dat
 projectile-bookmarks.eld
 network-security.data
 
-# Calendar credentials
+# Credentials
 lisp/calendar.el
 org-gcal/
 lisp/spotify.el
