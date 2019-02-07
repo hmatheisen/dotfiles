@@ -1,55 +1,28 @@
 ;; Org-mode
 ;; ------------------------------
 
-(require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
+(use-package org
+  :ensure t
+  :init
+  (setq org-log-done t
+		org-hide-emphasis-markers t
+		org-pretty-entities t
+		org-hide-emphasis-markers t
+		org-agenda-files '("~/Documents/Org/gcal"))
+  :bind (("C-c l" . 'org-store-link)
+		 ("C-c a" . 'org-agenda)))
 
+(use-package org-bullets
+  :ensure t
+  :init
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-;; Org Bullets
-;; -------------------------------
-
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
-
-;; Org Settings
-;; -------------------------------
-
-(setq org-hide-emphasis-markers t
-	  org-pretty-entities t
-	  org-hide-emphasis-markers t
-	  )
-
-(font-lock-add-keywords 'org-mode
-                        '(("^ *\\([-]\\) "
-                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-
-(let* (
-   	(base-font-color     (face-foreground 'default nil 'default))
-    (headline           '(:inherit default :weight bold :foreground ,base-font-color))))
-
-
-(custom-theme-set-faces
- 'user
- '(org-level-1               ((t ,@headline)))
- '(org-level-2               ((t ,@headline)))
- '(org-level-3               ((t ,@headline)))
- '(org-level-4               ((t ,@headline)))
- '(org-level-5               ((t ,@headline)))
- '(org-level-6               ((t ,@headline)))
- '(org-level-7               ((t ,@headline)))
- '(org-level-8               ((t ,@headline)))
- '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
- '(org-special-keyword       ((t (:inherit (font-lock-comment-face fixed-pitch) :foreground "#555"))))
- '(org-document-title        ((t (:height 1.9 :weight bold))))
- )
-
-(add-hook 'org-mode-hook (lambda () (linum-mode -1)))
-
-
-;; Org Agenda
-;; -------------------------------
-
-(setq org-agenda-files '("~/Documents/Org/gcal"))
+(use-package org-gcal
+  :ensure t
+  :init
+  (setq org-gcal-client-id "674273337525-rg6fdllttf6r302g3qhicsp4vokjqfro.apps.googleusercontent.com"
+      org-gcal-client-secret "BHzap7TjjO8QWci-IdPRuhC_"
+      org-gcal-file-alist '(("henry.mthsn@gmail.com"                                       . "~/Documents/Org/gcal/henry_cal.org")
+                            ("hn7gnk9vb2vi7ghejketk8a2jc@group.calendar.google.com"        . "~/Documents/Org/gcal/marcheisen_cal.org")
+							("t4i8per5451llsq88atvs451a8@group.calendar.google.com"        . "~/Documents/Org/gcal/ibm_cal.org")
+							("4lq8nq5mjjih5kifmvjm4ochi88ejs8h@import.calendar.google.com" . "~/Documents/Org/gcal/hyperplanning_cal.org"))))

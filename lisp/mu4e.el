@@ -15,7 +15,7 @@
     '( ("/henry.mthsn@gmail.com/INBOX" . ?i)
        ("/[Gmail].Sent Mail"           . ?s)))
 
-;; something about ourselves
+;; something about me
 (setq
    user-mail-address "henry.mthsn@gmail.com"
    user-full-name  "Henry MATHEISEN"
@@ -27,30 +27,12 @@
 ;; show images
 (setq mu4e-show-images t)
 
-;; use imagemagick, if available
-(when (fboundp 'imagemagick-register-types)
-  (imagemagick-register-types))
-
-;; convert html emails properly
-(require 'mu4e-contrib)
-(setq mu4e-html2text-command 'mu4e-shr2text)
-(add-hook 'mu4e-view-mode-hook
-          (lambda()
-            ;; try to emulate some of the eww key-bindings
-            (local-set-key (kbd "<tab>") 'shr-next-link)
-            (local-set-key (kbd "<backtab>") 'shr-previous-link)))
-
 ;; spell check
 (add-hook 'mu4e-compose-mode-hook
         (defun my-do-compose-stuff ()
            "My settings for message composition."
            (set-fill-column 72)
            (flyspell-mode)))
-
-;; add option to view html message in a browser
-;; `aV` in view to activate
-(add-to-list 'mu4e-view-actions
-  '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
 ;; fetch mail every 10 mins
 (setq mu4e-update-interval 600)

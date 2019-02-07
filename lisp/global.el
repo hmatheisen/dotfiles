@@ -4,9 +4,6 @@
 ;; Default binary for *ansi-term*
 (setq explicit-shell-file-name "/bin/bash")
 
-;; Don't show the startup screen
-;; (setq inhibit-startup-message t)
-
 ;; "y or n" instead of "yes or no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -69,20 +66,17 @@
 ;; Set fringe color to nil
 (set-face-attribute 'fringe nil :background nil)
 
-;; "y or n" instead of "yes or no"
-(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; ibuffer config
 ;; ---------------------------------
 
 ;; Ibuffer
-;; *Messages* is so annoying. Also, I really like ibuffer
 (require 'ibuf-ext)
 (add-to-list 'ibuffer-never-show-predicates "^\\*Messages")
 (add-to-list 'ibuffer-never-show-predicates "^\\*Completions")
 
 (setq ibuffer-saved-filter-groups
-      '(("home"
+     '(("home"
 	 ("emacs-config" (or (filename . ".emacs.d")
 						 (filename . "emacs-config")))
 	 ("Go" (mode . go-mode))
@@ -106,19 +100,10 @@
 	 ("Help" (or (name . "\*Help\*")
 				 (name . "\*Apropos\*")
 				 (name . "\*info\*"))))))
+
 (add-hook 'ibuffer-mode-hook
 	  '(lambda ()
 	     (ibuffer-switch-to-saved-filter-groups "home")))
 
 (setq ibuffer-expert t)
-
 (setq ibuffer-show-empty-filter-groups nil)
-
-(add-hook 'ibuffer-mode-hook
-	  '(lambda ()
-	     (ibuffer-auto-mode 1)
-	     (ibuffer-switch-to-saved-filter-groups "home")))
-
-;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
-(setq-default message-log-max nil)
-(kill-buffer "*Messages*")
