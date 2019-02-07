@@ -90,7 +90,7 @@
 					(mode . scss-mode)
 					(mode . typescript-mode)))
 	 ("Subversion" (name . "\*svn"))
-	 ("Terminal" (name . "\*ansi-term\*"))
+	 ("Terminal" (mode . term-mode))
 	 ("Magit" (name . "\*magit"))
 	 ("Org" (or (mode . org-mode)
 				(filename . "Org")
@@ -107,3 +107,7 @@
 
 (setq ibuffer-expert t)
 (setq ibuffer-show-empty-filter-groups nil)
+
+;; Windmove
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings 'meta))
