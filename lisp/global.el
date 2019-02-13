@@ -110,4 +110,22 @@
 
 ;; Windmove
 (when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings 'meta))
+  (windmove-default-keybindings))
+
+;; Move Text
+(global-set-key [M-up] 'move-text-up)
+(global-set-key [M-down] 'move-text-down)
+
+;; Smartparens
+(use-package smartparens-config
+  :ensure smartparens
+  :hook (after-init-hook . smartparens-mode))
+
+;; Buffer-move
+(use-package buffer-move
+  :ensure t
+  :init
+  (global-set-key (kbd "<C-S-up>")     'buf-move-up)
+  (global-set-key (kbd "<C-S-down>")   'buf-move-down)
+  (global-set-key (kbd "<C-S-left>")   'buf-move-left)
+  (global-set-key (kbd "<C-S-right>")  'buf-move-right))

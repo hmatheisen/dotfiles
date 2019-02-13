@@ -34,7 +34,7 @@
 	 ("???" . "#dc752f"))))
  '(package-selected-packages
    (quote
-	(org-gcal projectile org-bullets org magit company-go go-mode exec-path-from-shell company-mode company counsel ivy use-package spacemacs-theme)))
+	(buffer-move sudoku chess 2048-game auto-package-update smartparens move-text org-gcal projectile org-bullets org magit company-go go-mode exec-path-from-shell company-mode company counsel ivy use-package spacemacs-theme)))
  '(pdf-view-midnight-colors (quote ("#5f5f87" . "#ffffff"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -43,11 +43,17 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; Use Package Declaration
+;; use-package Declaration
 (eval-when-compile
  (require 'use-package))
 
-;; Require file functions
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
+;; require-file function
 (load "~/.emacs.d/lisp/defuns")
 
 ;; Requirements
