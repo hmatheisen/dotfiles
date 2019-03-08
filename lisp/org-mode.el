@@ -1,3 +1,4 @@
+
 ;; Org-mode
 ;; ------------------------------
 
@@ -8,7 +9,10 @@
 		org-hide-emphasis-markers t
 		org-pretty-entities t
 		org-hide-emphasis-markers t
-		org-agenda-files '("~/Documents/Org/gcal"))
+		org-agenda-files '("~/Documents/Org/gcal"))  
+  (font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) "
+							 (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
   :bind (("C-c l" . 'org-store-link)
 		 ("C-c a" . 'org-agenda)))
 

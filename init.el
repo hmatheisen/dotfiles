@@ -34,7 +34,7 @@
 	 ("???" . "#dc752f"))))
  '(package-selected-packages
    (quote
-	(buffer-move sudoku chess 2048-game auto-package-update smartparens move-text org-gcal projectile org-bullets org magit company-go go-mode exec-path-from-shell company-mode company counsel ivy use-package spacemacs-theme)))
+	(docker markdown-toc php-mode yaml-mode markdown-mode md4rd company-c-headers magit spaceline typescript-mode vue-mode company-tern tern indium racer rust-mode buffer-move sudoku chess 2048-game auto-package-update smartparens move-text org-gcal projectile org-bullets org company-go go-mode exec-path-from-shell company-mode company counsel ivy use-package spacemacs-theme)))
  '(pdf-view-midnight-colors (quote ("#5f5f87" . "#ffffff"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -47,7 +47,9 @@
 (eval-when-compile
  (require 'use-package))
 
+;; Package auto update
 (use-package auto-package-update
+  :ensure t
   :config
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
@@ -67,3 +69,7 @@
 (require-file 'mu4e)
 (require-file 'org-mode)
 (require-file 'projectile)
+(require-file 'rust)
+(require-file 'javascript)
+(require-file 'c)
+(require-file 'markdown)

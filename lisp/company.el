@@ -8,4 +8,5 @@
   (setq company-idle-delay 0)
   :ensure company
   :hook (after-init . global-company-mode)
-  :bind (("C-c C-c" . 'company-complete)))
+  :bind (:map c-mode-map ("<tab>" . 'company-complete)
+			  :map c++-mode-map ("<tab>" . 'company-complete)))
