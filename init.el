@@ -34,8 +34,9 @@
 	 ("???" . "#dc752f"))))
  '(package-selected-packages
    (quote
-	(docker markdown-toc php-mode yaml-mode markdown-mode md4rd company-c-headers magit spaceline typescript-mode vue-mode company-tern tern indium racer rust-mode buffer-move sudoku chess 2048-game auto-package-update smartparens move-text org-gcal projectile org-bullets org company-go go-mode exec-path-from-shell company-mode company counsel ivy use-package spacemacs-theme)))
- '(pdf-view-midnight-colors (quote ("#5f5f87" . "#ffffff"))))
+	(latex-preview-pane dockerfile-mode elpy all-the-icons neotree cider clojure-mode docker markdown-toc php-mode yaml-mode markdown-mode md4rd company-c-headers magit spaceline typescript-mode vue-mode company-tern tern indium racer rust-mode buffer-move sudoku chess 2048-game auto-package-update smartparens move-text org-gcal projectile org-bullets org company-go go-mode exec-path-from-shell company-mode company counsel ivy use-package spacemacs-theme)))
+ '(pdf-view-midnight-colors (quote ("#5f5f87" . "#ffffff")))
+ '(spaceline-info-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -58,6 +59,9 @@
 ;; require-file function
 (load "~/.emacs.d/lisp/defuns")
 
+;; Require personnal scripts
+(add-to-list 'load-path "~/.emacs.d/personal")
+
 ;; Requirements
 (require-file 'global)
 (require-file 'keybindings)
@@ -73,3 +77,5 @@
 (require-file 'javascript)
 (require-file 'c)
 (require-file 'markdown)
+;; (require-file 'theme)
+(require-file 'neotree)

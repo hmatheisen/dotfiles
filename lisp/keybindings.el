@@ -19,11 +19,11 @@
 ;; Undo
 (global-set-key (kbd "C-z") 'undo)
 
-;; Hardcore Mode
-(global-unset-key (kbd "<left>"))
-(global-unset-key (kbd "<right>"))
-(global-unset-key (kbd "<up>"))
-(global-unset-key (kbd "<down>"))
+;; ;; Hardcore Mode
+;; (global-unset-key (kbd "<left>"))
+;; (global-unset-key (kbd "<right>"))
+;; (global-unset-key (kbd "<up>"))
+;; (global-unset-key (kbd "<down>"))
 
 ;; Open Terminal
 (global-set-key (kbd "M-p") 'ansi-term)
