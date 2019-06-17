@@ -1,0 +1,7 @@
+#+title: Dotfiles
+#+author: Henry MATHEISEN
+
+Ths repository contains my config for :
+
+- Emacs
+- Vim
