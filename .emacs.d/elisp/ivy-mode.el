@@ -1,15 +1,14 @@
-;; Ivy-mode
-;; ---------------------
+;; Use ivy/counsel/swiper packages that are really cool together
 
-;; Ivy Package
+;; Ivy settings
 (use-package ivy
   :init
   (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
+  (setq ivy-count-format "(%d/%d) ")
   :ensure t
   :config (ivy-mode 1))
 
-;; Counsel package
+;; Counsel settings
 (use-package counsel
   :after ivy
   :ensure t

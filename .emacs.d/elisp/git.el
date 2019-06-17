@@ -1,6 +1,6 @@
-;; Magit conf
-;; ------------------------------
+;; Magit settings
 
 (use-package magit
   :ensure t
   :bind ("C-x g" . 'magit-status))
+
