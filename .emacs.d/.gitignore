@@ -1,10 +1,10 @@
-.backups/
+.backups
 .last-package-update-day
 .lsp-session-v1
-.org-id-locations
 auto-save-list/
 elpa/
+projectile-bookmarks.eld
 recentf
-snippets/
-transient/
-url/
+snippets
+transient
+url

@@ -1,3 +1,10 @@
+;;; global.el --- Editor settings
+
+;;; Commentary:
+;;; global editor settings
+
+;;; Code:
+
 ;; Default binary for *ansi-term*
 (setq explicit-shell-file-name "/bin/bash")
 
@@ -8,7 +15,9 @@
 (global-linum-mode t)
 
 ;; Modeline info
-(display-time-mode 1)
+(display-time-mode t)
+(column-number-mode t)
+(display-battery-mode t)
 
 ;; Emacs gurus don't need no stinking scroll bars
 (toggle-scroll-bar -1)
@@ -31,7 +40,7 @@
 ;; Set tabs to 4
 (setq-default tab-width 4)
 
-;; Title Bar Settings 
+;; Title Bar Settings
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (setq ns-use-proxy-icon  nil)
@@ -46,10 +55,6 @@
 ;; Toggle fullscreen on startup
 (add-hook 'after-init-hook 'toggle-frame-fullscreen)
 
-;; Move Text
-(global-set-key [M-up] 'move-text-up)
-(global-set-key [M-down] 'move-text-down)
-
 ;; Buffer-move
 (use-package buffer-move
   :ensure t
@@ -61,15 +66,28 @@
 
 ;; Add useful path to exec-path and PATH
 (add-to-list 'exec-path "/usr/local/bin/")
+(add-to-list 'exec-path "/Library/TeX/texbin")
+
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
 
 ;; flycheck everywhere
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(use-package flycheck
+  :ensure t
+  :init
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
-;; New Term Script
-(global-set-key (kbd "C-x t") 'new-term-window)
+;; Neotree
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow 'nerd))
 
 ;; Theme Switcher script
-(require 'theme-switcher)
 (setq light-theme 'spacemacs-light)
 (setq dark-theme 'spacemacs-dark)
+
+;; Change splash screen image with a better looking one
+(setq fancy-splash-image "~/.emacs.d/logo-small.png")
+
+;; Make that damn bell shut up
+(setq ring-bell-function 'ignore)
+
+;;; global.el ends here

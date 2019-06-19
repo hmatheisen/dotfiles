@@ -1,4 +1,4 @@
-;;; theme-switcher.el
+;;; theme-switcher.el --- Switch theme at given time
 
 ;; Author: Henry MATHEISEN
 ;; URL: https://github.com/hmatheisen/theme-switcher
@@ -59,9 +59,9 @@ example : (setq evening-hour 18) for 6pm")
 (defun theme-switcher ()
   "Switch themes depending on the hour of the day."
   (let ((now (string-to-number (format-time-string "%H"))))
-	(if (and (>= now morning-hour) (<= now evening-hour))
-		  (switch-to-theme light-theme)
-		(switch-to-theme dark-theme))
+	(if (and (> now morning-hour) (< now evening-hour))
+		(switch-to-theme light-theme)
+	  (switch-to-theme dark-theme))
 	nil))
 
 (run-with-timer 0 (* 1 60) 'theme-switcher)

@@ -1,4 +1,9 @@
-;; Use ivy/counsel/swiper packages that are really cool together
+;;; ivy-mode.el --- Ivy Mode
+
+;;; Commentary:
+;;; Settings for ivy, woubsel and swiper which are really cool
+
+;;; Code:
 
 ;; Ivy settings
 (use-package ivy
@@ -18,3 +23,5 @@
 (use-package swiper
   :after ivy
   :bind (("C-s" . swiper)))
+
+;;; ivy-mode.el ends here

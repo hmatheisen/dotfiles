@@ -1,4 +1,9 @@
-;; Markdown settings
+;;; markdown.el --- Markdown
+
+;;; Commentary:
+;;; Markdown settings
+
+;;; Code:
 
 (use-package markdown-mode
   :ensure t
@@ -9,3 +14,5 @@
   :init
   (setq markdown-command "/usr/local/bin/multimarkdown")
   (setq markdown-fontify-code-blocks-natively t))
+
+;;; markdown.el ends here

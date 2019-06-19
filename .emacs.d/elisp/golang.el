@@ -1,6 +1,12 @@
-;; Settings for golang
+;;; golang.el --- Golang
 
-(defun my-go-mode-hook ()        
+;;; Commentary:
+;;; Golang settings
+
+;;; Code:
+
+(defun my-go-mode-hook ()
+  "Functions for the go-mode-hook."
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
@@ -10,3 +16,5 @@
   (setq exec-path (cons "/usr/local/go/bin" exec-path))
   (add-to-list 'exec-path "~/go/bin")
   :hook (go-mode . my-go-mode-hook))
+
+;;; golang.el ends here

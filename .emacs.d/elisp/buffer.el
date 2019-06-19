@@ -1,14 +1,18 @@
-;; Use ibuffer
+;;; buffer.el --- iBuffer
+
+;;; Commentary:
+;;; iBuffer settings
+
+;;; Code:
+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
 
 (setq ibuffer-saved-filter-groups
      '(("home"
-	 ("emacs-config" (or (filename . ".emacs.d")
-						 (filename . "emacs-config")))
+	 ("emacs-config" (filename . ".emacs.d"))
 	 ("Go" (mode . go-mode))
 	 ("JS" (mode . js2-mode))
-	 ("PHP" (mode . php-mode))
 	 ("Web Dev" (or (mode . html-mode)
 					(mode . css-mode)
 					(mode . mhtml-mode)
@@ -31,3 +35,5 @@
 
 (setq ibuffer-expert t)
 (setq ibuffer-show-empty-filter-groups nil)
+
+;;; buffer.el ends here
