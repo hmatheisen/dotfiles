@@ -88,10 +88,6 @@
 ;; Neotree
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow 'nerd))
 
-;; Theme Switcher script
-(setq light-theme 'spacemacs-light)
-(setq dark-theme 'spacemacs-dark)
-
 ;; Change splash screen image with a better looking one
 (setq fancy-splash-image "~/.emacs.d/logo-small.png")
 
