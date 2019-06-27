@@ -56,15 +56,14 @@ example : (setq evening-hour 18) for 6pm")
 	  (disable-theme (car custom-enabled-themes)))
 	(load-theme switch-to)))
 
-(defun theme-switcher ()
+(defun switch ()
   "Switch themes depending on the hour of the day."
   (let ((now (string-to-number (format-time-string "%H"))))
-	(if (and (> now morning-hour) (< now evening-hour))
+	(if (and (> now morning-hour) (< now evening-hour) 'light-theme 'dark-theme)
 		(switch-to-theme light-theme)
-	  (switch-to-theme dark-theme))
-	nil))
+	  (switch-to-theme dark-theme))))
 
-(run-with-timer 0 (* 1 60) 'theme-switcher)
+(run-with-timer 0 (* 1 60) 'switch)
 
 (provide 'theme-switcher)
 

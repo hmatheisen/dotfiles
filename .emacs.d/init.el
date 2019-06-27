@@ -23,7 +23,7 @@
 	("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
  '(package-selected-packages
    (quote
-	(flycheck projectile cider clojure-mode neotree spacemacs-theme company-lsp lsp-ui dap-mode lsp-mode elpy js2-mode org-bullets org markdown-mode magit go-mode company counsel ivy move-text buffer-move auto-package-update use-package))))
+	(flymake-eslint yaml-mode nginx-mode dockerfile-mode docker all-the-icons tide company-tern tern-auto-complete company-lsp lsp-ui lsp-mode flycheck projectile cider clojure-mode neotree spacemacs-theme dap-mode elpy js2-mode org-bullets org markdown-mode magit go-mode company counsel ivy move-text buffer-move auto-package-update use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -33,9 +33,6 @@
 
 ;; Require my own scripts
 (add-to-list 'load-path "~/.emacs.d/scripts")
-
-(load "~/.emacs.d/scripts/theme-switcher")
-(load "~/.emacs.d/scripts/new-term")
 
 ;; Require other config files
 (add-to-list 'load-path "~/.emacs.d/elisp")

@@ -28,10 +28,21 @@
 (global-set-key (kbd "M-o") 'other-window)
 
 ;; New Term Script
-(global-set-key (kbd "C-x t") 'toggle-term-window)
+(use-package new-term
+  :init
+  (global-set-key (kbd "C-x t") 'toggle-term-window)
+  (global-set-key (kbd "C-x <up>") 'bigger-term-window)
+  (global-set-key (kbd "C-x <down>") 'smaller-term-window))
+
 
 ;; Move Text
 (global-set-key [M-up] 'move-text-up)
 (global-set-key [M-down] 'move-text-down)
+
+;; Split window AZERTY
+(global-set-key (kbd "C-x &") 'delete-other-windows)
+(global-set-key (kbd "C-x é") 'split-window-vertically)
+(global-set-key (kbd "C-x \"") 'split-window-horizontally)
+(global-set-key (kbd "C-x à") 'delete-window)
 
 ;;; keybindings.el ends here

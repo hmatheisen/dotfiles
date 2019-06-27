@@ -23,6 +23,7 @@
 ;;; Open a new terminal in a separated horizontal window
 ;;; Close it with the same command if in a terminal
 ;;; If more than one terminal is open, it opens the last one.
+;;; It is also possible to make the term buffer bigger
 
 ;;; Code:
 
@@ -40,7 +41,8 @@ Default value is 35%")
   "Pattern matching `ansi-term' opened buffers.")
 
 (defun find-term-buffers ()
-  "Find all opened `ansi-term' buffers."
+  "Find all opened `ansi-term' buffers.
+Returns a list of all of them"
   (let (terms)
 	(dolist (buffer (buffer-list) terms)
 	  (if (string-match ansi-term-regex (buffer-name buffer))
@@ -48,7 +50,8 @@ Default value is 35%")
 
 (defun calc-new-term-size ()
   "Calculate the new Terminal size.
-The size of the new window based on the a percentage of the current one."
+The size of the new window based on the a percentage of the current one.
+If `new-window-size' is negative we take the opposite."
   (if (< new-window-size 0)
 	  (floor (* (window-size) (- 1 (/ (float (- 0 new-window-size)) 100))))
 	(floor (* (window-size) (- 1 (/ (float new-window-size) 100))))))
@@ -63,10 +66,28 @@ If there is an existing terminal already, we open it in the new window"
 	  (delete-window)
 	(split-window-below (calc-new-term-size))
 	(other-window 1)
+	;; If there are already ansi-term buffers open, open the most recent one
 	(if (find-term-buffers)
 		(switch-to-buffer (car (last (find-term-buffers))))
 	  (ansi-term new-shell))))
 
-(provide 'toggle-term-window)
+(defun bigger-term-window ()
+  "Make the term window bigger."
+  (interactive)
+  (if (member (current-buffer) (find-term-buffers))
+	  ;; just to be sure the window is enlarged at maximum
+	  (enlarge-window (* new-window-size 100))
+	(message "%s" "Error: Not in a term window")))
+
+(defun smaller-term-window ()
+  "Make term window smaller."
+  (interactive)
+  ;; Shrink the window with similar process than the creation
+  ;; since the window is maximized it has similar results
+  (if (member (current-buffer) (find-term-buffers))
+	  (shrink-window (- (calc-new-term-size) 1))
+	(message "%s" "Error: Not in a term window")))
+
+(provide 'new-term)
 
 ;;; new-term.el ends here
