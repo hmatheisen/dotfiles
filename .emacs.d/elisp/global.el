@@ -65,11 +65,19 @@
   (global-set-key (kbd "<C-S-right>")  'buf-move-right))
 
 ;; Add useful path to exec-path and PATH
-(add-to-list 'exec-path "/usr/local/bin/")
-(add-to-list 'exec-path "/Library/TeX/texbin")
+(defun add-to-path (path)
+  "Add a path to `exec-path' and Emacs \"PATH\" variable."
+  (add-to-list 'exec-path (substring path 1))
+  (setenv "PATH" (concat (getenv "PATH") path)))
 
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
+(add-to-path ":/usr/local/bin")
+(add-to-path ":/Library/TeX/texbin")
+
+;; Use theme-switcher
+(use-package theme-switcher
+  :init
+  (setq light-theme 'spacemacs-light)
+  (setq dark-theme 'spacemacs-dark))
 
 ;; flycheck everywhere
 (use-package flycheck
