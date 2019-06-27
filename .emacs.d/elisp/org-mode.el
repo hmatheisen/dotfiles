@@ -9,7 +9,8 @@
   (org-bullets-mode t)
   (toggle-truncate-lines -1)
   (toggle-word-wrap t)
-  (linum-mode -1))
+  (linum-mode -1)
+  (flyspell-mode))
 
 (use-package org
   :ensure t

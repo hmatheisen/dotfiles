@@ -17,4 +17,17 @@
         js2-mode-show-parse-errors nil
         js2-mode-show-strict-warnings nil))
 
+(use-package tern
+  :ensure t
+  :config
+  (progn
+    (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+    (add-hook 'js2-mode-hook (lambda () (tern-mode t)))))
+
+(use-package company-tern
+  :ensure t
+  :after company
+  :config
+  (add-to-list 'company-backends 'company-tern))
+
 ;;; javascript.el ends here
