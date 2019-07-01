@@ -27,13 +27,17 @@
 ;; Easier keymap for other window
 (global-set-key (kbd "M-o") 'other-window)
 
+;; Move back tp previous window
+(global-set-key (kbd "M-O") '(lambda ()
+							   (interactive)
+							   (other-window -1)))
+
 ;; New Term Script
 (use-package new-term
   :init
   (global-set-key (kbd "C-x t") 'toggle-term-window)
   (global-set-key (kbd "C-x <up>") 'bigger-term-window)
   (global-set-key (kbd "C-x <down>") 'smaller-term-window))
-
 
 ;; Move Text
 (global-set-key [M-up] 'move-text-up)
