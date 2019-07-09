@@ -33,11 +33,13 @@
 							   (other-window -1)))
 
 ;; New Term Script
+(require 'term)
 (use-package new-term
   :init
   (global-set-key (kbd "C-x t") 'toggle-term-window)
-  (global-set-key (kbd "C-x <up>") 'bigger-term-window)
-  (global-set-key (kbd "C-x <down>") 'smaller-term-window))
+  (define-key term-raw-map (kbd "C-c <up>") 'bigger-term-window)
+  (define-key term-raw-map (kbd "C-c <down>") 'smaller-term-window)
+  (define-key term-raw-map (kbd "C-c q") 'quit-term))
 
 ;; Move Text
 (global-set-key [M-up] 'move-text-up)

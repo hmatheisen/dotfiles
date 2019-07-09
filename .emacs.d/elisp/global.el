@@ -94,4 +94,11 @@
 ;; Make that damn bell shut up
 (setq ring-bell-function 'ignore)
 
+;; Undo tree
+(global-undo-tree-mode)
+
+;; Winner mode
+(winner-mode t)
+
 ;;; global.el ends here
+

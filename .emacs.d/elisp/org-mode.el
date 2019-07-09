@@ -10,7 +10,8 @@
   (toggle-truncate-lines -1)
   (toggle-word-wrap t)
   (linum-mode -1)
-  (flyspell-mode))
+  (flyspell-mode)
+  (auto-fill-mode))
 
 (use-package org
   :ensure t
