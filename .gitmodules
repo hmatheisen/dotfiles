@@ -1,0 +1,6 @@
+[submodule "new-term"]
+	path = .emacs.d/scripts/new-term
+	url = git@github.com:hmatheisen/new-term.git
+[submodule "theme-switcher"]
+	path = .emacs.d/scripts/theme-switcher
+	url = git@github.com:hmatheisen/theme-switcher.git
