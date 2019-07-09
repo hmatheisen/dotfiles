@@ -3,6 +3,6 @@
 
 Ths repository contains my config for :
 
-- Emacs
-- Vim
-- Bash
+- [[file:.emacs.d/][Emacs]]
+- [[file:.vimrc][Vim]]
+- [[file:.bashrc][Bash]]
