@@ -2,6 +2,6 @@
 
 Ths repository contains my config for :
 
-- ![./.emacs.d/](Emacs)
-- ![./.vimrc](Vim)
-- ![./.bashrc](Bash)
+- ![Emacs](./.emacs.d/)
+- ![Vim](./.vimrc)
+- ![Bash](./.bashrc)
