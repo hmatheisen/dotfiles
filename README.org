@@ -1,8 +1,0 @@
-#+title: Dotfiles
-#+author: Henry MATHEISEN
-
-Ths repository contains my config for :
-
-- [[file:.emacs.d/][Emacs]]
-- [[file:.vimrc][Vim]]
-- [[file:.bashrc][Bash]]
