@@ -197,9 +197,19 @@ let g:go_highlight_extra_types = 1
 " ALE:
 " ******************************************
 
+" Manage linters
 let g:ale_linters = {
       \   'javascript': ['eslint'],
       \}
+
+" Manage fixers
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['eslint'],
+      \}
+
+" Fix file on save
+let g:ale_fix_on_save = 1
 
 " ******************************************
 " Functions:
