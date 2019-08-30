@@ -200,12 +200,14 @@ let g:go_highlight_extra_types = 1
 " Manage linters
 let g:ale_linters = {
       \   'javascript': ['eslint'],
+      \   'typescript': ['tsserver', 'tslint'],
       \}
 
 " Manage fixers
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \   'javascript': ['eslint'],
+      \   'typescript': ['tslint']
       \}
 
 " Fix file on save
@@ -226,4 +228,3 @@ function! s:ToggleSignColumns()
 endfunction
 
 command! ToggleSignColumns call <SID>ToggleSignColumns()
-
