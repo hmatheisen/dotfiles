@@ -25,20 +25,27 @@ call plug#begin('~/.vim/plugged')
 " Theme
 Plug 'morhetz/gruvbox'
 
-" tpope's sweet stuff:
+" tpope's sweet stuff
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
-" Editor enhancements:
+" Editor enhancements
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'raimondi/delimitmate'
 Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-" Languages
+" Languages / Frameworks
+
+" Ruby / Rails
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -75,15 +82,9 @@ let mapleader=','
 set hidden
 
 " Searching
-set hlsearch
+set nohlsearch
 set incsearch
 set ignorecase
-
-" Shortcutting split navigation, saving a keypress:
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults. (Copyright LukeSmithxyz)
 set splitbelow splitright
@@ -94,28 +95,41 @@ set wildmode=list:longest,full
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Trim whitespace
-command! FixWhitespace :%s/\s\+$//e
-
 " Relative Numbers
 set nu rnu
 
-" Word Wrap
-set linebreak
+" No Word Wrap
+set nowrap
+
+" Except of certain files
+autocmd FileType markdown setlocal wrap linebreak
+autocmd FileType tex setlocal wrap linebreak
 
 " Set Shell
 set shell=/usr/local/bin/bash
 
+" Set swap directory
+set directory^=$HOME/.vim/tmp//
+
 " ******************************************
-" Commands
+" Commands:
 " ******************************************
 
 " Jump to end and begining of line in Insert Mode
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>0
 
+" Trim whitespace
+command! FixWhitespace :%s/\s\+$//e
+
+" Shortcutting split navigation, saving a keypress:
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " ******************************************
-" COC
+" COC:
 " ******************************************
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -139,9 +153,10 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Theme Configuration:
 " ******************************************
 
+set termguicolors
 let g:gruvbox_contrast_dark='hard'
+set background=dark
 colorscheme gruvbox
-let g:gruvbox_italic = 1
 
 " ******************************************
 " NERD Tree:
@@ -156,10 +171,43 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " ******************************************
-" LaTeX
+" LaTeX:
 " ******************************************
 
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
 autocmd Filetype tex setl updatetime=1
+
+" ******************************************
+" Golang:
+" ******************************************
+
+" format with goimports instead of gofmt
+let g:go_fmt_command = "goimports"
+" Add a little more colors
+let g:go_highlight_types = 1
+
+" ******************************************
+" ALE:
+" ******************************************
+
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \}
+
+" ******************************************
+" Functions:
+" ******************************************
+
+function! s:ToggleSignColumns()
+  if !exists("b:signcolumn_on") || b:signcolumn_on
+    set signcolumn=no
+    let b:signcolumn_on=0
+  else
+    set signcolumn=auto
+    let b:signcolumn_on=1
+  endif
+endfunction
+
+command! ToggleSignColumns call <SID>ToggleSignColumns()
 
