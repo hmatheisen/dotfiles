@@ -43,10 +43,6 @@ Plug 'junegunn/fzf.vim'
 
 " Languages / Frameworks
 
-" Ruby / Rails
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -119,9 +115,6 @@ set directory^=$HOME/.vim/tmp//
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>0
 
-" Trim whitespace
-command! FixWhitespace :%s/\s\+$//e
-
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -174,7 +167,7 @@ let NERDTreeShowHidden=1
 " LaTeX:
 " ******************************************
 
-let g:livepreview_previewer = 'zathura'
+let g:livepreview_previewer = 'open -a Preview'
 let g:livepreview_cursorhold_recompile = 0
 autocmd Filetype tex setl updatetime=1
 
