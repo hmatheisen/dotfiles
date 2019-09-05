@@ -20,6 +20,7 @@ endif
 " ******************************************
 " Plugins:
 " ******************************************
+
 call plug#begin('~/.vim/plugged')
 
 " Theme
@@ -32,14 +33,14 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Editor enhancements
+Plug 'raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
-Plug 'raimondi/delimitmate'
-Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 
 " Languages / Frameworks
 
@@ -106,6 +107,12 @@ set shell=/usr/local/bin/bash
 " Set swap directory
 set directory^=$HOME/.vim/tmp//
 
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" For regular expressions turn magic on
+set magic
+
 " ******************************************
 " Commands:
 " ******************************************
@@ -119,6 +126,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" Map C-p to fzf :Files
+map <C-p> :Files<CR>
 
 " ******************************************
 " COC:
