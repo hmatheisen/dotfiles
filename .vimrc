@@ -1,6 +1,6 @@
-" ******************************************
-" VimPlug:
-" ******************************************
+" ==========================================
+" VimPlug: {{{
+" ==========================================
 
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
@@ -17,9 +17,10 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
-" ******************************************
-" Plugins:
-" ******************************************
+" }}}
+" ==========================================
+" Plugins: {{{
+" ==========================================
 
 call plug#begin('~/.vim/plugged')
 
@@ -52,9 +53,10 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
 
-" ******************************************
-" Editor Options:
-" ******************************************
+" }}}
+" ==========================================
+" Editor Options: {{{
+" ==========================================
 
 " Encoding
 set encoding=utf-8
@@ -113,9 +115,17 @@ set lazyredraw
 " For regular expressions turn magic on
 set magic
 
-" ******************************************
-" Commands:
-" ******************************************
+" Fold
+set foldenable
+set foldmethod=marker
+set foldlevel=99
+" Enable markdown fold
+let g:markdown_folding = 1
+
+" }}}
+" ==========================================
+" Commands: {{{
+" ==========================================
 
 " Jump to end and begining of line in Insert Mode
 inoremap <C-e> <C-o>$
@@ -130,9 +140,10 @@ map <C-l> <C-w>l
 " Map C-p to fzf :Files
 map <C-p> :Files<CR>
 
-" ******************************************
-" COC:
-" ******************************************
+" }}}
+" ==========================================
+" COC: {{{
+" ==========================================
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -151,18 +162,20 @@ endfunction
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" ******************************************
-" Theme Configuration:
-" ******************************************
+" }}}
+" ==========================================
+" Theme Configuration: {{{
+" ==========================================
 
 set termguicolors
 let g:gruvbox_contrast_dark='hard'
 set background=dark
 colorscheme gruvbox
 
-" ******************************************
-" NERD Tree:
-" ******************************************
+" }}}
+" ==========================================
+" NERD Tree: {{{
+" ==========================================
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
@@ -173,17 +186,19 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.git$']
 
-" ******************************************
-" LaTeX:
-" ******************************************
+" }}}
+" ==========================================
+" LaTeX: {{{
+" ==========================================
 
 let g:livepreview_previewer = 'open -a Preview'
 let g:livepreview_cursorhold_recompile = 0
 autocmd Filetype tex setl updatetime=1
 
-" ******************************************
-" Golang:
-" ******************************************
+" }}}
+" ==========================================
+" Golang: {{{
+" ==========================================
 
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
@@ -196,9 +211,10 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 
-" ******************************************
-" ALE:
-" ******************************************
+" }}}
+" ==========================================
+" ALE: {{{
+" ==========================================
 
 " Manage linters
 let g:ale_linters = {
@@ -216,9 +232,10 @@ let g:ale_fixers = {
 " Fix file on save
 let g:ale_fix_on_save = 1
 
-" ******************************************
-" Functions:
-" ******************************************
+" }}}
+" ==========================================
+" Functions: {{{
+" ==========================================
 
 function! s:ToggleSignColumns()
   if !exists("b:signcolumn_on") || b:signcolumn_on
@@ -231,3 +248,6 @@ function! s:ToggleSignColumns()
 endfunction
 
 command! ToggleSignColumns call <SID>ToggleSignColumns()
+
+" }}}
+" ==========================================
