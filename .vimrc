@@ -47,7 +47,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " LaTeX
-Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
@@ -162,6 +161,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <C-n> :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.git$']
 
 " ******************************************
 " LaTeX:
