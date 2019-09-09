@@ -49,7 +49,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " LaTeX
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -103,6 +103,13 @@ set nowrap
 autocmd FileType markdown setlocal wrap linebreak
 autocmd FileType tex setlocal wrap linebreak
 
+" Set spell lang
+set spelllang=fr,en_gb
+
+" Spell check for certain buffers
+autocmd FileType markdown setlocal spell
+autocmd FileType tex setlocal spell
+
 " Set Shell
 set shell=/usr/local/bin/bash
 
@@ -119,6 +126,7 @@ set magic
 set foldenable
 set foldmethod=marker
 set foldlevel=99
+
 " Enable markdown fold
 let g:markdown_folding = 1
 
@@ -140,27 +148,8 @@ map <C-l> <C-w>l
 " Map C-p to fzf :Files
 map <C-p> :Files<CR>
 
-" }}}
-" ==========================================
-" COC: {{{
-" ==========================================
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Correct mistakes with C-l
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " }}}
 " ==========================================
@@ -185,15 +174,6 @@ map <C-n> :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.git$']
-
-" }}}
-" ==========================================
-" LaTeX: {{{
-" ==========================================
-
-let g:livepreview_previewer = 'open -a Preview'
-let g:livepreview_cursorhold_recompile = 0
-autocmd Filetype tex setl updatetime=1
 
 " }}}
 " ==========================================
@@ -231,6 +211,17 @@ let g:ale_fixers = {
 
 " Fix file on save
 let g:ale_fix_on_save = 1
+
+" }}}
+" ==========================================
+" LaTeX: {{{
+" ==========================================
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method='general'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " }}}
 " ==========================================
