@@ -82,6 +82,7 @@ set hidden
 set nohlsearch
 set incsearch
 set ignorecase
+set wildignorecase
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults. (Copyright LukeSmithxyz)
 set splitbelow splitright
@@ -163,6 +164,27 @@ set termguicolors
 let g:gruvbox_contrast_dark='hard'
 set background=dark
 colorscheme gruvbox
+
+" }}}
+" ==========================================
+" ALE: {{{
+" ==========================================
+
+" Manage linters
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \   'typescript': ['tsserver', 'tslint'],
+      \}
+
+" Manage fixers
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['eslint'],
+      \   'typescript': ['tslint']
+      \}
+
+" Fix file on save
+let g:ale_fix_on_save = 1
 
 " }}}
 " ==========================================
