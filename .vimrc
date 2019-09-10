@@ -41,7 +41,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
 
 " Languages / Frameworks
 
@@ -135,10 +134,6 @@ let g:markdown_folding = 1
 " Commands: {{{
 " ==========================================
 
-" Jump to end and begining of line in Insert Mode
-inoremap <C-e> <C-o>$
-inoremap <C-a> <C-o>0
-
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -150,6 +145,14 @@ map <C-p> :Files<CR>
 
 " Correct mistakes with C-l
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" Readline style keybindings in Insert Mode (I don't like arrow keys)
+imap <C-b> <Left>
+imap <C-f> <Right>
+imap <C-a> <Home>
+imap <C-e> <End>
+imap <C-p> <Up>
+imap <C-n> <Down>
 
 " }}}
 " ==========================================
@@ -193,27 +196,6 @@ let g:go_highlight_extra_types = 1
 
 " }}}
 " ==========================================
-" ALE: {{{
-" ==========================================
-
-" Manage linters
-let g:ale_linters = {
-      \   'javascript': ['eslint'],
-      \   'typescript': ['tsserver', 'tslint'],
-      \}
-
-" Manage fixers
-let g:ale_fixers = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['eslint'],
-      \   'typescript': ['tslint']
-      \}
-
-" Fix file on save
-let g:ale_fix_on_save = 1
-
-" }}}
-" ==========================================
 " LaTeX: {{{
 " ==========================================
 
@@ -222,6 +204,28 @@ let g:vimtex_view_method='general'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
+
+" }}}
+" ==========================================
+" COC: {{{
+"===========================================
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " }}}
 " ==========================================
