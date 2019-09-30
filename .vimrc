@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
 
 " Theme
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " tpope's sweet stuff
 Plug 'tpope/vim-surround'
@@ -265,6 +266,15 @@ function! s:ToggleSignColumns()
 endfunction
 
 command! ToggleSignColumns call <SID>ToggleSignColumns()
+
+function! s:LatexClean()
+  if !executable("latex-clean")
+    echoerr "The script latex-clean can't be found"
+  endif
+  silent !latex-clean
+endfunction
+
+command! LatexClean call <SID>LatexClean()
 
 " }}}
 " ==========================================

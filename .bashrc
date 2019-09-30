@@ -1,6 +1,6 @@
-###############################################
+#
 # ~/.bashrc
-###############################################
+#
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -25,6 +25,7 @@ export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/ru
 alias cl="clear"
 alias ls="ls -lG"
 alias :q="exit"
+alias tmux="TERM=screen-256color tmux"
 
 # Colors
 export TERM="xterm-256color"
