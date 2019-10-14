@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # Remove all compilation files
-rm *.pdf *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.toc
+rm *.pdf *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.toc *.out
