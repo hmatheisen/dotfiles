@@ -2,4 +2,12 @@
 
 This repository contains my config files for various programs
 
-> TODO: add install script
+## Install
+
+```bash
+chmod +x install.sh
+```
+
+```bash
+./install.sh
+```
