@@ -1,8 +1,5 @@
 # Dotfiles
 
-Ths repository contains my config for :
+This repository contains my config files for various programs
 
-- ![Vim](./.vimrc)
-- ![Bash](./.bashrc)
-- ![Scripts](./.scripts/)
-- ![Config](./.config/)
+> TODO: add install script
