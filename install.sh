@@ -20,11 +20,11 @@ fi
 
 # Copy dotfiles to home
 echo "Copying dotfiles to home"
-cp .bashrc .gvimrc .tmux.conf .vimrc ~
+cp .bashrc .gvimrc .tmux.conf .vimrc $HOME
 
 # Copy .config into the home folder
 echo "Copying the config folder to home"
-cp -r .config/ ~/.config/
+cp -r .config/ $HOME/.config/
 
 # Installing scripts
 echo "Installing scripts"
