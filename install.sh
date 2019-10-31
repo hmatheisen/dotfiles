@@ -1,13 +1,13 @@
 #!/bin/sh
 
-echo "\n\n"
-echo "========================================="
-echo "=======    Installing dotfiles    ======="
-echo "========================================="
-echo "\n\n"
+echo "\n"
+echo "====================================================="
+echo "===========      Installing dotfiles      ==========="
+echo "====================================================="
+echo "\n"
 
 # On macos, if a newer bash is install, just copy the files
-# else, change the path to the default shell
+# else, change the path to the default shell: /bin/bash
 if [ -f /usr/local/bin/bash ]; then
   echo "/usr/local/bin/bash was found"
 else

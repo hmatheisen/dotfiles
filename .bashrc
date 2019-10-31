@@ -25,10 +25,10 @@ export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/ru
 alias cl="clear"
 alias ls="ls -lG"
 alias :q="exit"
-alias tmux="TERM=screen-256color tmux"
 
-# Colors
-export TERM="xterm-256color"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export LC_ALL=en_US.UTF-8
+fi
 
 # PATH
 export PATH=/usr/local/bin:$PATH
@@ -39,7 +39,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add Tex utilities
 export PATH=/Library/TeX/texbin:$PATH
 
-# Add localscript folder
+# Add local script folder
 export PATH=$PATH:$HOME/.local/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
