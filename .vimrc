@@ -164,9 +164,7 @@ imap <C-n> <Down>
 set termguicolors
 let g:gruvbox_contrast_dark='hard'
 set background=dark
-try
-  colorscheme gruvbox
-endtry
+silent colorscheme gruvbox
 
 " }}}
 " ==========================================
