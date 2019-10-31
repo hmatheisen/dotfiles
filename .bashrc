@@ -39,9 +39,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add Tex utilities
 export PATH=/Library/TeX/texbin:$PATH
 
-# utf8 support
-export LC_ALL=en_US.UTF-8
-
 # Add localscript folder
 export PATH=$PATH:$HOME/.local/bin
 
