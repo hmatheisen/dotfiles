@@ -1,6 +1,6 @@
-#
+# ===============================================
 # ~/.bashrc
-#
+# ===============================================
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -25,10 +25,6 @@ export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/ru
 alias cl="clear"
 alias ls="ls -lG"
 alias :q="exit"
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  export LC_ALL=en_US.UTF-8
-fi
 
 # PATH
 export PATH=/usr/local/bin:$PATH
