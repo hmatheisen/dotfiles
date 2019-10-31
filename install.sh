@@ -37,7 +37,7 @@ fi
 
 # Installing scripts
 echo "Installing scripts"
-for s in .scripts/*; do
+for s in bin/*; do
   chmod +x $s
   cp $s $HOME/.local/bin
 done
