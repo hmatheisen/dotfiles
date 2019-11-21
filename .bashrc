@@ -13,6 +13,19 @@ if [ -f /usr/local/etc/bash_completion ]; then
   . /usr/local/etc/bash_completion
 fi
 
+# Set locale on macos
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export LC_ALL=en_US.UTF-8
+fi
+
+# Aliases
+alias cl="clear"
+alias ls="ls -lhG"
+alias :q="exit"
+
+# Set editor
+export EDITOR=/usr/local/bin/vim
+
 # Go programming setup
 export GOPATH=$HOME/go:$HOME/go
 export PATH="$PATH:$HOME/go/bin"
@@ -21,12 +34,7 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
 
-# Aliases
-alias cl="clear"
-alias ls="ls -lG"
-alias :q="exit"
-
-# PATH
+# Add brew install directory to $PATH
 export PATH=/usr/local/bin:$PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
