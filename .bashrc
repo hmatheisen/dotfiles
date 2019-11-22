@@ -21,7 +21,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias dd=/usr/local/opt/coreutils/libexec/gnubin/dd
   alias ls="ls -lhG"
 else
-  alias ls='ls -lh --color=auto'
+  alias ls='ls -lh --color=always'
 fi
 
 # Aliases
