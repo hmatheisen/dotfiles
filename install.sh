@@ -6,7 +6,7 @@ echo "===========      Installing dotfiles      ==========="
 echo "====================================================="
 echo "\n"
 
-# On macos, if a newer bash is install, just copy the files
+# On Macos, if a newer bash is install, just copy the files
 # else, change the path to the default shell: /bin/bash
 if [ -f /usr/local/bin/bash ]; then
   echo "/usr/local/bin/bash was found"
@@ -14,8 +14,7 @@ else
   echo "/usr/local/bin/bash was not found"
   # Changing path in new files
   echo "Changing default shell"
-  sed -i "s/\/usr\/local\/bin\/bash/\/bin\/bash/g" .tmux.conf
-  sed -i "s/\/usr\/local\/bin\/bash/\/bin\/bash/g" .vimrc
+  sed -i "s/\/usr\/local\/bin\/bash/\/bin\/bash/g" .tmux.conf .vimrc
 fi
 
 # Copy dotfiles to home

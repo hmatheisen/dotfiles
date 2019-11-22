@@ -13,14 +13,19 @@ if [ -f /usr/local/etc/bash_completion ]; then
   . /usr/local/etc/bash_completion
 fi
 
-# Set locale on macos
+# On Macos only
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  # set Locale
   export LC_ALL=en_US.UTF-8
+  # Change dd to GNU dd
+  alias dd=/usr/local/opt/coreutils/libexec/gnubin/dd
+  alias ls="ls -lhG"
+else
+  alias ls='ls -lh --color=auto'
 fi
 
 # Aliases
 alias cl="clear"
-alias ls="ls -lhG"
 alias :q="exit"
 
 # Set editor
