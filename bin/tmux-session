@@ -3,7 +3,8 @@
 # A bash script I use when I start my terminal
 
 # Don't do anything if already in a tmux session
-if [ -z $TMUX ]; then
+# or if tmux does not exists
+if [[ -z $TMUX ]] && type tmux &> /dev/null; then
   # if a tmux session already exists, attach to this session
   if pgrep tmux; then
     tmux attach-session -t Work
@@ -11,6 +12,4 @@ if [ -z $TMUX ]; then
   else
     tmux new -s Work
   fi
-else
-  echo "Already in a tmux session"
 fi

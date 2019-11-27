@@ -49,5 +49,10 @@ export PATH=/Library/TeX/texbin:$PATH
 # Add local script folder
 export PATH=$PATH:$HOME/.local/bin
 
-# FZF setup
+# Start fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Start or join tmux session if it exists
+if type tmux-session &> /dev/null; then
+  tmux-session
+fi
