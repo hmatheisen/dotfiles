@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# A bash script I use when I start my terminal
+
+# Don't do anything if already in a tmux session
+if [ -z $TMUX ]; then
+  # if a tmux session already exists, attach to this session
+  if pgrep tmux; then
+    tmux attach-session -t Work
+    # otherwise create a new session called "Work"
+  else
+    tmux new -s Work
+  fi
+else
+  echo "Already in a tmux session"
+fi

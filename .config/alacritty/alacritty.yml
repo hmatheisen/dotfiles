@@ -18,8 +18,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 234
-    lines: 58
+    columns: 200
+    lines: 48
 
   # Window position (changes require restart)
   #
@@ -96,7 +96,7 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 8
+tabspaces: 2
 
 # Font configuration (changes require restart)
 font:
@@ -136,7 +136,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 12.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -368,6 +368,8 @@ live_config_reload: true
 #   - (Windows) powershell
 shell:
   program: /usr/local/bin/bash
+  args:
+    - --login
 
 # Startup directory
 #

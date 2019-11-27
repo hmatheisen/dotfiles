@@ -18,18 +18,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   # set Locale
   export LC_ALL=en_US.UTF-8
   # Change dd to GNU dd
-  alias dd=/usr/local/opt/coreutils/libexec/gnubin/dd
   alias ls="ls -lhG"
 else
-  alias ls='ls -lh --color=always'
+  alias ls='ls -lh --color=auto'
 fi
 
 # Aliases
-alias cl="clear"
 alias :q="exit"
 
 # Set editor
-export EDITOR=/usr/local/bin/vim
+export EDITOR=nvim
 
 # Go programming setup
 export GOPATH=$HOME/go:$HOME/go
@@ -51,4 +49,5 @@ export PATH=/Library/TeX/texbin:$PATH
 # Add local script folder
 export PATH=$PATH:$HOME/.local/bin
 
+# FZF setup
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
