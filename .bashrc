@@ -51,8 +51,3 @@ export PATH=$PATH:$HOME/.local/bin
 
 # Start fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# Start or join tmux session if it exists
-if type tmux-session &> /dev/null; then
-  tmux-session
-fi
