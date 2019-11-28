@@ -1,1 +1,18 @@
-switch-vim
+#!/bin/bash
+
+# A script I use to switch from my default vimrc
+# to a minimal vimrc with no plugins
+
+# Check for the existence of both the normal vimrc and the mini
+# and swap them
+if [[ -f $HOME/.vimrc ]] && [[ -f $HOME/mini.vim ]]; then
+  mv $HOME/.vimrc $HOME/.vimrc.old
+  mv $HOME/mini.vim $HOME/.vimrc
+  exit 0
+fi
+
+if [[ -f $HOME/.vimrc ]] && [[ -f $HOME/.vimrc.old ]]; then
+  mv $HOME/.vimrc $HOME/mini.vim
+  mv $HOME/.vimrc.old $HOME/.vimrc
+  exit 0
+fi
