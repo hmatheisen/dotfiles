@@ -89,6 +89,7 @@ set splitbelow splitright
 
 " Set command completion
 set wildmode=list:longest,full
+set wildmenu
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -338,6 +339,7 @@ nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 " Functions: {{{
 " ==========================================
 
+" Toggle the sign column
 function! s:ToggleSignColumns()
   if !exists("b:signcolumn_on") || b:signcolumn_on
     set signcolumn=no
@@ -350,6 +352,7 @@ endfunction
 
 command! ToggleSignColumns call <SID>ToggleSignColumns()
 
+" Call the latex-clean script to remove confg files
 function! s:LatexClean()
   if !executable("latex-clean")
     echoerr "The script latex-clean can't be found"

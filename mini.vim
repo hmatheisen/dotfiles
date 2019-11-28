@@ -97,9 +97,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Map C-p to fzf :Files
-map <C-p> :Files<CR>
-
 " Correct mistakes with C-l
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -111,11 +108,16 @@ imap <C-e> <End>
 imap <C-p> <Up>
 imap <C-n> <Down>
 
-" }}}
+" Change cursor shape depending on the mode
+let &t_SI = "\<esc>[5 q"
+let &t_SR = "\<esc>[3 q"
+let &t_EI = "\<esc>[2 q"
+
 " ==========================================
 " Functions: {{{
 " ==========================================
 
+" Toggle the sign column
 function! s:ToggleSignColumns()
   if !exists("b:signcolumn_on") || b:signcolumn_on
     set signcolumn=no
@@ -128,6 +130,7 @@ endfunction
 
 command! ToggleSignColumns call <SID>ToggleSignColumns()
 
+" Call the latex-clean script to remove confg files
 function! s:LatexClean()
   if !executable("latex-clean")
     echoerr "The script latex-clean can't be found"
