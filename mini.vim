@@ -4,13 +4,15 @@
 "       | | | | | | | | | | |  \ V /| | | | | | | | | (__
 "       |_| |_| |_|_|_| |_|_| (_)_/ |_|_| |_| |_|_|  \___|
 
-
 " ==========================================
 " Editor Options: {{{
 " ==========================================
 
 " Enable syntax
 syntax on
+
+" Set background light because the theme looks better
+set background=light
 
 " Encoding
 set encoding=utf-8
@@ -86,6 +88,11 @@ set foldlevel=99
 " Enable markdown fold
 let g:markdown_folding = 1
 
+" Change cursor shape depending on the mode
+let &t_SI = "\<esc>[5 q"
+let &t_SR = "\<esc>[3 q"
+let &t_EI = "\<esc>[2 q"
+
 " }}}
 " ==========================================
 " Commands: {{{
@@ -108,10 +115,7 @@ imap <C-e> <End>
 imap <C-p> <Up>
 imap <C-n> <Down>
 
-" Change cursor shape depending on the mode
-let &t_SI = "\<esc>[5 q"
-let &t_SR = "\<esc>[3 q"
-let &t_EI = "\<esc>[2 q"
+map <C-n> :Ntree<CR>
 
 " ==========================================
 " Functions: {{{
