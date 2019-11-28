@@ -27,7 +27,7 @@ fi
 alias :q="exit"
 
 # Set editor
-export EDITOR=nvim
+export EDITOR=vim
 
 # Go programming setup
 export GOPATH=$HOME/go:$HOME/go
