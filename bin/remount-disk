@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# I use this program to easily unmount a read-only filesystem
+# and remount it as reas-write, since mt machine mounts is as 
+# readonly automatically
+
+# Quit program if a command fails
+set -e
+
+# Display usage when missing parameters
+usage () { echo "Usage: $0 [-v volume] [-t fstype]" >&2; exit 1; }
+
+# Parse arguments
+while getopts ":v:t:" opt; do
+  case $opt in
+    v) volume=$OPTARG ;;
+    t) fstype=$OPTARG ;;
+    \?) echo "Invalid option: -$OPTARG" >&2; usage; exit 1 ;;
+    :) echo "Option -$OPTARG requires an argument" >&2; usage exit 1 ;;
+  esac
+done
+
+# Check for mandatory parameters
+[[ -z $volume ]] || [[ -z $fstype ]] && usage
+
+# Check if volume exists and is not a whole disk
+if ! [[ $(df -h | grep $volume | awk '{print $1}') == $volume ]]; then
+  echo "$volume is not a mounted filesystem, make sure you are using an existing volume" >&2
+  exit 1
+fi
+
+# Get mount point corresponding to the volume
+mountPoint=$(df -h | grep $volume | tr -s ' ' | cut -d ' ' -f9-)
+# Unmount the read-only volume
+umount "$mountPoint"
+
+# Create the mount point again
+mkdir "$mountPoint"
+# Mount the volume again as read-write, in the same place
+mount -w -t $fstype $volume "$mountPoint"
+
+# End message
+echo "The read-only volume: $volume was unmounted"
+echo "And remounted as read-write in: $mountPoint"
+
+# Exit program with code 0
+exit 0

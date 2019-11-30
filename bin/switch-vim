@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # A script I use to switch from my default vimrc
 # to a minimal vimrc with no plugins
