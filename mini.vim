@@ -41,15 +41,12 @@ set incsearch
 set ignorecase
 set wildignorecase
 
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults. (Copyright LukeSmithxyz)
+" Splits open at the bottom and right, which is non-retarded, unlike vim defaults. (Copyrights LukeSmithxyz)
 set splitbelow splitright
 
 " Set command completion
 set wildmode=list:longest,full
 set wildmenu
-
-" Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Relative Numbers
 set nu rnu
@@ -57,16 +54,8 @@ set nu rnu
 " No Word Wrap
 set nowrap
 
-" Except of certain files
-autocmd FileType markdown setlocal wrap linebreak
-autocmd FileType tex setlocal wrap linebreak
-
 " Set spell lang
 set spelllang=fr,en_gb
-
-" Spell check for certain buffers
-autocmd FileType markdown setlocal spell
-autocmd FileType tex setlocal spell
 
 " Set Shell
 set shell=/usr/local/bin/bash
@@ -115,7 +104,25 @@ imap <C-e> <End>
 imap <C-p> <Up>
 imap <C-n> <Down>
 
+" Use Netrw to view project structure
 map <C-n> :Ntree<CR>
+
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Enable line break and wrap for certain buffers
+autocmd FileType markdown setlocal wrap linebreak
+autocmd FileType tex setlocal wrap linebreak
+
+" Spell check active by default for certain buffers
+autocmd FileType markdown setlocal spell
+autocmd FileType tex setlocal spell
+
+" Toggle spellcheck
+map <leader>o :setlocal spell!<CR>
+
+" Clear compilation files when leaving tex file
+autocmd VimLeave tex silent !latex-clean 
 
 " ==========================================
 " Functions: {{{
@@ -142,6 +149,7 @@ function! s:LatexClean()
   silent !latex-clean
 endfunction
 
+" I create a command for it although I do call it when vim leaves a tex file
 command! LatexClean call <SID>LatexClean()
 
 " }}}

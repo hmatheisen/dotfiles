@@ -91,25 +91,14 @@ set splitbelow splitright
 set wildmode=list:longest,full
 set wildmenu
 
-" Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 " Relative Numbers
 set nu rnu
 
 " No Word Wrap
 set nowrap
 
-" Except of certain files
-autocmd FileType markdown setlocal wrap linebreak
-autocmd FileType tex setlocal wrap linebreak
-
 " Set spell lang
 set spelllang=fr,en_gb
-
-" Spell check for certain buffers
-autocmd FileType markdown setlocal spell
-autocmd FileType tex setlocal spell
 
 " Set Shell
 set shell=/usr/local/bin/bash
@@ -155,6 +144,20 @@ imap <C-a> <Home>
 imap <C-e> <End>
 imap <C-p> <Up>
 imap <C-n> <Down>
+
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Except of certain files
+autocmd FileType markdown setlocal wrap linebreak
+autocmd FileType tex setlocal wrap linebreak
+
+" Spell check for certain buffers
+autocmd FileType markdown setlocal spell
+autocmd FileType tex setlocal spell
+
+" Clear compilation files when leaving tex file
+autocmd VimLeave tex silent !latex-clean
 
 " }}}
 " ==========================================
@@ -267,9 +270,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -301,8 +301,8 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <C-s> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+nmap <silent> <leader>d <Plug>(coc-range-select)
+xmap <silent> <leader>d <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -360,6 +360,7 @@ function! s:LatexClean()
   silent !latex-clean
 endfunction
 
+" I create a command for it although I do call it when vim leaves a tex file
 command! LatexClean call <SID>LatexClean()
 
 " }}}
