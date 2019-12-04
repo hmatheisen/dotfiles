@@ -14,12 +14,12 @@ else
   echo "/usr/local/bin/bash was not found"
   # Changing path in new files
   echo "Changing default shell"
-  sed -i "s/\/usr\/local\/bin\/bash/\/bin\/bash/g" .tmux.conf .vimrc mini.vim
+  sed -i "s/\/usr\/local\/bin\/bash/\/bin\/bash/g" .tmux.conf .config/nvim/init.vim
 fi
 
 # Copy dotfiles to home
 echo "Copying dotfiles to home"
-cp mini.vim .bashrc .gvimrc .tmux.conf .vimrc $HOME
+cp .bashrc .gvimrc .tmux.conf $HOME
 
 # Copy .config into the home folder
 echo "Copying the config folder to home"

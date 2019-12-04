@@ -30,6 +30,7 @@ fi
 
 # Aliases
 alias :q="exit"
+alias vim=nvim
 
 # Set editor
 export EDITOR=vim
