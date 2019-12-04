@@ -82,6 +82,17 @@ let &t_SI = "\<esc>[5 q"
 let &t_SR = "\<esc>[3 q"
 let &t_EI = "\<esc>[2 q"
 
+" Change fold colors
+hi Folded ctermfg=Blue
+hi Folded ctermbg=DarkGrey
+
+" Change color for spelling
+hi SpellBad ctermbg=Blue
+hi SpellRare ctermbg=Magenta
+
+" Netrw config
+let g:netrw_liststyle = 3
+
 " }}}
 " ==========================================
 " Commands: {{{
@@ -105,7 +116,7 @@ imap <C-p> <Up>
 imap <C-n> <Down>
 
 " Use Netrw to view project structure
-map <C-n> :Ntree<CR>
+nnoremap <C-n> :Ntree<CR>
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -122,8 +133,9 @@ autocmd FileType tex setlocal spell
 map <leader>o :setlocal spell!<CR>
 
 " Clear compilation files when leaving tex file
-autocmd VimLeave tex silent !latex-clean 
+autocmd VimLeave tex silent !latex-clean
 
+" }}}
 " ==========================================
 " Functions: {{{
 " ==========================================

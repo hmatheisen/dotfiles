@@ -5,14 +5,22 @@
 
 # Check for the existence of both the normal vimrc and the mini
 # and swap them
-if [[ -f $HOME/.vimrc ]] && [[ -f $HOME/mini.vim ]]; then
+if [[ -f $HOME/.vimrc ]] && [[ -f $HOME/mini.vim ]] && [[ -f $HOME/.config/nvim/init.vim ]]; then
+  # Vim
   mv $HOME/.vimrc $HOME/.vimrc.old
   mv $HOME/mini.vim $HOME/.vimrc
+  # Neovim
+  mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim.old
+  cp $HOME/.vimrc $HOME/.config/nvim/init.vim
   exit 0
 fi
 
-if [[ -f $HOME/.vimrc ]] && [[ -f $HOME/.vimrc.old ]]; then
+if [[ -f $HOME/.vimrc ]] && [[ -f $HOME/.vimrc.old ]] && [[ -f $HOME/.config/nvim/init.vim ]]; then
+  # Vim
   mv $HOME/.vimrc $HOME/mini.vim
   mv $HOME/.vimrc.old $HOME/.vimrc
+  # Neovim
+  rm $HOME/.config/nvim/init.vim
+  mv $HOME/.config/nvim/init.vim.old $HOME/.config/nvim/init.vim
   exit 0
 fi

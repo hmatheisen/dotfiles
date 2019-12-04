@@ -35,6 +35,7 @@ alias :q="exit"
 export EDITOR=vim
 
 # Go programming setup
+export PATH="$PATH:/usr/local/go"
 export GOPATH=$HOME/go:$HOME/go
 export PATH="$PATH:$HOME/go/bin"
 

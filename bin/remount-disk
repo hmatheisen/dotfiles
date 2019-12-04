@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # I use this program to easily unmount a read-only filesystem
-# and remount it as reas-write, since mt machine mounts is as 
+# and remount it as reas-write, since my machine mounts is as 
 # readonly automatically
 
 # Quit program if a command fails
