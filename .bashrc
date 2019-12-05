@@ -33,7 +33,7 @@ alias :q="exit"
 alias vim=nvim
 
 # Set editor
-export EDITOR=vim
+export EDITOR=nvim
 
 # Go programming setup
 export PATH="$PATH:/usr/local/go"
