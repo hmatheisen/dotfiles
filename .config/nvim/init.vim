@@ -97,7 +97,7 @@ hi SignColumn ctermbg=none
 let g:netrw_liststyle = 3
 
 " Don't show status line
-set laststatus=0
+set laststatus=1
 
 " }}}
 " ==========================================
@@ -174,59 +174,65 @@ command! LatexClean call <SID>LatexClean()
 " Golang: {{{
 " ==========================================
 
-" format with goimports instead of gofmt
-let g:go_fmt_command = "goimports"
+if isdirectory(".config/nvim/pack/plugins/start/vim-go")
+  " format with goimports instead of gofmt
+  let g:go_fmt_command = "goimports"
 
-" Add more colors
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
+  " Add more colors
+  let g:go_highlight_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_function_calls = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_extra_types = 1
+endif
 
 " }}}
 " ==========================================
 " LaTeX: {{{
 " ==========================================
 
-let g:tex_flavor='latex'
-let g:vimtex_view_method='general'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
+if isdirectory(".config/nvim/pack/plugins/start/vimtex")
+  let g:tex_flavor='latex'
+  let g:vimtex_view_method='general'
+  let g:vimtex_quickfix_mode=0
+  set conceallevel=1
+  let g:tex_conceal='abdmg'
+endif
 
 " }}}
 " ==========================================
 " COC: {{{
 " ==========================================
 
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+if isdirectory(".config/nvim/pack/plugins/start/coc.nvim")
+  " use <tab> for trigger completion and navigate to the next complete item
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+  inoremap <silent><expr> <Tab>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<Tab>" :
+        \ coc#refresh()
 
-" Use <Tab> and <S-Tab> to navigate the completion list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  " Use <Tab> and <S-Tab> to navigate the completion list
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Use <cr> to confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  " Use <cr> to confirm completion
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" To make <cr> select the first completion item and confirm the completion when no item has been selected
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+  " To make <cr> select the first completion item and confirm the completion when no item has been selected
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
-" To make coc.nvim format your code on <cr>, use keymap
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  " To make coc.nvim format your code on <cr>, use keymap
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Close the preview window when completion is done
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+  " Close the preview window when completion is done
+  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+endif
 
 " }}}
 " ==========================================
