@@ -32,6 +32,9 @@ fi
 alias :q="exit"
 alias vim=nvim
 
+# Create a variable for Neovim configs
+NVIM=.config/nvim/
+
 # Set editor
 export EDITOR=nvim
 

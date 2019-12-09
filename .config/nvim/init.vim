@@ -18,7 +18,6 @@ set background=light
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-set ttyfast
 
 " Fix backspace indent
 set backspace=indent,eol,start
@@ -77,18 +76,15 @@ set foldlevel=99
 " Enable markdown fold
 let g:markdown_folding = 1
 
-" Change cursor shape depending on the mode
-let &t_SI = "\<esc>[5 q"
-let &t_SR = "\<esc>[3 q"
-let &t_EI = "\<esc>[2 q"
-
 " Change fold colors
 hi Folded ctermfg=Blue
 hi Folded ctermbg=DarkGrey
 
 " Change color for spelling
 hi SpellBad ctermbg=Blue
+hi SpellBad ctermfg=White
 hi SpellRare ctermbg=Magenta
+hi SpellRare ctermbg=White
 
 " Change SignColumn to no color
 hi SignColumn ctermbg=none
@@ -122,7 +118,7 @@ imap <C-p> <Up>
 imap <C-n> <Down>
 
 " Use Netrw to view project structure
-nnoremap <C-n> :Ntree<CR>
+nnoremap <leader>n :Ntree<CR>
 
 " Disables automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -131,15 +127,14 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType markdown setlocal wrap linebreak
 autocmd FileType tex setlocal wrap linebreak
 
-" Spell check active by default for certain buffers
-autocmd FileType markdown setlocal spell
-autocmd FileType tex setlocal spell
-
-" Toggle spellcheck
+" Toggle spell check
 map <leader>o :setlocal spell!<CR>
 
 " Clear compilation files when leaving tex file
 autocmd VimLeave tex silent !latex-clean
+
+" Edit the neovim config file
+nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
 
 " }}}
 " ==========================================
@@ -170,11 +165,11 @@ endfunction
 " I create a command for it although I do call it when vim leaves a tex file
 command! LatexClean call <SID>LatexClean()
 
+" }}}
 " ==========================================
 " Golang: {{{
 " ==========================================
-
-if isdirectory(".config/nvim/pack/plugins/start/vim-go")
+if isdirectory($HOME . "/.config/nvim/pack/plugins/start/vim-go/")
   " format with goimports instead of gofmt
   let g:go_fmt_command = "goimports"
 
@@ -192,7 +187,7 @@ endif
 " LaTeX: {{{
 " ==========================================
 
-if isdirectory(".config/nvim/pack/plugins/start/vimtex")
+if isdirectory($HOME . "/.config/nvim/pack/plugins/start/vimtex")
   let g:tex_flavor='latex'
   let g:vimtex_view_method='general'
   let g:vimtex_quickfix_mode=0
@@ -205,7 +200,7 @@ endif
 " COC: {{{
 " ==========================================
 
-if isdirectory(".config/nvim/pack/plugins/start/coc.nvim")
+if isdirectory($HOME . "/.config/nvim/pack/plugins/start/coc.nvim")
   " use <tab> for trigger completion and navigate to the next complete item
   function! s:check_back_space() abort
     let col = col('.') - 1
