@@ -61,3 +61,4 @@ export PATH=$PATH:$HOME/.local/bin
 
 # Start fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+alias ic="ibmcloud"

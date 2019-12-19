@@ -8,13 +8,19 @@
 set -e
 
 # Display usage when missing parameters
-usage () { echo "Usage: $0 [-v volume] [-t fstype]" >&2; exit 1; }
+usage () {
+  echo -e "Usage: $0 [-h] [-v volume] [-t fstype]\n\
+    -h Displays this help message\n\
+    -v The read-only volume to be remounted as writable\n\
+    -f The filesystem's type of the concerned disk" >&2; exit 1;
+}
 
 # Parse arguments
-while getopts ":v:t:" opt; do
+while getopts ":v:t:h" opt; do
   case $opt in
     v) volume=$OPTARG ;;
     t) fstype=$OPTARG ;;
+    h) usage; exit 0 ;;
     \?) echo "Invalid option: -$OPTARG" >&2; usage; exit 1 ;;
     :) echo "Option -$OPTARG requires an argument" >&2; usage exit 1 ;;
   esac

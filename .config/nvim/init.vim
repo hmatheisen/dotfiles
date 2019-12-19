@@ -165,6 +165,19 @@ endfunction
 " I create a command for it although I do call it when vim leaves a tex file
 command! LatexClean call <SID>LatexClean()
 
+" Live compile current markdown file
+function! s:MdLiveCompile()
+  if !executable("grip")
+    echoerr "The script grip can't be found"
+  elseif &ft == 'markdown'
+    !grip % --browser --quiet
+  else
+    echoerr "This is not a markdown file"
+  endif
+endfunction
+
+command! MdLiveCompile call <SID>MdLiveCompile()
+
 " }}}
 " ==========================================
 " Golang: {{{
