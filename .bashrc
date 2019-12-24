@@ -23,7 +23,9 @@ if type exa &> /dev/null; then
   alias ls="exa -lh"
 else
   if [[ "$OSTYPE" == "darwin"* ]];then
-    alias ls="ls -lhG" else alias ls="ls -lh --color=auto" 
+    alias ls="ls -lhG"
+  else
+    alias ls="ls -lh --color=auto" 
   fi
 fi
 
