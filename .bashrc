@@ -18,14 +18,17 @@ if [ -f /usr/local/etc/bash_completion ]; then
   . /usr/local/etc/bash_completion
 fi
 
-# On Macos only
+# ls aliases
+if type exa &> /dev/null; then
+  alias ls="exa -lh"
+else
+  if [[ "$OSTYPE" == "darwin"* ]];then
+    alias ls="ls -lhG" else alias ls="ls -lh --color=auto" fi fi
+
+# Set locale on Macos
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # set Locale
   export LC_ALL=en_US.UTF-8
-  # Change dd to GNU dd
-  alias ls="ls -lhG"
-else
-  alias ls='ls -lh --color=auto'
 fi
 
 # Aliases
