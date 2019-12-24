@@ -23,7 +23,9 @@ if type exa &> /dev/null; then
   alias ls="exa -lh"
 else
   if [[ "$OSTYPE" == "darwin"* ]];then
-    alias ls="ls -lhG" else alias ls="ls -lh --color=auto" fi fi
+    alias ls="ls -lhG" else alias ls="ls -lh --color=auto" 
+  fi
+fi
 
 # Set locale on Macos
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -34,6 +36,7 @@ fi
 # Aliases
 alias :q="exit"
 alias vim=nvim
+alias ic=ibmcloud
 
 # Create a variable for Neovim configs
 NVIM=.config/nvim/
@@ -64,4 +67,4 @@ export PATH=$PATH:$HOME/.local/bin
 
 # Start fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-alias ic="ibmcloud"
+
