@@ -28,4 +28,4 @@
 	branch = release
 [submodule ".config/nvim/pack/plugins/opt/dracula"]
 	path = .config/nvim/pack/plugins/opt/dracula
-	url = git@github.com:dracula/vim.git
+	url = https://github.com/dracula/vim.git
