@@ -11,8 +11,12 @@
 " Enable syntax
 syntax on
 
-" Set background light because the theme looks better
-set background=light
+" Colorscheme
+" For some reason this is the only way to make Dracula not freakout
+packadd! dracula
+colorscheme dracula
+set background=dark
+highlight Normal ctermbg=None
 
 " Encoding
 set encoding=utf-8
@@ -76,18 +80,18 @@ set foldlevel=99
 " Enable markdown fold
 let g:markdown_folding = 1
 
-" Change fold colors
-hi Folded ctermfg=Blue
-hi Folded ctermbg=DarkGrey
-
-" Change color for spelling
-hi SpellBad ctermbg=Blue
-hi SpellBad ctermfg=White
-hi SpellRare ctermbg=Magenta
-hi SpellRare ctermbg=White
-
-" Change SignColumn to no color
-hi SignColumn ctermbg=none
+" " Change fold colors
+" hi Folded ctermfg=Blue
+" hi Folded ctermbg=DarkGrey
+" 
+" " Change color for spelling
+" hi SpellBad ctermbg=Blue
+" hi SpellBad ctermfg=White
+" hi SpellRare ctermbg=Magenta
+" hi SpellRare ctermbg=White
+" 
+" " Change SignColumn to no color
+" hi SignColumn ctermbg=none
 
 " Netrw tree style
 let g:netrw_liststyle = 3
@@ -135,6 +139,17 @@ autocmd VimLeave tex silent !latex-clean
 
 " Edit the neovim config file
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
+
+" Auto close simple vanilla solution
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
+autocmd FileType yaml autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " }}}
 " ==========================================
