@@ -29,3 +29,6 @@
 [submodule ".config/nvim/pack/plugins/opt/dracula"]
 	path = .config/nvim/pack/plugins/opt/dracula
 	url = https://github.com/dracula/vim.git
+[submodule ".config/nvim/pack/plugins/start/delimitMate"]
+	path = .config/nvim/pack/plugins/start/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git

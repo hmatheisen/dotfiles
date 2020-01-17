@@ -140,15 +140,7 @@ autocmd VimLeave tex silent !latex-clean
 " Edit the neovim config file
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
 
-" Auto close simple vanilla solution
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
+" Delete trailing white spaces
 autocmd FileType yaml autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " }}}

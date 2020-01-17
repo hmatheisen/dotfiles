@@ -9,3 +9,5 @@ Use the `Makefile`
 ```bash
 make clean && make
 ```
+
+**Warning :** `make clean` removes all the previous config files
