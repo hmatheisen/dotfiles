@@ -26,3 +26,6 @@
 	path = .config/nvim/pack/plugins/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 	branch = release
+[submodule ".config/nvim/pack/plugins/opt/dracula"]
+	path = .config/nvim/pack/plugins/opt/dracula
+	url = git@github.com:dracula/vim.git
