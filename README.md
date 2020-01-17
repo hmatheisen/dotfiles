@@ -7,5 +7,5 @@ This repository contains my config files for various programs
 Use the `Makefile`
 
 ```bash
-make clean && make install
+make clean && make
 ```
