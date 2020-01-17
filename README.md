@@ -4,14 +4,8 @@ This repository contains my config files for various programs
 
 ## Install
 
-Make the installation script executable
+Use the `Makefile`
 
 ```bash
-chmod +x install.sh
-```
-
-And execute it
-
-```bash
-./install.sh
+make clean && make install
 ```
