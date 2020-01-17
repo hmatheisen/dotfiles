@@ -40,8 +40,12 @@ alias :q="exit"
 alias vim=nvim
 alias ic=ibmcloud
 
+# Kubernetes config files
+export KUBECONFIG=/Users/$USER/.bluemix/plugins/container-service/clusters/bo100fad0vdho8vhh78g/kube-config-hou02-formation-kube.yml
+export KUBE_EDITOR=vim
+
 # Create a variable for Neovim configs
-NVIM=.config/nvim/
+export NVIM=.config/nvim/
 
 # Set editor
 export EDITOR=nvim
