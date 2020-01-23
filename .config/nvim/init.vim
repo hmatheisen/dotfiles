@@ -134,14 +134,16 @@ autocmd FileType tex setlocal wrap linebreak
 " Toggle spell check
 map <leader>o :setlocal spell!<CR>
 
-" Clear compilation files when leaving tex file
-autocmd VimLeave tex silent !latex-clean
-
 " Edit the neovim config file
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
 
 " Delete trailing white spaces
 autocmd FileType yaml autocmd BufWritePre <buffer> %s/\s\+$//e
+
+" Comments created by self written functions
+command! ToggleSignColumns call <SID>ToggleSignColumns()
+command! LatexClean call <SID>LatexClean()
+command! MdLiveCompile call <SID>MdLiveCompile()
 
 " }}}
 " ==========================================
@@ -159,8 +161,6 @@ function! s:ToggleSignColumns()
   endif
 endfunction
 
-command! ToggleSignColumns call <SID>ToggleSignColumns()
-
 " Call the latex-clean script to remove confg files
 function! s:LatexClean()
   if !executable("latex-clean")
@@ -168,9 +168,6 @@ function! s:LatexClean()
   endif
   silent !latex-clean
 endfunction
-
-" I create a command for it although I do call it when vim leaves a tex file
-command! LatexClean call <SID>LatexClean()
 
 " Live compile current markdown file
 function! s:MdLiveCompile()
@@ -182,8 +179,6 @@ function! s:MdLiveCompile()
     echoerr "This is not a markdown file"
   endif
 endfunction
-
-command! MdLiveCompile call <SID>MdLiveCompile()
 
 " }}}
 " ==========================================

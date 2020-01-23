@@ -39,6 +39,7 @@ fi
 alias :q="exit"
 alias vim=nvim
 alias ic=ibmcloud
+alias ts=tmux-session
 
 # Kubernetes config files
 export KUBECONFIG=/Users/$USER/.bluemix/plugins/container-service/clusters/bo100fad0vdho8vhh78g/kube-config-hou02-formation-kube.yml
