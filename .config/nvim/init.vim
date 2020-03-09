@@ -1,9 +1,28 @@
-"              _                    
-"       __   _(_)_ __ ___  _ __ ___ 
+"              _
+"       __   _(_)_ __ ___  _ __ ___
 "       \ \ / / | '_ ` _ \| '__/ __|
-"        \ V /| | | | | | | | | (__ 
+"        \ V /| | | | | | | | | (__
 "       (_)_/ |_|_| |_| |_|_|  \___|
-                            
+
+" ==========================================
+" Vim Plug: {{{
+" ==========================================
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Raimondi/delimitMate'
+Plug 'junegunn/goyo.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'lervag/vimtex'
+Plug 'dense-analysis/ale'
+Plug 'dracula/vim'
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+" }}}
 " ==========================================
 " Editor Options: {{{
 " ==========================================
@@ -13,7 +32,6 @@ syntax on
 
 " Colorscheme
 " For some reason this is the only way to make Dracula not freakout
-packadd! dracula
 colorscheme dracula
 set background=dark
 highlight Normal ctermbg=None
