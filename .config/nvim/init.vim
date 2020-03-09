@@ -19,6 +19,7 @@ Plug 'lervag/vimtex'
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -116,7 +117,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Correct mistakes with C-l
+" Correct mistakes with C-l in Insert Mode
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Readline style keybindings in Insert Mode (I don't like arrow keys)
@@ -181,65 +182,70 @@ endfunction
 " ==========================================
 " Golang: {{{
 " ==========================================
-if isdirectory($HOME . "/.config/nvim/pack/plugins/start/vim-go/")
-  " format with goimports instead of gofmt
-  let g:go_fmt_command = "goimports"
+" format with goimports instead of gofmt
+let g:go_fmt_command = "goimports"
 
-  " Add more colors
-  let g:go_highlight_types = 1
-  let g:go_highlight_fields = 1
-  let g:go_highlight_functions = 1
-  let g:go_highlight_function_calls = 1
-  let g:go_highlight_operators = 1
-  let g:go_highlight_extra_types = 1
-endif
+" Add more colors
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
 
 " }}}
 " ==========================================
 " LaTeX: {{{
 " ==========================================
 
-if isdirectory($HOME . "/.config/nvim/pack/plugins/start/vimtex")
-  let g:tex_flavor='latex'
-  let g:vimtex_view_method='general'
-  let g:vimtex_quickfix_mode=0
-  set conceallevel=1
-  let g:tex_conceal='abdmg'
-endif
+let g:tex_flavor='latex'
+let g:vimtex_view_method='general'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " }}}
 " ==========================================
 " COC: {{{
 " ==========================================
 
-if isdirectory($HOME . "/.config/nvim/pack/plugins/start/coc.nvim")
-  " use <tab> for trigger completion and navigate to the next complete item
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-  endfunction
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-  inoremap <silent><expr> <Tab>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<Tab>" :
-        \ coc#refresh()
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
-  " Use <Tab> and <S-Tab> to navigate the completion list
-  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use <Tab> and <S-Tab> to navigate the completion list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-  " Use <cr> to confirm completion
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <cr> to confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-  " To make <cr> select the first completion item and confirm the completion when no item has been selected
-  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" To make <cr> select the first completion item and confirm the completion when no item has been selected
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
-  " To make coc.nvim format your code on <cr>, use keymap
-  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" To make coc.nvim format your code on <cr>, use keymap
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-  " Close the preview window when completion is done
-  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-endif
+" Close the preview window when completion is done
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" }}}
+" ==========================================
+
+" }}}
+" ==========================================
+" NERDTree: {{{
+" ==========================================
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 " }}}
 " ==========================================
