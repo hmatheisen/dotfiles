@@ -80,19 +80,6 @@ set foldlevel=99
 " Enable markdown fold
 let g:markdown_folding = 1
 
-" " Change fold colors
-" hi Folded ctermfg=Blue
-" hi Folded ctermbg=DarkGrey
-" 
-" " Change color for spelling
-" hi SpellBad ctermbg=Blue
-" hi SpellBad ctermfg=White
-" hi SpellRare ctermbg=Magenta
-" hi SpellRare ctermbg=White
-" 
-" " Change SignColumn to no color
-" hi SignColumn ctermbg=none
-
 " Netrw tree style
 let g:netrw_liststyle = 3
 
@@ -138,11 +125,10 @@ map <leader>o :setlocal spell!<CR>
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
 
 " Delete trailing white spaces
-autocmd FileType yaml autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType yaml,dockerfile autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " Comments created by self written functions
 command! ToggleSignColumns call <SID>ToggleSignColumns()
-command! LatexClean call <SID>LatexClean()
 command! MdLiveCompile call <SID>MdLiveCompile()
 
 " }}}
@@ -159,14 +145,6 @@ function! s:ToggleSignColumns()
     set signcolumn=auto
     let b:signcolumn_on=1
   endif
-endfunction
-
-" Call the latex-clean script to remove confg files
-function! s:LatexClean()
-  if !executable("latex-clean")
-    echoerr "The script latex-clean can't be found"
-  endif
-  silent !latex-clean
 endfunction
 
 " Live compile current markdown file

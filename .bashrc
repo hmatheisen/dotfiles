@@ -40,9 +40,10 @@ alias :q="exit"
 alias vim=nvim
 alias ic=ibmcloud
 alias ts=tmux-session
+alias me="emacs -q --load ~/.emacs.d/memacs.el"
 
 # Kubernetes config files
-export KUBECONFIG=/Users/$USER/.bluemix/plugins/container-service/clusters/bo100fad0vdho8vhh78g/kube-config-hou02-formation-kube.yml
+export KUBECONFIG=/Users/$USER/.bluemix/plugins/container-service/clusters/bp5qj9mf09qcir78fhd0/kube-config-fra02-myclusterIKS.yml
 export KUBE_EDITOR=vim
 
 # Create a variable for Neovim configs

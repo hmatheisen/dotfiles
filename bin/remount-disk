@@ -38,7 +38,7 @@ fi
 # Get mount point corresponding to the volume
 mountPoint=$(df -h | grep $volume | tr -s ' ' | cut -d ' ' -f9-)
 # Unmount the read-only volume
-umount "$mountPoint"
+umount -f "$mountPoint"
 
 # Create the mount point again
 mkdir "$mountPoint"
