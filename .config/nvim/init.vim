@@ -14,12 +14,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go'
 Plug 'lervag/vimtex'
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -32,7 +33,6 @@ call plug#end()
 syntax on
 
 " Colorscheme
-" For some reason this is the only way to make Dracula not freakout
 colorscheme dracula
 set background=dark
 highlight Normal ctermbg=None
@@ -103,9 +103,6 @@ let g:markdown_folding = 1
 " Netrw tree style
 let g:netrw_liststyle = 3
 
-" Don't show status line
-set laststatus=1
-
 " }}}
 " ==========================================
 " Commands: {{{
@@ -128,15 +125,8 @@ imap <C-e> <End>
 imap <C-p> <Up>
 imap <C-n> <Down>
 
-" Use Netrw to view project structure
-nnoremap <leader>n :Ntree<CR>
-
 " Disables automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Enable line break and wrap for certain buffers
-autocmd FileType markdown setlocal wrap linebreak
-autocmd FileType tex setlocal wrap linebreak
 
 " Toggle spell check
 map <leader>o :setlocal spell!<CR>
@@ -145,64 +135,13 @@ map <leader>o :setlocal spell!<CR>
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
 
 " Delete trailing white spaces
-autocmd FileType yaml,dockerfile autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd BufWritePre <buffer> %s/\s\+$//e
 
-" Comments created by self written functions
-command! ToggleSignColumns call <SID>ToggleSignColumns()
-command! MdLiveCompile call <SID>MdLiveCompile()
+" Commands created by self written functions
+command! ToggleSignColumns call functions#ToggleSignColumns()
 
-" }}}
-" ==========================================
-" Functions: {{{
-" ==========================================
-
-" Toggle the sign column
-function! s:ToggleSignColumns()
-  if !exists("b:signcolumn_on") || b:signcolumn_on
-    set signcolumn=no
-    let b:signcolumn_on=0
-  else
-    set signcolumn=auto
-    let b:signcolumn_on=1
-  endif
-endfunction
-
-" Live compile current markdown file
-function! s:MdLiveCompile()
-  if !executable("grip")
-    echoerr "The script grip can't be found"
-  elseif &ft == 'markdown'
-    !grip % --browser --quiet
-  else
-    echoerr "This is not a markdown file"
-  endif
-endfunction
-
-" }}}
-" ==========================================
-" Golang: {{{
-" ==========================================
-" format with goimports instead of gofmt
-let g:go_fmt_command = "goimports"
-
-" Add more colors
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-
-" }}}
-" ==========================================
-" LaTeX: {{{
-" ==========================================
-
-let g:tex_flavor='latex'
-let g:vimtex_view_method='general'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
+" NERDTree toggle command
+nnoremap <leader>f :NERDTreeToggle<CR>
 
 " }}}
 " ==========================================
@@ -236,16 +175,64 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 " Close the preview window when completion is done
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" }}}
-" ==========================================
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " }}}
 " ==========================================
 " NERDTree: {{{
 " ==========================================
 
+" Show hidden files by default
+let NERDTreeShowHidden=1
+" Exclude certainf files
+let NERDTreeIgnore = ['\.git$']
+" Enter NERDTree when opening a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" Disable help text
+let NERDTreeMinimalUI = 1
+
+" }}}
+" ==========================================
+" ALE: {{{
+" ==========================================
+
+" Manage linters
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \   'typescript': ['tslint'],
+      \}
+
+" Manage fixers
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['eslint'],
+      \   'typescript': ['tslint']
+      \}
+
+" Fix file on save
+let g:ale_fix_on_save = 1
 
 " }}}
 " ==========================================
