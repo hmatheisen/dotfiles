@@ -7,3 +7,6 @@ set conceallevel=1
 
 " Enable wrap and linebreak
 setlocal wrap linebreak
+
+" Set text width
+set textwidth=90

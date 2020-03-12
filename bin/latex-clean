@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# Remove all compilation files
-rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.toc *.out *.lof *.pyg

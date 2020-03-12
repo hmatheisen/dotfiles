@@ -13,6 +13,7 @@ sync:
 	# .config
 	ln -s $(PWD)/.config/ranger ~/.config/ranger
 	ln -s $(PWD)/.config/nvim ~/.config/nvim
+	ln -s $(PWD)/.config/nvim/ultisnips ~/.config/coc/ultisnips
 
 	# dot files
 	ln -s $(PWD)/.bashrc ~/.bashrc
@@ -30,5 +31,6 @@ clean:
 	rm -rf ~/.config/ranger
 	rm -rf ~/.config/nvim
 	rm -rf ~/.local/bin
+	rm -rf ~/.config/coc/ultisnips
 
 .PHONY: all clean sync

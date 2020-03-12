@@ -143,6 +143,9 @@ command! ToggleSignColumns call functions#ToggleSignColumns()
 " NERDTree toggle command
 nnoremap <leader>f :NERDTreeToggle<CR>
 
+" Escape terminal easily
+tnoremap <Esc> <C-\><C-n>
+
 " }}}
 " ==========================================
 " COC: {{{

@@ -69,6 +69,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add Tex utilities
 export PATH=/Library/TeX/texbin:$PATH
+# Allows pdflatex to find the .cls files to build my latex documents
+export TEXINPUTS=".:$HOME/Documents/tex/classes:"
 
 # Add local script folder
 export PATH=$PATH:$HOME/.local/bin
