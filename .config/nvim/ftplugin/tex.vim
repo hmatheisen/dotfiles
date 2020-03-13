@@ -10,3 +10,6 @@ setlocal wrap linebreak
 
 " Set text width
 set textwidth=90
+
+" Enable spell check
+set spell

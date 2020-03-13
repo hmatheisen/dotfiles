@@ -21,6 +21,7 @@ Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 

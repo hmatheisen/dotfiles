@@ -17,10 +17,10 @@
 #
 # Basic example:
 #
-#		snippet emitter "emitter properties" b
-#		private readonly ${1} = new Emitter<$2>()
-#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
-#		endsnippet
+# snippet emitter "emitter properties" b
+# private readonly ${1} = new Emitter<$2>()
+# public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+# endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
@@ -85,8 +85,8 @@ snippet itm "create item" b
 endsnippet
 
 snippet href "create href link" b
-\href{$1}
-$2
+\href{$1}{$2}
+$3
 endsnippet
 
 snippet np "create new page" b
@@ -103,4 +103,8 @@ snippet img "create image section" b
 \end{figure}
 
 $5
+endsnippet
+
+snippet spl "set spell language" b
+% vim: spelllang=$1
 endsnippet
