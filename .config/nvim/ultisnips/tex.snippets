@@ -29,8 +29,7 @@ snippet rep "create report document" b
 
 \title{$1}
 \author{Henry MATHEISEN}
-\date{\textit{<$2>}}
-
+\date{\textit{<`date +%F`>}}
 \begin{document}
 
 \maketitle
@@ -46,7 +45,7 @@ snippet frep "create french report document" b
 
 \title{$1}
 \author{Henry MATHEISEN}
-\date{\textit{<$2>}}
+\date{\textit{<`date +%F`>}}
 
 \begin{document}
 
@@ -73,9 +72,7 @@ endsnippet
 snippet itmz "create itemize" b
 
 \begin{itemize}
-
 	\item $1
-
 \end{itemize}
 
 endsnippet
@@ -84,7 +81,7 @@ snippet itm "create item" b
 \item $1
 endsnippet
 
-snippet href "create href link" b
+snippet href "create href link" A
 \href{$1}{$2}
 $3
 endsnippet
@@ -107,4 +104,24 @@ endsnippet
 
 snippet spl "set spell language" b
 % vim: spelllang=$1
+endsnippet
+
+snippet tbf "bold text" A
+\textbf{$1} $2
+endsnippet
+
+snippet lst "create code section" b
+\begin{lstlisting}[language=$1]
+$2
+\end{lstlisting}
+endsnippet
+
+snippet beg "environment" b
+\begin{$1}
+$0
+\end{$1}
+endsnippet
+
+snippet today "Date"
+`date +%F`
 endsnippet

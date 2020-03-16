@@ -13,3 +13,9 @@ command! MdLiveCompile call <SID>MdLiveCompile()
 
 " Set line break and wrap
 setlocal wrap linebreak
+
+" Set text width
+set textwidth=90
+
+" Enable spell check
+set spell

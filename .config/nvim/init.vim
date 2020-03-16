@@ -101,9 +101,6 @@ set foldlevel=99
 " Enable markdown fold
 let g:markdown_folding = 1
 
-" Netrw tree style
-let g:netrw_liststyle = 3
-
 " }}}
 " ==========================================
 " Commands: {{{
@@ -127,16 +124,13 @@ imap <C-p> <Up>
 imap <C-n> <Down>
 
 " Disables automatic commenting on newline
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * setlocal formatoptions-=cro
 
 " Toggle spell check
 map <leader>o :setlocal spell!<CR>
 
 " Edit the neovim config file
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
-
-" Delete trailing white spaces
-autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " Commands created by self written functions
 command! ToggleSignColumns call functions#ToggleSignColumns()
@@ -224,15 +218,15 @@ let NERDTreeMinimalUI = 1
 
 " Manage linters
 let g:ale_linters = {
-      \   'javascript': ['eslint'],
-      \   'typescript': ['tslint'],
+      \'javascript': ['eslint'],
+      \'typescript': ['tslint'],
       \}
 
 " Manage fixers
 let g:ale_fixers = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['eslint'],
-      \   'typescript': ['tslint']
+      \'*': ['trim_whitespace'],
+      \'javascript': ['eslint'],
+      \'typescript': ['tslint']
       \}
 
 " Fix file on save
