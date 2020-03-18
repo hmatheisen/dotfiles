@@ -26,13 +26,13 @@
 snippet shb "create shebang" b
 #!/usr/bin/env bash
 
-$1
+$0
 endsnippet
 
 snippet sete "error handling" b
 set -e
 
-$1
+$0
 
 exit 0
 endsnippet
@@ -42,7 +42,7 @@ if $1; then
 	$2
 fi
 
-$3
+$0
 endsnippet
 
 snippet ife "if else condition" b
@@ -52,5 +52,5 @@ else
 	$3
 fi
 
-$4
+$0
 endsnippet

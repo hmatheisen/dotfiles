@@ -85,7 +85,7 @@ set spelllang=fr,en_gb
 set shell=/usr/local/bin/bash
 
 " Set swap directory
-set directory^=$HOME/.vim/tmp//
+set directory^=$HOME/.vimswap//
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
@@ -140,6 +140,11 @@ nnoremap <leader>f :NERDTreeToggle<CR>
 
 " Escape terminal easily
 tnoremap <Esc> <C-\><C-n>
+
+" Easy switch buffers
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
 
 " }}}
 " ==========================================
@@ -203,7 +208,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Show hidden files by default
 let NERDTreeShowHidden=1
 " Exclude certainf files
-let NERDTreeIgnore = ['\.git$']
+let NERDTreeIgnore = ['\.git$', '.swp']
 " Enter NERDTree when opening a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif

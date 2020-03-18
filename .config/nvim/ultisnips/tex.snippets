@@ -35,7 +35,7 @@ snippet rep "create report document" b
 \maketitle
 \tableofcontents
 
-$3
+$0
 
 \end{document}
 endsnippet
@@ -52,7 +52,7 @@ snippet frep "create french report document" b
 \maketitle
 \tableofcontents
 
-$3
+$0
 
 \end{document}
 endsnippet
@@ -60,13 +60,13 @@ endsnippet
 snippet sec "create section" b
 \section{$1}
 
-$2
+$0
 endsnippet
 
 snippet ssec "create subection" b
 \subsection{$1}
 
-$2
+$0
 endsnippet
 
 snippet itmz "create itemize" b
@@ -82,14 +82,13 @@ snippet itm "create item" b
 endsnippet
 
 snippet href "create href link" A
-\href{$1}{$2}
-$3
+\href{$1}{$2} $0
 endsnippet
 
 snippet np "create new page" b
 \newpage
 
-$1
+$0
 endsnippet
 
 snippet img "create image section" b
@@ -99,15 +98,19 @@ snippet img "create image section" b
 	\caption{$4}
 \end{figure}
 
-$5
+$0
 endsnippet
 
 snippet spl "set spell language" b
 % vim: spelllang=$1
 endsnippet
 
-snippet tbf "bold text" A
+snippet tbf "bold text" wA
 \textbf{$1} $2
+endsnippet
+
+snippet tit "bold text" wA
+\textit{$1} $2
 endsnippet
 
 snippet lst "create code section" b

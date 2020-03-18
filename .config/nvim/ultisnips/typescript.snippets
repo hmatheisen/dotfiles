@@ -23,10 +23,27 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
-snippet lnk "create a link to a file"
-[$1]($2) $0
+
+snippet priv "private function" wb
+private $1 = ($2): $3 => {
+	$0
+}
 endsnippet
 
-snippet img "create a link to an image"
-![$1]($2) $0
+snippet pub "public function" wb
+public $1 = ($2): $3 => {
+	$0
+}
+endsnippet
+
+snippet retpr "return new Promise" wb
+return new Promise((resolve, reject) => {
+	$0
+})
+endsnippet
+
+snippet cb "callback"
+($1) => {
+	$0
+}
 endsnippet
