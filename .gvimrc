@@ -15,6 +15,6 @@ let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='soft'
 colorscheme gruvbox
 
-" Fic env variable not being loaded
+" Fix env variable not being loaded
 let $TEXINPUTS=".:$HOME/Documents/tex/classes:"
 

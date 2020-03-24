@@ -10,18 +10,29 @@
 
 call plug#begin('~/.vim/plugged')
 
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
+" Editor enhancements:
+Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Raimondi/delimitMate'
-Plug 'junegunn/goyo.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'fatih/vim-go'
-Plug 'lervag/vimtex'
 Plug 'dense-analysis/ale'
+Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
+
+" Looks
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
-Plug 'preservim/nerdtree'
-Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
+
+" Language specific
+Plug 'fatih/vim-go'
+Plug 'lervag/vimtex'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -34,6 +45,7 @@ call plug#end()
 syntax on
 
 " Colorscheme
+set termguicolors
 colorscheme dracula
 set background=dark
 highlight Normal ctermbg=None
@@ -98,9 +110,6 @@ set foldenable
 set foldmethod=marker
 set foldlevel=99
 
-" Enable markdown fold
-let g:markdown_folding = 1
-
 " }}}
 " ==========================================
 " Commands: {{{
@@ -145,6 +154,13 @@ tnoremap <Esc> <C-\><C-n>
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
+
+" Toggle Highlighted search
+nnoremap <leader>s :setlocal hls!<CR>
+
+" Indent guide disable by default
+let g:indentLine_enabled = 0
+nnoremap <leader>i :IndentLinesToggle<CR>
 
 " }}}
 " ==========================================
@@ -236,6 +252,14 @@ let g:ale_fixers = {
 
 " Fix file on save
 let g:ale_fix_on_save = 1
+
+" }}}
+" ==========================================
+" Goyo Lightline: {{{
+" ==========================================
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " }}}
 " ==========================================

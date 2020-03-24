@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufReadPost Vagrantfile set filetype=ruby
+autocmd BufNewFile,BufReadPost Vagrantfile,Brewfile set filetype=ruby

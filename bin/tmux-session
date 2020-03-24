@@ -1,15 +1,27 @@
 #!/usr/bin/env bash
+# vim: tw=78
 
 # A bash script I use when I start my terminal
 
-# Don't do anything if already in a tmux session
-# or if tmux does not exists
-if [[ -z $TMUX ]] && type tmux &> /dev/null; then
-  # if a tmux session already exists, attach to this session
+set -e
+
+# First, check if tmux is installed
+type tmux &> /dev/null || { echo "tmux is not installed" >&2; exit 1; }
+
+# $TMUX is empty if not in a tmux session.
+# So if it is empty
+if [[ -z $TMUX ]]; then
+  # We first check whether there is already a running session.
   if pgrep tmux; then
+    # If so, attach to this session.
     tmux attach-session -t Work
-    # otherwise create a new session called "Work"
+    exit 0
   else
+    # If no session exists, create a new one.
     tmux new -s Work
+    exit 0
   fi
+else
+  # Display error message if the user is already inside a session
+  echo "Already in a tmux session" >&2; exit 1
 fi

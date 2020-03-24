@@ -9,7 +9,7 @@ set conceallevel=1
 setlocal wrap linebreak
 
 " Set text width
-set textwidth=90
+setlocal textwidth=90
 
 " Enable spell check
-set spell
+setlocal spell

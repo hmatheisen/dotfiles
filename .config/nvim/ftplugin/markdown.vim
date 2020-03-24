@@ -11,11 +11,14 @@ endfunction
 
 command! MdLiveCompile call <SID>MdLiveCompile()
 
+" Enable markdown fold
+let g:markdown_folding = 1
+
 " Set line break and wrap
 setlocal wrap linebreak
 
 " Set text width
-set textwidth=90
+setlocal textwidth=90
 
 " Enable spell check
-set spell
+setlocal spell
