@@ -76,5 +76,8 @@ export TEXINPUTS=".:$HOME/Documents/tex/classes:"
 # Add local script folder
 export PATH=$PATH:$HOME/.local/bin
 
+# kitty completion
+source <(kitty + complete setup bash)
+
 # Start fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

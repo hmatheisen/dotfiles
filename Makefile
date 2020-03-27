@@ -11,9 +11,10 @@ sync:
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	# .config
-	ln -s $(PWD)/.config/ranger         ~/.config/ranger
-	ln -s $(PWD)/.config/nvim           ~/.config/nvim
-	ln -s $(PWD)/.config/nvim/ultisnips ~/.config/coc/ultisnips
+	ln -s $(PWD)/.config/ranger           ~/.config/ranger
+	ln -s $(PWD)/.config/nvim             ~/.config/nvim
+	ln -s $(PWD)/.config/nvim/ultisnips   ~/.config/coc/ultisnips
+	ln -s $(PWD)/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 	# dot files
 	ln -s $(PWD)/.gvimrc    ~/.gvimrc
@@ -25,14 +26,15 @@ sync:
 
 clean:
 
-	rm -f  ~/.bashrc
-	rm -f  ~/.local/share/nvim/site/autoload/plug.vim
-	rm -f  ~/.vim/autoload/plug.vim
-	rm -f  ~/.tmux.conf
-	rm -f  ~/.gvimrc
-	rm -rf ~/.config/ranger
-	rm -rf ~/.config/nvim
-	rm -rf ~/.local/bin
-	rm -rf ~/.config/coc/ultisnips
+	rm -f   ~/.bashrc
+	rm -f   ~/.local/share/nvim/site/autoload/plug.vim
+	rm -f   ~/.vim/autoload/plug.vim
+	rm -f   ~/.tmux.conf
+	rm -f   ~/.gvimrc
+	rm -f   ~/.config/kitty/kitty.conf
+	rm -rf  ~/.config/ranger
+	rm -rf  ~/.config/nvim
+	rm -rf  ~/.local/bin
+	rm -rf  ~/.config/coc/ultisnips
 
 .PHONY: all clean sync
