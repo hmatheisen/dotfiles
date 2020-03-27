@@ -21,18 +21,21 @@ Plug 'Raimondi/delimitMate'
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-commentary'
 
 " Looks
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-airline/vim-airline-themes'
 
 " Language specific
 Plug 'fatih/vim-go'
 Plug 'lervag/vimtex'
 Plug 'hashivim/vim-terraform'
+Plug 'chemzqm/vim-jsx-improve'
 
 call plug#end()
 
@@ -46,9 +49,8 @@ syntax on
 
 " Colorscheme
 set termguicolors
-colorscheme dracula
 set background=dark
-highlight Normal ctermbg=None
+colorscheme jellybeans
 
 " Encoding
 set encoding=utf-8
@@ -125,12 +127,8 @@ map <C-l> <C-w>l
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Readline style keybindings in Insert Mode (I don't like arrow keys)
-imap <C-b> <Left>
-imap <C-f> <Right>
 imap <C-a> <Home>
 imap <C-e> <End>
-imap <C-p> <Up>
-imap <C-n> <Down>
 
 " Disables automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=cro
@@ -210,11 +208,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " }}}
 " ==========================================
