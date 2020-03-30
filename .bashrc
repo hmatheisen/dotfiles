@@ -41,6 +41,11 @@ alias vim=nvim
 alias ic=ibmcloud
 alias ts=tmux-session
 alias me="emacs -q --load ~/.emacs.d/memacs.el"
+# If using kitty, set aias for ssh to send correct infos about the terminal to
+# the remote server
+if [[ $TERM == "xterm-kitty" ]]; then
+  alias ssh="kitty +kitten ssh"
+fi
 
 # Kubernetes config files
 export KUBECONFIG=/Users/$USER/.bluemix/plugins/container-service/clusters/bp5qj9mf09qcir78fhd0/kube-config-fra02-myclusterIKS.yml
@@ -79,5 +84,3 @@ export PATH=$PATH:$HOME/.local/bin
 # kitty completion
 source <(kitty + complete setup bash)
 
-# Start fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
