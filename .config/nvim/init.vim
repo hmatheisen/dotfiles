@@ -112,6 +112,9 @@ set foldenable
 set foldmethod=marker
 set foldlevel=99
 
+" Clipboard support
+set clipboard=unnamedplus
+
 " }}}
 " ==========================================
 " Commands: {{{
@@ -256,3 +259,4 @@ autocmd! User GoyoLeave Limelight!
 
 " }}}
 " ==========================================
+
