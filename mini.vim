@@ -71,28 +71,35 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Status line
+" Display statusline
+set laststatus=2
+
+" Status line Content
 let g:currentmode={
       \ 'n'  : 'NORMAL ',
       \ 'v'  : 'VISUAL ',
-      \ 'V'  : 'V·Line ',
-      \ '' : 'V·Block ',
+      \ 'V'  : 'V·LINE ',
+      \ '' : 'V·BLOCK ',
       \ 'i'  : 'INSERT ',
+      \ 'ic' : 'INSERT COMPL',
+      \ 'ix' : 'INSERT COMPL',
       \ 'R'  : 'REPLACE ',
-      \ 'Rv' : 'V·Replace ',
-      \ 'c'  : 'Command ',
+      \ 'Rv' : 'V·REPLACE ',
+      \ 'c'  : 'COMMAND ',
+      \ 't'  : 'TERMINAL',
       \}
 
 set statusline=
-set statusline+=\ %{toupper(g:currentmode[mode()])}
+set statusline+=\ %{g:currentmode[mode()]}
 set statusline+=%#LineNr#
 set statusline+=\ %f
 set statusline+=%m
 set statusline+=%=
 set statusline+=\%y
-set statusline+=\ %#StatusLine#
+set statusline+=\ %#CursorColumn#
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
+set statusline+=\ %#StatusLine#
 set statusline+=\%4p%%
 set statusline+=\%4l:%-4c
 
