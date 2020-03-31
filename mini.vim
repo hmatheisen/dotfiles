@@ -19,21 +19,24 @@ set fileencodings=utf-8
 " Fix backspace indent
 set backspace=indent,eol,start
 
+" Indentation
+set autoindent  " Copy indent from previous line
+set smartindent " Indent from syntax
+
 " Tab config
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-set smarttab
+set tabstop=2      " Number of spaces per tab
+set softtabstop=2  " Number of spaces for tab operations
+set shiftwidth=2   " Number of spaces for autoindent
+set expandtab      " Use appropriate number os spaces when inserting tabs
+set smarttab       " act according to previous options
 
 " Enable hidden buffers
 set hidden
 
 " Searching
-set nohlsearch
-set incsearch
-set ignorecase
-set wildignorecase
+set nohlsearch     " Do not highlight search results
+set incsearch      " Search as letters are typed
+set ignorecase     " Ignore case
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults. (Copyrights LukeSmithxyz)
 set splitbelow splitright
@@ -41,6 +44,7 @@ set splitbelow splitright
 " Set command completion
 set wildmode=list:longest,full
 set wildmenu
+set wildignorecase
 
 " Relative Numbers
 set nu rnu
