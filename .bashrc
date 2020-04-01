@@ -47,12 +47,8 @@ if [[ $TERM == "xterm-kitty" ]]; then
   alias ssh="kitty +kitten ssh"
 fi
 
-# Kubernetes config files
-export KUBECONFIG=/Users/$USER/.bluemix/plugins/container-service/clusters/bp5qj9mf09qcir78fhd0/kube-config-fra02-myclusterIKS.yml
-export KUBE_EDITOR=vim
-
-# Create a variable for Neovim configs
-export NVIM=.config/nvim/
+# Kubernetes editor
+export KUBE_EDITOR=nvim
 
 # Set editor
 export EDITOR=nvim

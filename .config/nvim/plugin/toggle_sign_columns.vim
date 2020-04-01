@@ -1,5 +1,5 @@
 " Toggle the sign column
-function! functions#ToggleSignColumns()
+function ToggleSignColumns()
   if !exists("b:signcolumn_on") || b:signcolumn_on
     set signcolumn=no
     let b:signcolumn_on=0
