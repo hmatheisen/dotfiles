@@ -5,9 +5,6 @@
 "       (_)_/ |_|_| |_| |_|_|  \___|
 "
 
-source $HOME/.config/nvim/plugins.vim
-source $HOME/.config/nvim//mappings.vim
-
 " ==========================================
 " Editor Options: {{{
 " ==========================================
@@ -18,7 +15,6 @@ syntax on
 " Colorscheme
 set termguicolors
 set background=dark
-colorscheme jellybeans
 
 " Encoding
 set encoding=utf-8
@@ -95,3 +91,7 @@ set undofile
 
 " }}}
 " ==========================================
+
+source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/mappings.vim
+
