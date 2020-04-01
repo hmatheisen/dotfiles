@@ -21,14 +21,15 @@ endif
 sync:
 
 	@echo Creating directories...
-	[ -d ~/.config ]       || mkdir ~/.config
-	[ -d ~/.local ]        || mkdir ~/.local
-	[ -d ~/.config/kitty ] || mkdir ~/.config/kitty
-	[ -d ~/.config/coc ]   || mkdir ~/.config/coc
+	[ -d ~/.config ]        || mkdir ~/.config
+	[ -d ~/.local ]         || mkdir ~/.local
+	[ -d ~/.config/kitty ]  || mkdir ~/.config/kitty
+	[ -d ~/.config/coc ]    || mkdir ~/.config/coc
+	[ -d ~/.config/ranger ] || mkdir ~/.config/ranger
 	@echo Done!
 
 	@echo Sync config folder...
-	ln -s $(PWD)/.config/ranger           ~/.config/ranger
+	ln -s $(PWD)/.config/ranger/rc.conf   ~/.config/ranger/rc.conf
 	ln -s $(PWD)/.config/nvim             ~/.config/nvim
 	ln -s $(PWD)/.config/nvim/ultisnips   ~/.config/coc/ultisnips
 	ln -s $(PWD)/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
@@ -54,7 +55,7 @@ clean:
 	rm -f   ~/.config/kitty/kitty.conf
 	rm -rf  ~/.config/ranger
 	rm -rf  ~/.config/nvim
-	rm -rf  ~/.local/bin
 	rm -rf  ~/.config/coc/ultisnips
+	rm -rf  ~/.local/bin
 
 .PHONY: all clean sync
