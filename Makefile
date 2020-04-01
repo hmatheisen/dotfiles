@@ -1,8 +1,4 @@
-# Test whether the curl command exists
 CURL := $(shell command -v curl 2> /dev/null)
-CREATEDIRS = .config/ .local/ .config/kitty
-SYNCDIRS = .config/ranger .config/nvim .config/nvim/ultisnips .local/bin
-SYNCFILES = .gvimrc .bashrc .tmux.conf .config/kitty/kitty.conf
 
 all: vim-plug sync
 
@@ -24,38 +20,40 @@ endif
 
 sync:
 
-	@echo Creating folders...
-	for dir in $(CREATEDIRS) ; do \
-		[ -d ~/$$CREATEDIRS ] || mkdir ~/$$CREATEDIRS
-	done
+	@echo Creating directories...
+	[ -d ~/.config ]       || mkdir ~/.config
+	[ -d ~/.local ]        || mkdir ~/.local
+	[ -d ~/.config/kitty ] || mkdir ~/.config/kitty
+	@Done!
+
+	@echo Sync config folder...
+	ln -s $(PWD)/.config/ranger           ~/.config/ranger
+	ln -s $(PWD)/.config/nvim             ~/.config/nvim
+	ln -s $(PWD)/.config/nvim/ultisnips   ~/.config/coc/ultisnips
+	ln -s $(PWD)/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 	@echo Done!
 
-	@echo Begin sync...
-	for dir in $(SYNCDIRS) ; do \
-		ln -s $(PWD)/$$dir ~/$$dir ; \
-	done
-	for f in $(SYNCFILES) ; do \
-		ln -s $(PWD)/$$f ~/$$f ; \
-	done
+	@echo Sync files...
+	ln -s $(PWD)/.gvimrc    ~/.gvimrc
+	ln -s $(PWD)/.bashrc    ~/.bashrc
+	ln -s $(PWD)/.tmux.conf ~/.tmux.conf
+	@echo Done!
+
+	@echo Sync script folder
+	ln -s $(PWD)/bin ~/.local/bin
 	@echo Done!
 
 clean:
 
-	@echo Removing files on system...
-	for f in $(SYNCFILES) ; do \
-		rm -f ~/$$f ; \
-	done
-	@echo Done!
-
-	@echo Removing directorieson system...
-	for dir in $(SYNCDIRS) ; do \
-		rm -rf ~/$$dir ; \
-	done
-	@echo Done!
-
-	@echo Removing files from VimPLug...
+	rm -f   ~/.bashrc
 	rm -f   ~/.local/share/nvim/site/autoload/plug.vim
 	rm -f   ~/.vim/autoload/plug.vim
-	@echo Done!
+	rm -f   ~/.tmux.conf
+	rm -f   ~/.gvimrc
+	rm -f   ~/.config/kitty/kitty.conf
+	rm -rf  ~/.config/ranger
+	rm -rf  ~/.config/nvim
+	rm -rf  ~/.local/bin
+	rm -rf  ~/.config/coc/ultisnips
 
 .PHONY: all clean sync
