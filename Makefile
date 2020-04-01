@@ -24,6 +24,7 @@ sync:
 	[ -d ~/.config ]       || mkdir ~/.config
 	[ -d ~/.local ]        || mkdir ~/.local
 	[ -d ~/.config/kitty ] || mkdir ~/.config/kitty
+	[ -d ~/.config/coc ]   || mkdir ~/.config/coc
 	@echo Done!
 
 	@echo Sync config folder...
