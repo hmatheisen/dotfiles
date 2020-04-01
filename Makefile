@@ -1,40 +1,73 @@
-all: sync
+# Test whether the curl command exists
+CURL := $(shell command -v curl 2> /dev/null)
+DIRS =
+	.config/ranger
+	.config/nvim
+	.config/nvim/ultisnips
+	.config/kitty
+	.local/bin
+FILES =
+	.gvimrc
+	.bashrc
+	.tmux.conf
+	.config/kitty/kitty.conf
+
+all: vim-plug sync
+
+vim-plug:
+ifndef CURL
+	$(error "curl is not execitable, please install it.")
+else
+	# Install vim-plug for neovim
+	@echo Installing VimPlug for Neovim...
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	@echo Done!
+
+	# Install vim-plug for vim
+	@echo Installing VimPlug for Vim...
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	@echo Done!
+endif
 
 sync:
 
-	# Install vim-plug for neovim
-	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	@echo Checking for existing directories...
+	for dir in $(DIRS) ; do \
+		# Create directories on system if they do not exists
+		[ -d ~/$$dir ] || mkdir ~/$$dir ; \
+	done
+	@echo Done!
 
-	# Install vim-plug for vim
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-	# .config
-	ln -s $(PWD)/.config/ranger           ~/.config/ranger
-	ln -s $(PWD)/.config/nvim             ~/.config/nvim
-	ln -s $(PWD)/.config/nvim/ultisnips   ~/.config/coc/ultisnips
-	ln -s $(PWD)/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
-
-	# dot files
-	ln -s $(PWD)/.gvimrc    ~/.gvimrc
-	ln -s $(PWD)/.bashrc    ~/.bashrc
-	ln -s $(PWD)/.tmux.conf ~/.tmux.conf
-
-	# scripts
-	ln -s $(PWD)/bin ~/.local/bin
+	@echo Begin sync...
+	# Sync directories
+	for dir in $(DIRS) ; do \
+		ln -s $(PWD)/$$dir ~/$$dir ; \
+	done
+	# Sync files
+	for f in $(FILES) ; do \
+		ln -s $(PWD)/$$f ~/$$f ; \
+	done
+	@echo Done!
 
 clean:
 
-	rm -f   ~/.bashrc
+	@echo Removing files on system...
+	for f in $(FILES) ; do \
+		rm -f ~/$$f ; \
+	done
+	@echo Done!
+
+	@echo Removing directorieson system...
+	for dir in $(DIRS) ; do \
+		rm -rf ~/$$dir ; \
+	done
+	@echo Done!
+
+	@echo Removing files from VimPLug...
 	rm -f   ~/.local/share/nvim/site/autoload/plug.vim
 	rm -f   ~/.vim/autoload/plug.vim
-	rm -f   ~/.tmux.conf
-	rm -f   ~/.gvimrc
-	rm -f   ~/.config/kitty/kitty.conf
-	rm -rf  ~/.config/ranger
-	rm -rf  ~/.config/nvim
-	rm -rf  ~/.local/bin
-	rm -rf  ~/.config/coc/ultisnips
+	@echo Done!
 
 .PHONY: all clean sync
