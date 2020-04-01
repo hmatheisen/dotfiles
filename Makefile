@@ -24,7 +24,7 @@ sync:
 	[ -d ~/.config ]       || mkdir ~/.config
 	[ -d ~/.local ]        || mkdir ~/.local
 	[ -d ~/.config/kitty ] || mkdir ~/.config/kitty
-	@Done!
+	@echo Done!
 
 	@echo Sync config folder...
 	ln -s $(PWD)/.config/ranger           ~/.config/ranger
