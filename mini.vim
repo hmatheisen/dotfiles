@@ -75,6 +75,13 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Readline style keybindings in Insert Mode (I don't like arrow keys)
+imap <C-a> <Home>
+imap <C-e> <End>
+
+" Toggle Highlighted search
+nnoremap <leader>s :setlocal hls!<CR>
+
 " Display statusline
 set laststatus=2
 

@@ -36,9 +36,10 @@ sync:
 	@echo Done!
 
 	@echo Sync files...
-	ln -s $(PWD)/.gvimrc    ~/.gvimrc
-	ln -s $(PWD)/.bashrc    ~/.bashrc
-	ln -s $(PWD)/.tmux.conf ~/.tmux.conf
+	ln -s $(PWD)/.gvimrc               ~/.gvimrc
+	ln -s $(PWD)/.bashrc               ~/.bashrc
+	ln -s $(PWD)/.tmux.conf            ~/.tmux.conf
+	ln -s $(PWD)/.config/nvim/init.vim ~/.vimrc
 	@echo Done!
 
 	@echo Sync script folder
@@ -47,15 +48,15 @@ sync:
 
 clean:
 
-	rm -f   ~/.bashrc
-	rm -f   ~/.local/share/nvim/site/autoload/plug.vim
-	rm -f   ~/.vim/autoload/plug.vim
-	rm -f   ~/.tmux.conf
-	rm -f   ~/.gvimrc
-	rm -f   ~/.config/kitty/kitty.conf
-	rm -rf  ~/.config/ranger
-	rm -rf  ~/.config/nvim
-	rm -rf  ~/.config/coc/ultisnips
-	rm -rf  ~/.local/bin
+	rm -f  ~/.bashrc
+	rm -f  ~/.local/share/nvim/site/autoload/plug.vim
+	rm -f  ~/.vim/autoload/plug.vim
+	rm -f  ~/.tmux.conf
+	rm -f  ~/.gvimrc
+	rm -f  ~/.config/kitty/kitty.conf
+	rm -rf ~/.config/ranger
+	rm -rf ~/.config/nvim
+	rm -rf ~/.config/coc/ultisnips
+	rm -rf ~/.local/bin
 
 .PHONY: all clean sync

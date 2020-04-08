@@ -11,18 +11,5 @@ endfunction
 
 command! MdLiveCompile call <SID>MdLiveCompile()
 
-" Enable markdown fold
-let g:markdown_folding = 1
-
-" Set line break and wrap
-setlocal wrap linebreak
-
-" Set text width
-setlocal textwidth=90
-
-" Enable spell check
-setlocal spell
-
-" Correct mistakes with C-l in Insert Mode
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
+" Text settings
+call functions#TextSettings()

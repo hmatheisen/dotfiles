@@ -104,6 +104,9 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " Disable help text
 let NERDTreeMinimalUI = 1
 
+" Toggle command
+nnoremap <leader>f :NERDTreeToggle<CR>
+
 " }}}
 " ==========================================
 " ALE: {{{
@@ -124,6 +127,15 @@ let g:ale_fixers = {
 
 " Fix file on save
 let g:ale_fix_on_save = 1
+
+" }}}
+" ==========================================
+" IndentLines: {{{
+" ==========================================
+
+" Indent guide disable by default
+let g:indentLine_enabled = 0
+nnoremap <leader>i :IndentLinesToggle<CR>
 
 " }}}
 " ==========================================

@@ -1,4 +1,4 @@
 {
-  "yaml.customTags": ["!Ref"],
+  "yaml.customTags": ["!Ref", "!FindInMap", "!Sub", "!GetAtt"],
   "clangd.path": "/usr/local/opt/llvm/bin/clangd"
 }

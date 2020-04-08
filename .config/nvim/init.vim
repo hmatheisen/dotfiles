@@ -89,6 +89,13 @@ set pumheight=10
 " Write to undo file
 set undofile
 
+" Netrw
+let g:netrw_banner = 0       " Disable help banner
+let g:netrw_liststyle = 3    " Tree like listing
+let g:netrw_browse_split = 4 " Open files in previous window
+let g:netrw_altv = 1         " Change to right split
+let g:netrw_winsize = 25     " Window size
+
 " }}}
 " ==========================================
 
