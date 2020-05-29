@@ -13,16 +13,21 @@ map <C-l> <C-w>l
 
 " Readline style keybindings in Insert Mode (I don't like arrow keys)
 imap <C-a> <Home>
+imap <C-f> <right>
+imap <C-b> <left>
 imap <C-e> <End>
 
 " Toggle spell check
-map <leader>o :setlocal spell!<CR>
+nnoremap <leader>o :setlocal spell!<CR>
 
 " Edit the neovim config file
-nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
+nnoremap <leader>v :e ~/.config/nvim<CR>
 
 " Toggle Highlighted search
 nnoremap <leader>s :setlocal hls!<CR>
+
+" Copy all file content to clipboard
+nnoremap <leader>c :!pbcopy < %<CR>
 
 " Toggle the sign column
 command! ToggleSignColumns call functions#ToggleSignColumns()
@@ -33,7 +38,6 @@ tnoremap <Esc> <C-\><C-n>
 " Easy switch buffers
 map gn :bn<cr>
 map gp :bp<cr>
-map gd :bd<cr>
 
 " }}}
 " ==========================================

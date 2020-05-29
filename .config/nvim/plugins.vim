@@ -28,6 +28,8 @@ Plug 'fatih/vim-go'
 Plug 'lervag/vimtex'
 Plug 'hashivim/vim-terraform'
 Plug 'chemzqm/vim-jsx-improve'
+Plug 'cespare/vim-toml'
+Plug 'tpope/vim-fireplace'
 
 call plug#end()
 

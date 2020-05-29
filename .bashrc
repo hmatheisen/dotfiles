@@ -20,12 +20,12 @@ fi
 
 # ls aliases
 if type exa &> /dev/null; then
-  alias ls="exa -lh"
+  alias ll="exa -lh"
 else
   if [[ "$OSTYPE" == "darwin"* ]];then
-    alias ls="ls -lhG"
+    alias ll="ls -lhG"
   else
-    alias ls="ls -lh --color=auto"
+    alias ll="ls -lh --color=auto"
   fi
 fi
 
@@ -80,3 +80,11 @@ export PATH=$PATH:$HOME/.local/bin
 # kitty completion
 source <(kitty + complete setup bash)
 
+# fzf setup
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# CodeReady Containers (local Openshift)
+export PATH="/Users/henrymatheisen/.crc/bin:$PATH"
+
+# Emacs binary
+alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
