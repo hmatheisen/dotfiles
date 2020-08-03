@@ -12,10 +12,6 @@
 " Enable syntax
 syntax on
 
-" Colorscheme
-set termguicolors
-set background=dark
-
 " Encoding
 set encoding=utf-8
 set fileencoding=utf-8

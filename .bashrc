@@ -20,7 +20,7 @@ fi
 
 # ls aliases
 if type exa &> /dev/null; then
-  alias ll="exa -lh"
+  alias ll="exa -lhg"
 else
   if [[ "$OSTYPE" == "darwin"* ]];then
     alias ll="ls -lhG"
@@ -41,6 +41,7 @@ alias vim=nvim
 alias ic=ibmcloud
 alias ts=tmux-session
 alias me="emacs -q --load ~/.emacs.d/memacs.el"
+alias glog="git log --decorate --oneline --graph"
 # If using kitty, set aias for ssh to send correct infos about the terminal to
 # the remote server
 if [[ $TERM == "xterm-kitty" ]]; then
@@ -66,13 +67,10 @@ export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/ru
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # Add Tex utilities
 export PATH=/Library/TeX/texbin:$PATH
 # Allows pdflatex to find the .cls files to build my latex documents
-export TEXINPUTS=".:$HOME/Documents/tex/classes:"
+export TEXINPUTS=".:$HOME/Documents/Notes/classes:"
 
 # Add local script folder
 export PATH=$PATH:$HOME/.local/bin
@@ -86,5 +84,5 @@ source <(kitty + complete setup bash)
 # CodeReady Containers (local Openshift)
 export PATH="/Users/henrymatheisen/.crc/bin:$PATH"
 
-# Emacs binary
-alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$HOME/.rvm/gems/ruby-2.7.0/bin:$PATH"
