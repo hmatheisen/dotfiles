@@ -53,14 +53,14 @@ set wildignorecase
 " Relative Numbers
 set nu rnu
 
+" Set width for line numbers
+set numberwidth=6
+
 " No Word Wrap
 set nowrap
 
 " Set spell lang
-set spelllang=fr,en_gb
-
-" Set Shell
-set shell=/usr/local/bin/bash
+set spelllang=en_gb,fr
 
 " Set swap directory
 set directory^=$HOME/.vimswap//
@@ -89,8 +89,12 @@ set undofile
 let g:netrw_banner = 0       " Disable help banner
 let g:netrw_liststyle = 3    " Tree like listing
 let g:netrw_browse_split = 4 " Open files in previous window
+let g:netrw_winsize = 85     " Window size
 let g:netrw_altv = 1         " Change to right split
-let g:netrw_winsize = 25     " Window size
+let g:netrw_preview = 1      " Open in vertical split
+
+" Number of lines to keep above or under the cursor
+set scrolloff=5
 
 " }}}
 " ==========================================

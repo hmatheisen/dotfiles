@@ -1,88 +1,64 @@
-# ===============================================
-#        _               _
-#       | |__   __ _ ___| |__  _ __ ___
-#       | '_ \ / _` / __| '_ \| '__/ __|
-#      _| |_) | (_| \__ \ | | | | | (__
-#     (_)_.__/ \__,_|___/_| |_|_|  \___|
-#
-# ===============================================
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
-# PS1 Setting
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
-# Bash Completion
-if [ -f /usr/local/etc/bash_completion ]; then
-  . /usr/local/etc/bash_completion
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# ls aliases
-if type exa &> /dev/null; then
-  alias ll="exa -lhg"
-else
-  if [[ "$OSTYPE" == "darwin"* ]];then
-    alias ll="ls -lhG"
-  else
-    alias ll="ls -lh --color=auto"
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
   fi
 fi
 
-# Set locale on Macos
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # set Locale
-  export LC_ALL=en_US.UTF-8
-fi
+# Go config
+export GO111MODULE=on
+export PATH=$PATH:/usr/local/go/bin
 
-# Aliases
-alias :q="exit"
-alias vim=nvim
-alias ic=ibmcloud
-alias ts=tmux-session
-alias me="emacs -q --load ~/.emacs.d/memacs.el"
-alias glog="git log --decorate --oneline --graph"
-# If using kitty, set aias for ssh to send correct infos about the terminal to
-# the remote server
-if [[ $TERM == "xterm-kitty" ]]; then
-  alias ssh="kitty +kitten ssh"
-fi
+# Pretty colors
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
-# Kubernetes editor
-export KUBE_EDITOR=nvim
-
-# Set editor
-export EDITOR=nvim
-
-# Go programming setup
-export PATH="$PATH:/usr/local/go"
-export GOPATH=$HOME/go:$HOME/go
-export PATH="$PATH:$HOME/go/bin"
-
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
-
-# Add brew install directory to $PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-
-# Add Tex utilities
-export PATH=/Library/TeX/texbin:$PATH
-# Allows pdflatex to find the .cls files to build my latex documents
-export TEXINPUTS=".:$HOME/Documents/Notes/classes:"
-
-# Add local script folder
-export PATH=$PATH:$HOME/.local/bin
-
-# kitty completion
-source <(kitty + complete setup bash)
-
-# fzf setup
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# CodeReady Containers (local Openshift)
-export PATH="/Users/henrymatheisen/.crc/bin:$PATH"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$HOME/.rvm/gems/ruby-2.7.0/bin:$PATH"

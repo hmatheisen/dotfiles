@@ -11,11 +11,6 @@ else
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	@echo Done!
-
-	@echo Installing VimPlug for Vim...
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	@echo Done!
 endif
 
 sync:
@@ -36,7 +31,6 @@ sync:
 	@echo Done!
 
 	@echo Sync files...
-	ln -s $(PWD)/.gvimrc               ~/.gvimrc
 	ln -s $(PWD)/.bashrc               ~/.bashrc
 	ln -s $(PWD)/.tmux.conf            ~/.tmux.conf
 	ln -s $(PWD)/.config/nvim/init.vim ~/.vimrc
@@ -52,8 +46,6 @@ clean:
 	rm -f  ~/.local/share/nvim/site/autoload/plug.vim
 	rm -f  ~/.vim/autoload/plug.vim
 	rm -f  ~/.tmux.conf
-	rm -f  ~/.gvimrc
-	rm -f  ~/.config/kitty/kitty.conf
 	rm -rf ~/.config/ranger
 	rm -rf ~/.config/nvim
 	rm -rf ~/.config/coc/ultisnips

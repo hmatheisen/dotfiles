@@ -123,14 +123,14 @@ nnoremap <leader>f :NERDTreeToggle<CR>
 " Manage linters
 let g:ale_linters = {
       \'javascript': ['eslint'],
-      \'typescript': ['tslint'],
+      \'typescript': ['eslint'],
       \}
 
 " Manage fixers
 let g:ale_fixers = {
       \'*': ['trim_whitespace'],
       \'javascript': ['eslint'],
-      \'typescript': ['tslint']
+      \'typescript': ['eslint']
       \}
 
 " Fix file on save
@@ -144,6 +144,22 @@ let g:ale_fix_on_save = 1
 " Indent guide disable by default
 let g:indentLine_enabled = 0
 nnoremap <leader>i :IndentLinesToggle<CR>
+
+" }}}
+" ==========================================
+" Vimtex: {{{
+" ==========================================
+
+" Specify tex flavor
+let g:tex_flavor = 'latex'
+
+" }}}
+" ==========================================
+" Terraform:
+" ==========================================
+
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 
 " }}}
 " ==========================================
