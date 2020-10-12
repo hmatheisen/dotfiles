@@ -18,7 +18,6 @@ sync:
 	@echo Creating directories...
 	[ -d ~/.config ]        || mkdir ~/.config
 	[ -d ~/.local ]         || mkdir ~/.local
-	[ -d ~/.config/kitty ]  || mkdir ~/.config/kitty
 	[ -d ~/.config/coc ]    || mkdir ~/.config/coc
 	[ -d ~/.config/ranger ] || mkdir ~/.config/ranger
 	@echo Done!
@@ -27,13 +26,13 @@ sync:
 	ln -s $(PWD)/.config/ranger/rc.conf   ~/.config/ranger/rc.conf
 	ln -s $(PWD)/.config/nvim             ~/.config/nvim
 	ln -s $(PWD)/.config/nvim/ultisnips   ~/.config/coc/ultisnips
-	ln -s $(PWD)/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 	@echo Done!
 
 	@echo Sync files...
 	ln -s $(PWD)/.bashrc               ~/.bashrc
+	ln -s $(PWD)/.bash_aliases         ~/.bash_aliases
 	ln -s $(PWD)/.tmux.conf            ~/.tmux.conf
-	ln -s $(PWD)/.config/nvim/init.vim ~/.vimrc
+	ln -s $(PWD)/mini.vim              ~/.vimrc
 	@echo Done!
 
 	@echo Sync script folder
@@ -44,8 +43,9 @@ clean:
 
 	rm -f  ~/.bashrc
 	rm -f  ~/.local/share/nvim/site/autoload/plug.vim
-	rm -f  ~/.vim/autoload/plug.vim
 	rm -f  ~/.tmux.conf
+	rm -f  ~/.vimrc
+	rm -f  ~/.bash_aliases
 	rm -rf ~/.config/ranger
 	rm -rf ~/.config/nvim
 	rm -rf ~/.config/coc/ultisnips
