@@ -65,3 +65,10 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 # Set main editor
 export EDITOR=/usr/local/bin/nvim
+
+# Terrafor completion
+complete -C /usr/local/bin/terraform terraform
+
+# kubectl completion
+source <(kubectl completion bash)
+complete -F __start_kubectl k
