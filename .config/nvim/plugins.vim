@@ -16,6 +16,7 @@ Plug 'dense-analysis/ale'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
+Plug 'mattn/emmet-vim'
 
 " Looks
 Plug 'vim-airline/vim-airline'
@@ -30,7 +31,6 @@ Plug 'lervag/vimtex'
 Plug 'hashivim/vim-terraform'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'cespare/vim-toml'
-Plug 'tpope/vim-fireplace'
 
 call plug#end()
 
