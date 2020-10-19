@@ -9,11 +9,12 @@
 " Editor Options: {{{
 " ==========================================
 
-" Enable syntax
-syntax on
-
-" Background light has better colors in default theme
-set background=light
+if !has('nvim')
+  " No Vi compatibility if in Vim
+  set nocompatible
+  " Enable syntax
+  syntax on
+end
 
 " Encoding
 set encoding=utf-8
@@ -41,26 +42,26 @@ let mapleader=','
 set hidden
 
 " Searching
-set nohlsearch     " Do not highlight search results
-set incsearch      " Search as letters are typed
-set ignorecase     " Ignore case
+set nohlsearch  " Do not highlight search results
+set incsearch   " Search as letters are typed
+set ignorecase  " Ignore case
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults. (Copyrights LukeSmithxyz)
 set splitbelow splitright
 
 " Set command completion
-set wildmode=list:longest,full
 set wildmenu
+set wildmode=list:longest,full
 set wildignorecase
 
-" Show statusline when more than one buffer
-set laststatus=1
+" Always show statusline
+set laststatus=2
 
 " Set width for line numbers
-set numberwidth=6
+set numberwidth=8
 
 " Relative Numbers
-set nu rnu
+set number relativenumber
 
 " No Word Wrap
 set nowrap
@@ -94,13 +95,18 @@ set pumheight=10
 " Write to undo file
 set undofile
 
-" Netrw
-let g:netrw_banner = 0       " Disable help banner
-let g:netrw_liststyle = 3    " Tree like listing
-let g:netrw_browse_split = 4 " Open files in previous window
-let g:netrw_winsize = 85     " Window size
-let g:netrw_altv = 1         " Change to right split
-let g:netrw_preview = 1      " Open in vertical split
+" Default shell to use
+set shell=/usr/bin/env\ bash
+
+" Use mouse for all modes
+set mouse=a
+
+" Show cursor line
+set cursorline
+
+if has('nvim')
+  set inccommand=split
+end
 
 " }}}
 " ==========================================
@@ -134,24 +140,17 @@ nnoremap <leader>s :setlocal hls!<CR>
 " Copy all file content to clipboard
 nnoremap <leader>c :!pbcopy < %<CR>
 
-" Toggle the sign column
-command! ToggleSignColumns call functions#ToggleSignColumns()
-
-" Escape terminal easily
-tnoremap <Esc> <C-\><C-n>
+if has('nvim')
+  " Escape terminal easily
+  tnoremap <Esc> <C-\><C-n>
+end
 
 " Easy switch buffers
-map gn :bn<cr>
-map gp :bp<cr>
+map gn :bn<CR>
+map gp :bp<CR>
 
 " Auto close
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
-" }}}
-" ==========================================
 
+" }}}
