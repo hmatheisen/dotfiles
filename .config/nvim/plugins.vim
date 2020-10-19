@@ -19,11 +19,11 @@ Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
 
 " Looks
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'ayu-theme/ayu-vim'
-Plug 'vim-airline/vim-airline-themes'
 
 " Language specific
 Plug 'fatih/vim-go'
@@ -40,12 +40,12 @@ call plug#end()
 " Colorscheme: {{{
 " ==========================================
 
-set termguicolors
+set notermguicolors
 set background=dark
 let ayucolor="dark"
 let g:gruvbox_contrast_dark='hard'
 let g:jellybeans_use_term_italics = 1
-colorscheme jellybeans
+colorscheme better
 
 " }}}
 " ==========================================

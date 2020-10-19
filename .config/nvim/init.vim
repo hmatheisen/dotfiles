@@ -9,9 +9,6 @@
 " Editor Options: {{{
 " ==========================================
 
-" Enable syntax
-syntax on
-
 " Encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -38,29 +35,35 @@ let mapleader=','
 set hidden
 
 " Searching
-set nohlsearch     " Do not highlight search results
-set incsearch      " Search as letters are typed
-set ignorecase     " Ignore case
+set nohlsearch  " Do not highlight search results
+set incsearch   " Search as letters are typed
+set ignorecase  " Ignore case
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults. (Copyrights LukeSmithxyz)
 set splitbelow splitright
 
 " Set command completion
-set wildmode=list:longest,full
 set wildmenu
+set wildmode=list:longest,full
 set wildignorecase
 
-" Relative Numbers
-set nu rnu
+" Always show statusline
+set laststatus=2
 
 " Set width for line numbers
-set numberwidth=6
+set numberwidth=8
+
+" Relative Numbers
+set number relativenumber
 
 " No Word Wrap
 set nowrap
 
 " Set spell lang
 set spelllang=en_gb,fr
+
+" No spell check by default
+set nospell
 
 " Set swap directory
 set directory^=$HOME/.vimswap//
@@ -85,6 +88,18 @@ set pumheight=10
 " Write to undo file
 set undofile
 
+" Default shell to use
+set shell=/usr/bin/env\ bash
+
+" Use mouse for all modes
+set mouse=a
+
+" Show cursor line
+set cursorline
+
+" Show split preview for some commands
+set inccommand=split
+
 " Netrw
 let g:netrw_banner = 0       " Disable help banner
 let g:netrw_liststyle = 3    " Tree like listing
@@ -93,8 +108,14 @@ let g:netrw_winsize = 85     " Window size
 let g:netrw_altv = 1         " Change to right split
 let g:netrw_preview = 1      " Open in vertical split
 
-" Number of lines to keep above or under the cursor
-set scrolloff=5
+set statusline=
+set statusline+=\ %f
+set statusline+=\ %m
+set statusline+=\ %r
+set statusline+=%=
+set statusline+=%y
+set statusline+=%w
+set statusline+=\ %l/%L
 
 " }}}
 " ==========================================
