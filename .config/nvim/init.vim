@@ -110,13 +110,15 @@ let g:netrw_preview = 1      " Open in vertical split
 
 " Custom status line
 set statusline=
-set statusline+=\ %f
-set statusline+=\ %m
-set statusline+=\ %r
-set statusline+=%=
-set statusline+=%y
-set statusline+=%w
-set statusline+=\ %l/%L
+set statusline+=\ %f     " Path to file
+set statusline+=\ %m     " Modified flag
+set statusline+=\ %q     " quick list
+set statusline+=\ %w     " Preview flag
+set statusline+=\ %r     " Read-only flag
+set statusline+=%=       " Go to other side
+set statusline+=%y       " File type
+set statusline+=\ %4l:%c " line number : column number
+set statusline+=\ %4P    " Percentage
 
 " }}}
 " ==========================================
