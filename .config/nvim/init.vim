@@ -108,6 +108,7 @@ let g:netrw_winsize = 85     " Window size
 let g:netrw_altv = 1         " Change to right split
 let g:netrw_preview = 1      " Open in vertical split
 
+" Custom status line
 set statusline=
 set statusline+=\ %f
 set statusline+=\ %m

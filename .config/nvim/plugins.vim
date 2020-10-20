@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
 
 " Looks
 " Plug 'vim-airline/vim-airline'
@@ -42,10 +43,10 @@ call plug#end()
 
 set notermguicolors
 set background=dark
-let ayucolor="dark"
-let g:gruvbox_contrast_dark='hard'
-let g:jellybeans_use_term_italics = 1
-colorscheme better
+" let ayucolor="dark"
+" let g:gruvbox_contrast_dark='hard'
+" let g:jellybeans_use_term_italics = 1
+colorscheme far-better
 
 " }}}
 " ==========================================
