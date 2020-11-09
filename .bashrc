@@ -55,6 +55,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Personal scripts
+export PATH=$PATH:~/.local/bin
+
 # Go config
 export GO111MODULE=on
 export PATH=$PATH:~/go/bin # vim-go install binaries here
@@ -69,7 +72,5 @@ export EDITOR=/usr/local/bin/nvim
 # Terrafor completion
 complete -C /usr/local/bin/terraform terraform
 
-# kubectl completion
-source <(kubectl completion bash)
-complete -F __start_kubectl k
-
+# Helm auto completion
+source <(helm completion bash)

@@ -1,0 +1,9 @@
+#!/bin/sh
+# Long press
+xset r rate 280 40
+# Load keymaps
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+# Start nitrogen for wallpaper manaement
+nitrogen --restore &
+# Start tint2
+tint2  -c ~/.config/tint2/minima/minima.tint2rc &
