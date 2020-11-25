@@ -15,32 +15,32 @@ vim-plug:
 	@echo Done!
 
 nvim:
-	ln -s config/nvim           ~/.config/nvim
-	ln -s config/nvim/ultisnips ~/.config/coc/ultisnips
+	ln -s $(PWD)/config/nvim           ~/.config/nvim
+	ln -s $(PWD)/config/nvim/ultisnips ~/.config/coc/ultisnips
 
 ranger:
-	ln -s config/ranger         ~/.config/ranger
+	ln -s $(PWD)/config/ranger         ~/.config/ranger
 
 alacritty:
-	ln -s config/alacritty      ~/.config/alacritty
+	ln -s $(PWD)/config/alacritty      ~/.config/alacritty
 
 bash:
-	ln -s bashrc                ~/.bashrc
-	ln -s bash_aliases          ~/.bash_aliases
+	ln -s $(PWD)/bashrc                ~/.bashrc
+	ln -s $(PWD)/bash_aliases          ~/.bash_aliases
 
 tmux:
-	ln -s tmux.conf             ~/.tmux.conf
+	ln -s $(PWD)/tmux.conf             ~/.tmux.conf
 
 scripts:
-	ln -s scripts               ~/.local/bin
+	ln -s $(PWD)/scripts               ~/.local/bin
 
 X11:
-	ln -s Xmodmap               ~/.Xmodmap
-	ln -s Xresources            ~/.Xresources
-	ln -s Xprofile              ~/.Xprofile
+	ln -s $(PWD)/Xmodmap               ~/.Xmodmap
+	ln -s $(PWD)/Xresources            ~/.Xresources
+	ln -s $(PWD)/Xprofile              ~/.Xprofile
 
 spectrwm:
-	ln -s spectrwm.conf         ~/.spectrwm.conf
+	ln -s $(PWD)/spectrwm.conf         ~/.spectrwm.conf
 
 clean:
 	@# nvim
