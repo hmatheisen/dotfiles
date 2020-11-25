@@ -1,0 +1,11 @@
+#!/bin/sh
+
+usermodmap=$HOME/.Xmodmap
+
+export LC_ALL="C"
+
+# source xmodmap
+[ -f $usermodmap ] && xmodmap $xmodmap
+
+# Set key press speed
+xset r rate 240 40

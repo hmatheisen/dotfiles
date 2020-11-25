@@ -1,54 +1,65 @@
-CURL := $(shell command -v curl 2> /dev/null)
+sync: create-dirs vim-plug nvim ranger alacritty bash tmux scripts X11 spectrwm
 
-all: vim-plug sync
+create-dirs:
+
+	@echo Creating directories...
+	[ -d ~/.config ]      || mkdir ~/.config
+	[ -d ~/.local ]       || mkdir ~/.local
+	[ -d ~/.config/coc ]  || mkdir ~/.config/coc
+	@echo Done!
 
 vim-plug:
-
-ifndef CURL
-	$(error "curl is not execitable, please install it.")
-else
 	@echo Installing VimPlug for Neovim...
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	@echo Done!
-endif
 
-sync:
+nvim:
+	ln -s config/nvim           ~/.config/nvim
+	ln -s config/nvim/ultisnips ~/.config/coc/ultisnips
 
-	@echo Creating directories...
-	[ -d ~/.config ]        || mkdir ~/.config
-	[ -d ~/.local ]         || mkdir ~/.local
-	[ -d ~/.config/coc ]    || mkdir ~/.config/coc
-	[ -d ~/.config/ranger ] || mkdir ~/.config/ranger
-	@echo Done!
+ranger:
+	ln -s config/ranger         ~/.config/ranger
 
-	@echo Sync config folder...
-	ln -s $(PWD)/.config/ranger/rc.conf   ~/.config/ranger/rc.conf
-	ln -s $(PWD)/.config/nvim             ~/.config/nvim
-	ln -s $(PWD)/.config/nvim/ultisnips   ~/.config/coc/ultisnips
-	@echo Done!
+alacritty:
+	ln -s config/alacritty      ~/.config/alacritty
 
-	@echo Sync files...
-	ln -s $(PWD)/.bashrc               ~/.bashrc
-	ln -s $(PWD)/.bash_aliases         ~/.bash_aliases
-	ln -s $(PWD)/.tmux.conf            ~/.tmux.conf
-	ln -s $(PWD)/mini.vim              ~/.vimrc
-	@echo Done!
+bash:
+	ln -s bashrc                ~/.bashrc
+	ln -s bash_aliases          ~/.bash_aliases
 
-	@echo Sync script folder
-	ln -s $(PWD)/bin ~/.local/bin
-	@echo Done!
+tmux:
+	ln -s tmux.conf             ~/.tmux.conf
+
+scripts:
+	ln -s scripts               ~/.local/bin
+
+X11:
+	ln -s Xmodmap               ~/.Xmodmap
+	ln -s Xresources            ~/.Xresources
+	ln -s Xprofile              ~/.Xprofile
+
+spectrwm:
+	ln -s spectrwm.conf         ~/.spectrwm.conf
 
 clean:
-
-	rm -f  ~/.bashrc
-	rm -f  ~/.local/share/nvim/site/autoload/plug.vim
-	rm -f  ~/.tmux.conf
-	rm -f  ~/.vimrc
-	rm -f  ~/.bash_aliases
-	rm -rf ~/.config/ranger
+	@# nvim
 	rm -rf ~/.config/nvim
 	rm -rf ~/.config/coc/ultisnips
+	@# ranger
+	rm -rf ~/.config/ranger
+	@#alacritty
+	rm -rf ~/.config/alacritty
+	@# bash
+	rm -f  ~/.bashrc
+	rm -f  ~/.bash_aliases
+	@# tmux
+	rm -f  ~/.tmux.conf
+	@# scripts
 	rm -rf ~/.local/bin
-
-.PHONY: all clean sync
+	@# X11
+	rm -f  ~/.Xmodmap
+	rm -f  ~/.Xresources
+	rm -f  ~/.Xprofile
+	@# spectrwm
+	rm -f  ~/.spectrwm.conf

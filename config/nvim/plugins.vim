@@ -42,11 +42,11 @@ call plug#end()
 " ==========================================
 
 set notermguicolors
-set background=dark
+set background=light
 " let ayucolor="dark"
 " let g:gruvbox_contrast_dark='hard'
 " let g:jellybeans_use_term_italics = 1
-colorscheme far-better
+colorscheme simple
 
 " }}}
 " ==========================================

@@ -22,9 +22,9 @@ set autoindent  " Copy indent from previous line
 set smartindent " Indent from syntax
 
 " Tab config
-set tabstop=2      " Number of spaces per tab
-set softtabstop=2  " Number of spaces for tab operations
-set shiftwidth=2   " Number of spaces for autoindent
+set tabstop=4      " Number of spaces per tab
+set softtabstop=4  " Number of spaces for tab operations
+set shiftwidth=4   " Number of spaces for autoindent
 set expandtab      " Use appropriate number os spaces when inserting tabs
 set smarttab       " act according to previous options
 
@@ -95,7 +95,7 @@ set shell=/usr/bin/env\ bash
 set mouse=a
 
 " Show cursor line
-set cursorline
+" set cursorline
 
 " Show split preview for some commands
 set inccommand=split

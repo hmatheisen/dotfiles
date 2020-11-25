@@ -6,4 +6,4 @@ alias glog="git log --decorate --oneline --graph"
 alias w="watch -n 1"
 alias ts="tmux-session"
 alias k=kubectl
-alias ec=emacsclient
+alias ec="emacsclient -c"
