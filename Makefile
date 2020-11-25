@@ -1,4 +1,4 @@
-sync: create-dirs vim-plug nvim ranger alacritty bash tmux scripts X11 spectrwm
+sync: create-dirs vim-plug nvim ranger alacritty bash tmux scripts X11 scripts spectrwm
 
 create-dirs:
 
@@ -63,3 +63,5 @@ clean:
 	rm -f  ~/.Xprofile
 	@# spectrwm
 	rm -f  ~/.spectrwm.conf
+
+.PHONY: sync create-dirs vim-plug nvim ranger alacritty bash tmux scripts X11 scripts spectrwm
