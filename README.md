@@ -7,7 +7,7 @@ This repository contains my config files for various programs
 Use the `Makefile`
 
 ```bash
-make clean && make
+make clean sync
 ```
 
 **Warning :** `make clean` removes all the previous config files
