@@ -1,4 +1,3 @@
-# -*- mode: sh -*-
 alias ll="exa -lhg"
 alias vim=nvim
 alias v="nvim -u ~/.vimrc"

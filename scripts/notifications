@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Battery level considered to be low
+LOW_BATTERY_LEVEL=95
+# Time between low battery notifications (in minutes)
+LOW_BATTERY_TIME=5
+
+low_battery() {
+    local statusFile="/sys/class/power_supply/BAT0/status"
+    local capacityFile="/sys/class/power_supply/BAT0/capacity"
+    [ -f $statusFile ]   && local status=$(cat $statusFile)
+    [ -f $capacityFile ] && local capacity=$(cat $capacityFile)
+
+    if [ $capacity -le $LOW_BATTERY_LEVEL ] && [ $status != "Charging" ]; then
+       notify-send -u critical "Low Battery" "Capacity: ${capacity}%"
+    fi
+}
+
+
+while :; do
+    low_battery
+    sleep $((LOW_BATTERY_TIME*60))
+done

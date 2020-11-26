@@ -1,4 +1,4 @@
-sync: create-dirs vim-plug nvim ranger alacritty bash tmux scripts X11 scripts spectrwm
+sync: create-dirs vim-plug nvim ranger alacritty dunst bash tmux scripts X11 scripts spectrwm
 
 create-dirs:
 
@@ -24,6 +24,9 @@ ranger:
 alacritty:
 	ln -s $(PWD)/config/alacritty      ~/.config/alacritty
 
+dunst:
+	ln -s $(PWD)/config/dunst          ~/.config/dunst
+
 bash:
 	ln -s $(PWD)/bashrc                ~/.bashrc
 	ln -s $(PWD)/bash_aliases          ~/.bash_aliases
@@ -48,8 +51,10 @@ clean:
 	rm -rf ~/.config/coc/ultisnips
 	@# ranger
 	rm -rf ~/.config/ranger
-	@#alacritty
+	@# alacritty
 	rm -rf ~/.config/alacritty
+	@# dunst
+	rm -rf ~/.config/dunst
 	@# bash
 	rm -f  ~/.bashrc
 	rm -f  ~/.bash_aliases
