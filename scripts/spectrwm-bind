@@ -1,0 +1,3 @@
+#!/bin/sh
+
+awk '/^bind\[.*\]/ {printf "%-30s %s\n", $1, $3}' /home/henry/.spectrwm.conf | sed -r "s/bind\[(.*)\]/\1/g" | less

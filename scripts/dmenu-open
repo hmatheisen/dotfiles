@@ -1,0 +1,8 @@
+#!/bin/sh
+declare options=("nvim
+ranger
+irssi
+htop
+")
+
+st -e $(echo -e "${options[@]}" | dmenu -p 'Open:')

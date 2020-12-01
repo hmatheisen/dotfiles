@@ -18,6 +18,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
+Plug 'junegunn/goyo.vim'
 
 " Looks
 " Plug 'vim-airline/vim-airline'
@@ -32,6 +33,7 @@ Plug 'lervag/vimtex'
 Plug 'hashivim/vim-terraform'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'cespare/vim-toml'
+Plug 'kovetskiy/sxhkd-vim'
 
 call plug#end()
 

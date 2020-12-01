@@ -1,0 +1,51 @@
+#!/bin/sh
+declare options=("nvim
+ranger
+dunst
+bash
+tmux
+scripts
+X11
+spectrwm
+st
+dmenu")
+
+choice=$(echo -e "${options[@]}" | dmenu -p 'Edit config:')
+
+case "$choice" in
+    nvim)
+        choice=$HOME/.config/nvim/init.vim
+        ;;
+    ranger)
+        choice=$HOME/.config/ranger/rc.conf
+        ;;
+    dunst)
+        choice=$HOME/.config/dunst/dunstrc
+        ;;
+    bash)
+        choice=$HOME/.bashrc
+        ;;
+    tmux)
+        choice=$HOME/.tmux.conf
+        ;;
+    scripts)
+        choice=$HOME/.local/bin
+        ;;
+    X11)
+        choice="$HOME/.Xresources $HOME/.xprofile $HOME/.Xmodmap"
+        ;;
+    spectrwm)
+        choice=$HOME/.spectrwm.conf
+        ;;
+    st)
+        choice=$HOME/suckless-tools/st/config.h
+        ;;
+    dmenu)
+        choice=$HOME/suckless-tools/dmenu/config.h
+        ;;
+    *)
+        exit 0;
+        ;;
+esac
+
+st -e nvim $choice
