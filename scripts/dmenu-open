@@ -5,4 +5,7 @@ irssi
 htop
 ")
 
-st -e $(echo -e "${options[@]}" | dmenu -p 'Open:')
+choice=$(echo -e "${options[@]}" | dmenu -p 'Open:')
+[ -z $choice ] && exit 0;
+
+st -e $choice
