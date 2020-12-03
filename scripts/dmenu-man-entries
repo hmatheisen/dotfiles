@@ -1,0 +1,6 @@
+#!/bin/sh
+
+choice=$(man -k . | awk '{print $1}' | dmenu -p 'Open Man:')
+[ -z $choice ] && exit 0;
+
+st -e man $choice
