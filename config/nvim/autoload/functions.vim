@@ -1,14 +1,3 @@
-" Toggle the sign column
-function functions#ToggleSignColumns()
-  if !exists("b:signcolumn_on") || b:signcolumn_on
-    set signcolumn=no
-    let b:signcolumn_on=0
-  else
-    set signcolumn=auto
-    let b:signcolumn_on=1
-  endif
-endfunction
-
 " Set text files settings
 function functions#TextSettings()
   " Enable wrap and linebreak

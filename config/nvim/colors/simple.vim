@@ -21,8 +21,11 @@ set background=light
 " No highlight on status line
 hi StatusLine NONE
 " Dim colors on status line NC
-hi! link StatusLineNC Conceal
+hi StatusLineNC cterm=NONE ctermfg=248
 " No background color in vertical split line
 hi VertSplit NONE
-
+" Visual mode
+hi! link Visual Folded
+" MatchParen but less bothering
+hi! link MatchParen NonText
 " }}}

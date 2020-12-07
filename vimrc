@@ -9,7 +9,7 @@
 " Editor Options: {{{
 " ==========================================
 
-" Set default background>
+" Set background
 set background=light
 
 " Encoding
@@ -97,11 +97,11 @@ set shell=/usr/bin/env\ bash
 " Use mouse for all modes
 set mouse=a
 
+" Show cursor line
+" set cursorline
+
 " Show split preview for some commands
 set inccommand=split
-
-" Smaller update time
-set updatetime=300
 
 " Custom status line
 set statusline=
@@ -118,6 +118,4 @@ set statusline+=\ %4P    " Percentage
 " }}}
 " ==========================================
 
-source $HOME/.config/nvim/plugins.vim
-source $HOME/.config/nvim/mappings.vim
 

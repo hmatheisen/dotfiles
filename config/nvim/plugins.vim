@@ -6,34 +6,23 @@ call plug#begin('~/.vim/plugged')
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 
 " Editor enhancements:
 Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Raimondi/delimitMate'
-Plug 'dense-analysis/ale'
+" Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'junegunn/goyo.vim'
-
-" Looks
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-Plug 'morhetz/gruvbox'
-Plug 'nanotech/jellybeans.vim'
-Plug 'ayu-theme/ayu-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'godlygeek/tabular'
 
 " Language specific
 Plug 'fatih/vim-go'
 Plug 'lervag/vimtex'
 Plug 'hashivim/vim-terraform'
-Plug 'chemzqm/vim-jsx-improve'
 Plug 'cespare/vim-toml'
-Plug 'kovetskiy/sxhkd-vim'
 
 call plug#end()
 
@@ -44,60 +33,7 @@ call plug#end()
 " ==========================================
 
 set notermguicolors
-set background=light
-" let ayucolor="dark"
-" let g:gruvbox_contrast_dark='hard'
-" let g:jellybeans_use_term_italics = 1
 colorscheme simple
-
-" }}}
-" ==========================================
-" COC: {{{
-" ==========================================
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-" Use <Tab> and <S-Tab> to navigate the completion list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Use <cr> to confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" To make <cr> select the first completion item and confirm the completion when no item has been selected
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-
-" To make coc.nvim format your code on <cr>, use keymap
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" Close the preview window when completion is done
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " }}}
 " ==========================================
@@ -120,36 +56,6 @@ nnoremap <leader>f :NERDTreeToggle<CR>
 
 " }}}
 " ==========================================
-" ALE: {{{
-" ==========================================
-
-" Manage linters
-let g:ale_linters = {
-      \'javascript': ['eslint'],
-      \'typescript': ['eslint'],
-      \}
-
-" Manage fixers
-let g:ale_fixers = {
-      \'*': ['trim_whitespace'],
-      \'javascript': ['eslint'],
-      \'typescript': ['eslint']
-      \}
-
-" Fix file on save
-let g:ale_fix_on_save = 1
-
-" }}}
-" ==========================================
-" IndentLines: {{{
-" ==========================================
-
-" Indent guide disable by default
-let g:indentLine_enabled = 0
-nnoremap <leader>i :IndentLinesToggle<CR>
-
-" }}}
-" ==========================================
 " Vimtex: {{{
 " ==========================================
 
@@ -158,11 +64,78 @@ let g:tex_flavor = 'latex'
 
 " }}}
 " ==========================================
-" Terraform:
+" Terraform: {{{
 " ==========================================
 
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
+
+" }}}
+" ==========================================
+" COC: {{{
+" ==========================================
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " }}}
 " ==========================================

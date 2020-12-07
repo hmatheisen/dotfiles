@@ -36,9 +36,8 @@ pwr() {
 }
 
 vol() {
-    vol=$(amixer get Master | awk -F "[][]" '/dB/ { print $2 }')
-    mute=$(amixer get Master | awk -F "[][]" '/dB/ { print $6 }')
-    echo -e "VOL: $vol ($mute)"
+    vol=$(amixer get Master | awk -F "[][]" '/dB/ { printf "%s (%s)", $2, $6 }')
+    echo -e "VOL: $vol"
 }
 
 net() {

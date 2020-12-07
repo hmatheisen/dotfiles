@@ -6,7 +6,7 @@ awk '
     }
 
     /^bind\[.*\]/ {
-        s = gensub(/bind\[(.*)\]/, "\\1", "g", $1)
+        s = gensub(/^bind\[(.*)\]/, "\\1", "g", $1)
         printf "%-20s %s\n", s, $3
     }
 ' /home/henry/.spectrwm.conf | less

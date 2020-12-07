@@ -14,9 +14,13 @@ vim-plug:
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	@echo Done!
 
+vimrc:
+	grep -vE "^source" config/nvim/init.vim > vimrc
+
 nvim:
 	ln -s $(PWD)/config/nvim           ~/.config/nvim
 	ln -s $(PWD)/config/nvim/ultisnips ~/.config/coc/ultisnips
+	ln -s $(PWD)/vimrc                 ~/.vimrc
 
 ranger:
 	ln -s $(PWD)/config/ranger         ~/.config/ranger
@@ -49,6 +53,7 @@ clean:
 	@# nvim
 	rm -rf ~/.config/nvim
 	rm -rf ~/.config/coc/ultisnips
+	rm ~/.vimrc
 	@# ranger
 	rm -rf ~/.config/ranger
 	@# alacritty
@@ -69,4 +74,4 @@ clean:
 	@# spectrwm
 	rm -f  ~/.spectrwm.conf
 
-.PHONY: sync create-dirs vim-plug nvim ranger alacritty bash tmux scripts X11 scripts spectrwm
+.PHONY: sync create-dirs vim-plug nvim ranger alacritty bash tmux scripts X11 scripts spectrwm vimrc
