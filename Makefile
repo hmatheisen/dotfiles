@@ -38,6 +38,9 @@ bash:
 	ln -s $(PWD)/bashrc                ~/.bashrc
 	ln -s $(PWD)/bash_aliases          ~/.bash_aliases
 
+zsh:
+	ln -s $(PWD)/zshrc                ~/.zshrc
+
 tmux:
 	ln -s $(PWD)/tmux.conf             ~/.tmux.conf
 
@@ -67,6 +70,8 @@ clean:
 	@# bash
 	rm -f  ~/.bashrc
 	rm -f  ~/.bash_aliases
+	@# zsh
+	rm -f  ~/.zshrc
 	@# tmux
 	rm -f  ~/.tmux.conf
 	@# scripts
