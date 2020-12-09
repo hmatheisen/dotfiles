@@ -1,0 +1,3 @@
+#!/bin/sh
+
+nitrogen --random --set-auto /usr/share/backgrounds/void

@@ -31,6 +31,9 @@ alacritty:
 dunst:
 	ln -s $(PWD)/config/dunst          ~/.config/dunst
 
+picom:
+	ln -s $(PWD)/config/picom          ~/.config/picom
+
 bash:
 	ln -s $(PWD)/bashrc                ~/.bashrc
 	ln -s $(PWD)/bash_aliases          ~/.bash_aliases
@@ -43,8 +46,7 @@ scripts:
 
 X11:
 	ln -s $(PWD)/Xmodmap               ~/.Xmodmap
-	ln -s $(PWD)/Xresources            ~/.Xresources
-	ln -s $(PWD)/Xprofile              ~/.Xprofile
+	ln -s $(PWD)/Xprofile              ~/.xprofile
 
 spectrwm:
 	ln -s $(PWD)/spectrwm.conf         ~/.spectrwm.conf
@@ -53,13 +55,15 @@ clean:
 	@# nvim
 	rm -rf ~/.config/nvim
 	rm -rf ~/.config/coc/ultisnips
-	rm ~/.vimrc
+	rm -f  ~/.vimrc
 	@# ranger
 	rm -rf ~/.config/ranger
 	@# alacritty
 	rm -rf ~/.config/alacritty
 	@# dunst
 	rm -rf ~/.config/dunst
+	@# picom
+	rm -rf ~/.conig/picom
 	@# bash
 	rm -f  ~/.bashrc
 	rm -f  ~/.bash_aliases
@@ -69,8 +73,7 @@ clean:
 	rm -rf ~/.local/bin
 	@# X11
 	rm -f  ~/.Xmodmap
-	rm -f  ~/.Xresources
-	rm -f  ~/.Xprofile
+	rm -f  ~/.xprofile
 	@# spectrwm
 	rm -f  ~/.spectrwm.conf
 

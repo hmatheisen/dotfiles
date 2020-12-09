@@ -1,4 +1,5 @@
 alias ll="exa -lhg"
+alias l="exa -lahg"
 alias vim=nvim
 alias v="nvim -u ~/.vimrc"
 alias glog="git log --decorate --oneline --graph"

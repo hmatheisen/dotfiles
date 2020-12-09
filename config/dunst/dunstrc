@@ -18,6 +18,7 @@
     follow = mouse
 
     # The geometry of the window:
+    #   [{width}]x{height}[+/-{x}+/-{y}]
     # The geometry of the message window.
     # The height is measured in number of notifications everything else
     # in pixels.  If the width is omitted but the height is given
@@ -225,7 +226,7 @@
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
-    # parameter, an application may close the notification sent before the
+    # parameter, an application may close the notification sent before the 
     # user defined timeout.
     ignore_dbusclose = false
 
@@ -274,19 +275,19 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = ctrl+space
+    # close = ctrl+space
 
     # Close all notifications.
-    close_all = ctrl+shift+space
+    # close_all = ctrl+shift+space
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
+    # history = ctrl+grave
 
     # Context menu.
-    context = ctrl+shift+period
+    # context = ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
