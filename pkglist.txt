@@ -9,12 +9,14 @@ chromium-87.0.4280.66_1
 cronie-1.5.5_4
 curl-7.74.0_1
 dunst-1.5.0_1
+emacs-gtk3-27.1_2
 exa-0.9.0_2
 feh-3.6.1_1
 git-2.29.2_1
 grub-x86_64-efi-2.04_3
 htop-3.0.2_1
 irssi-1.2.2_6
+kakoune-2020.09.01_1
 libX11-devel-1.7.0_1
 libXft-devel-2.3.3_1
 libXinerama-devel-1.1.4_1

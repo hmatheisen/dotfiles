@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xbps-query -m > /home/henry/dotfiles/pkglist.txt
