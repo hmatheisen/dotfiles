@@ -33,8 +33,8 @@ nnoremap <leader>c :!pbcopy < %<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " Easy switch buffers
-map gn :bn<cr>
-map gp :bp<cr>
+" map gn :bn<cr>
+" map gp :bp<cr>
 
 " Personal autoclose
 inoremap {        {}<Left>
