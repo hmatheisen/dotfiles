@@ -7,3 +7,4 @@ alias w="watch -n 1"
 alias ts="tmux-session"
 alias k=kubectl
 alias ec="emacsclient -c"
+alias gc="gcloud"
