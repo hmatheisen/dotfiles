@@ -1,4 +1,4 @@
-sync: create-dirs vim-plug nvim ranger alacritty dunst bash tmux scripts X11 scripts spectrwm
+sync: create-dirs vim-plug nvim ranger alacritty dunst bash zsh tmux scripts X11 scripts spectrwm
 
 create-dirs:
 
@@ -39,7 +39,7 @@ bash:
 	ln -s $(PWD)/bash_aliases          ~/.bash_aliases
 
 zsh:
-	ln -s $(PWD)/zshrc                ~/.zshrc
+	ln -s $(PWD)/zshrc                 ~/.zshrc
 
 tmux:
 	ln -s $(PWD)/tmux.conf             ~/.tmux.conf
@@ -82,4 +82,5 @@ clean:
 	@# spectrwm
 	rm -f  ~/.spectrwm.conf
 
-.PHONY: sync create-dirs vim-plug nvim ranger alacritty bash tmux scripts X11 scripts spectrwm vimrc
+.PHONY: create-dirs vim-plug nvim ranger alacritty dunst bash zsh tmux scripts X11 scripts spectrwm clean
+

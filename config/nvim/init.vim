@@ -83,7 +83,7 @@ set foldmethod=marker
 set foldlevel=99
 
 " Clipboard support
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " Number of items on completion
 set pumheight=10

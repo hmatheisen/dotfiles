@@ -32,16 +32,12 @@ nnoremap <leader>c :!pbcopy < %<CR>
 " Escape terminal easily
 tnoremap <Esc> <C-\><C-n>
 
-" Easy switch buffers
-" map gn :bn<cr>
-" map gp :bp<cr>
-
 " Personal autoclose
 inoremap {        {}<Left>
 inoremap (        ()<Left>
 inoremap (<Space> ()<Space>
 inoremap [        []<Left>
-inoremap '        ''<Left>
+" inoremap '        ''<Left>
 inoremap "        ""<Left>
 
 " }}}
