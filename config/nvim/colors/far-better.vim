@@ -155,6 +155,7 @@ call s:h('FarBetterDiffDelete', s:red, s:bgdark)
 " User Interface: {{{
 
 set background=dark
+set termguicolors
 
 " Required as some plugins will overwrite
 call s:h('Normal', s:fg, s:bg)

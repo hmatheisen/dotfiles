@@ -1,4 +1,4 @@
-sync: create-dirs vim-plug nvim ranger alacritty dunst bash zsh tmux scripts X11 scripts spectrwm
+sync: create-dirs vim-plug nvim ranger bash zsh tmux scripts scripts awesome
 
 create-dirs:
 
@@ -25,15 +25,6 @@ nvim:
 ranger:
 	ln -s $(PWD)/config/ranger         ~/.config/ranger
 
-alacritty:
-	ln -s $(PWD)/config/alacritty      ~/.config/alacritty
-
-dunst:
-	ln -s $(PWD)/config/dunst          ~/.config/dunst
-
-picom:
-	ln -s $(PWD)/config/picom          ~/.config/picom
-
 bash:
 	ln -s $(PWD)/bashrc                ~/.bashrc
 	ln -s $(PWD)/bash_aliases          ~/.bash_aliases
@@ -47,12 +38,8 @@ tmux:
 scripts:
 	ln -s $(PWD)/scripts               ~/.local/bin
 
-X11:
-	ln -s $(PWD)/Xmodmap               ~/.Xmodmap
-	ln -s $(PWD)/Xprofile              ~/.xprofile
-
-spectrwm:
-	ln -s $(PWD)/spectrwm.conf         ~/.spectrwm.conf
+awesome:
+	ln -s $(PWD)/config/awesome         ~/.config/awesome
 
 clean:
 	@# nvim
@@ -61,12 +48,6 @@ clean:
 	rm -f  ~/.vimrc
 	@# ranger
 	rm -rf ~/.config/ranger
-	@# alacritty
-	rm -rf ~/.config/alacritty
-	@# dunst
-	rm -rf ~/.config/dunst
-	@# picom
-	rm -rf ~/.conig/picom
 	@# bash
 	rm -f  ~/.bashrc
 	rm -f  ~/.bash_aliases
@@ -76,11 +57,8 @@ clean:
 	rm -f  ~/.tmux.conf
 	@# scripts
 	rm -rf ~/.local/bin
-	@# X11
-	rm -f  ~/.Xmodmap
-	rm -f  ~/.xprofile
-	@# spectrwm
-	rm -f  ~/.spectrwm.conf
+	@# awesome
+	rm -rf ~/.config/awesome
 
-.PHONY: create-dirs vim-plug nvim ranger alacritty dunst bash zsh tmux scripts X11 scripts spectrwm clean
+.PHONY: create-dirs vim-plug nvim ranger bash zsh tmux scripts scripts clean
 

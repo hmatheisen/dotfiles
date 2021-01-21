@@ -9,7 +9,7 @@ Plug 'tpope/vim-fugitive'
 
 " Editor enhancements:
 Plug 'preservim/nerdtree'
-" Plug 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'

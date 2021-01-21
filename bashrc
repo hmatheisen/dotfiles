@@ -34,3 +34,4 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 # Set main editor
 export EDITOR=nvim
+source "$HOME/.cargo/env"
