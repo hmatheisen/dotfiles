@@ -7,3 +7,5 @@ alias ts="tmux-session"
 alias k=kubectl
 alias ec="emacsclient -c"
 alias gc="gcloud"
+alias docker-rmi="docker images -q | xargs docker rmi"
+alias docker-rm="docker ps -qa | xargs docker rm"
