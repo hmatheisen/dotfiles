@@ -1,4 +1,4 @@
-sync: create-dirs vim-plug nvim ranger bash zsh tmux scripts scripts awesome
+sync: create-dirs vim-plug nvim ranger bash zsh tmux scripts
 
 create-dirs:
 

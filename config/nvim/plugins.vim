@@ -33,7 +33,7 @@ call plug#end()
 " ==========================================
 
 set notermguicolors
-colorscheme simple
+colorscheme far-better
 
 " }}}
 " ==========================================
