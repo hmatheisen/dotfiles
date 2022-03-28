@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+tmux rename-window -t 1 'elevo'
+tmux send-keys 'start-rails-server' Enter
+
+tmux split-window -h
+tmux send-keys 'start-sidekiq' Enter
+
+tmux split-window -v
+tmux send-keys 'cd client && yarn start' Enter

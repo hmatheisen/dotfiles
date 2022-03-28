@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+IMAGE_FILE=$1
+FILE_TYPE=$2
+
+usage () {
+  echo -e "Usage: $0 [file] [type]";
+}
+
+[[ ! -f $IMAGE_FILE ]] && usage && exit 1;
+[[ -z $FILE_TYPE ]] && usage && exit 1;
+
+echo "data:image/$FILE_TYPE;base64,$(base64 $IMAGE_FILE)"

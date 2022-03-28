@@ -98,10 +98,7 @@ set shell=/usr/bin/env\ bash
 set mouse=a
 
 " Show cursor line
-" set cursorline
-
-" Show split preview for some commands
-set inccommand=split
+set cursorline
 
 " Custom status line
 set statusline=

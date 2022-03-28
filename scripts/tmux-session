@@ -1,29 +1,12 @@
 #!/usr/bin/env bash
-# vim: tw=78
 
-# Exit if command exits with non zero status
-set -e
-
-SESSION_NAME=henry
+SESSION_NAME='Elevo'
 
 # First, check if tmux is installed
 type tmux &> /dev/null || { echo "tmux is not installed" >&2; exit 1; }
 
-# $TMUX is empty if not in a tmux session.
-# So if it is empty:
 if [[ -z $TMUX ]]; then
-  # We first check whether there is already a running session.
-  if pgrep tmux; then
-    # If so, attach to this session.
-    # Since I always use this script, it should have the same name
-    tmux attach-session -t $SESSION_NAME
-    exit 0
-  else
-    # If no session exists, create a new one.
-    tmux new -s $SESSION_NAME
-    exit 0
-  fi
+    tmux new-session -A -s $SESSION_NAME
 else
-  # Display error message if the user is already inside a session
   echo "Already in a tmux session" >&2; exit 1
 fi

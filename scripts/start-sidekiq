@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+SERVER_ENV="development"
+
+if [[ $1 == "t" ]]; then
+  SERVER_ENV="test"
+elif [[ $1 == "p" ]]; then
+  SERVER_ENV="production"
+fi
+
+bundle exec sidekiq -e $SERVER_ENV

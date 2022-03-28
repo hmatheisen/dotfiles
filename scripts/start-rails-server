@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+SERVER_ENV="development"
+
+if [[ $1 == "t" ]]; then
+  SERVER_ENV="test"
+elif [[ $1 == "p" ]]; then
+  SERVER_ENV="production"
+fi
+
+FEATURE_FLAGS=$(cat ~/.local/share/elevo-rails/feature-flags.json) \
+  USE_DEV_SSL=false \
+  RACK_TIMEOUT_SERVICE_TIMEOUT=0 \
+  IMPERSONATION_DURATION_IN_MINUTES=999999 \
+  VITALLY_ENABLED=false \
+  FOREST_ENV_SECRET=$(cat ~/.local/share/elevo-rails/forest_env_secret.txt) \
+  bundle exec rails server -e $SERVER_ENV -b 0.0.0.0 -p 3001

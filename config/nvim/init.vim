@@ -1,52 +1,42 @@
-"              _
-"       __   _(_)_ __ ___  _ __ ___
-"       \ \ / / | '_ ` _ \| '__/ __|
-"        \ V /| | | | | | | | | (__
-"       (_)_/ |_|_| |_| |_|_|  \___|
-"
-
-" ==========================================
-" Editor Options: {{{
-" ==========================================
-
-" Set default background>
-set background=light
+"    __     _____ __  __
+"    \ \   / /_ _|  \/  |
+"     \ \ / / | || |\/| |
+"      \ V /  | || |  | |
+"       \_/  |___|_|  |_|
 
 " Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-" Fix backspace indent
-set backspace=indent,eol,start
+colorscheme moonfly
+
+" Enable 24-bit RGB color
+set termguicolors
+
+" Show cursor line
+set cursorline
 
 " Indentation
-set autoindent  " Copy indent from previous line
 set smartindent " Indent from syntax
 
 " Tab config
-set tabstop=4      " Number of spaces per tab
-set softtabstop=4  " Number of spaces for tab operations
-set shiftwidth=4   " Number of spaces for autoindent
+set tabstop=2      " Number of spaces per tab
+set softtabstop=2  " Number of spaces for tab operations
+set shiftwidth=2   " Number of spaces for autoindent
 set expandtab      " Use appropriate number os spaces when inserting tabs
-set smarttab       " act according to previous options
 
 " Map leader to ,
 let mapleader=','
 
-" Enable hidden buffers
-set hidden
-
 " Searching
 set nohlsearch  " Do not highlight search results
-set incsearch   " Search as letters are typed
 set ignorecase  " Ignore case
 
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults. (Copyrights LukeSmithxyz)
+" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
 
 " Set command completion
-set wildmenu
 set wildmode=list:longest,full
 set wildignorecase
 
@@ -59,23 +49,15 @@ set numberwidth=8
 " Relative Numbers
 set number relativenumber
 
-" No Word Wrap
-set nowrap
-
-" Set spell lang
-set spelllang=en_gb,fr
-
-" No spell check by default
-set nospell
-
-" Set swap directory
-set directory^=$HOME/.vimswap//
-
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
 " For regular expressions turn magic on
 set magic
+
+" No wrap by default
+" I enable it for certain filetypes
+set nowrap
 
 " Fold
 set foldenable
@@ -85,14 +67,11 @@ set foldlevel=99
 " Clipboard support
 set clipboard+=unnamedplus
 
-" Number of items on completion
-set pumheight=10
-
 " Write to undo file
 set undofile
 
 " Default shell to use
-set shell=/usr/bin/env\ bash
+set shell=/usr/bin/env\ zsh
 
 " Use mouse for all modes
 set mouse=a
@@ -100,8 +79,14 @@ set mouse=a
 " Show split preview for some commands
 set inccommand=split
 
-" Smaller update time
-set updatetime=300
+" Insert two spaces after a period with every joining of lines.
+set joinspaces
+
+" Give me a prompt instead of just rejecting risky :write, :saveas
+set confirm
+
+" Treat underscore as a word break
+set iskeyword-=_
 
 " Custom status line
 set statusline=
@@ -114,10 +99,50 @@ set statusline+=%=       " Go to other side
 set statusline+=%y       " File type
 set statusline+=\ %4l:%c " line number : column number
 set statusline+=\ %4P    " Percentage
+set statusline+=\        " Leave empty space
+
+" Mappings: {{{
+
+" Life changer
+noremap <space> :
+
+" Shortcutting split navigation, saving a keypress:
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Readline style keybindings in Insert Mode
+imap <C-a> <Home>
+imap <C-f> <right>
+imap <C-b> <left>
+imap <C-e> <End>
+
+" Toggle spell check
+nnoremap <leader>o :setlocal spell!<CR>
+
+" Edit the neovim config file
+nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
+
+" Toggle Highlighted search
+nnoremap <leader>s :setlocal hls!<CR>
+
+" Copy all file content to clipboard
+nnoremap <leader>c :!pbcopy < %<CR>
+
+" Escape terminal easily
+tnoremap <Esc> <C-\><C-n>
+
+" Mappings for quicklist navigation
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
+
+" Open Help on the side
+cnoreabbrev help vert help
 
 " }}}
-" ==========================================
 
-source $HOME/.config/nvim/plugins.vim
-source $HOME/.config/nvim/mappings.vim
-
+" Load plugins
+lua require('plugins')

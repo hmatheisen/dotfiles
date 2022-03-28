@@ -1,9 +1,0 @@
-#!/bin/sh
-
-usermodmap=$HOME/.Xmodmap
-
-# source xmodmap
-[ -f $usermodmap ] && xmodmap $xmodmap
-
-# Set key press speed
-xset r rate 240 40

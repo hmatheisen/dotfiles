@@ -1,2 +1,2 @@
-" Text settings
-call functions#TextSettings()
+call text#WritingSettings()
+

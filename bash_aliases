@@ -1,11 +1,15 @@
 alias ll="exa -lhg"
 alias l="exa -lahg"
 alias vim=nvim
+alias ivm=nvim # yes I went there
 alias glog="git log --decorate --oneline --graph"
 alias w="watch -n 1"
 alias ts="tmux-session"
-alias k=kubectl
 alias ec="emacsclient -c"
-alias gc="gcloud"
 alias docker-rmi="docker images -q | xargs docker rmi"
 alias docker-rm="docker ps -qa | xargs docker rm"
+alias brew="arch -x86_64 brew"
+alias brew-arm="/opt/homebrew/bin/brew"
+alias changelog='git log --no-merges --pretty=format:"%s" $TARGET..$SOURCE'
+alias psql='/Applications/Postgres.app/Contents/Versions/12/bin/psql'
+

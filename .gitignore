@@ -1,3 +1,2 @@
-.vimrc.old
-.config/nvim/.netrwhist
-.config/nvim/spell/
+config/nvim/.netrwhist
+config/nvim/spell/
