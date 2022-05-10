@@ -145,4 +145,4 @@ cnoreabbrev help vert help
 " }}}
 
 " Load plugins
-lua require('plugins')
+lua require('init')

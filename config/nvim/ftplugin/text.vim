@@ -1,2 +1,1 @@
-call text#WritingSettings()
-
+lua require('modules.prose_writing').settings()

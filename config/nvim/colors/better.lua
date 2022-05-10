@@ -1,3 +1,4 @@
+-- This is a WIP
 if vim.g.colors_name ~= nil then
   vim.api.nvim_command('highlight clear')
 end

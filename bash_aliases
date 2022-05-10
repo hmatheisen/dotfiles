@@ -9,7 +9,7 @@ alias ec="emacsclient -c"
 alias docker-rmi="docker images -q | xargs docker rmi"
 alias docker-rm="docker ps -qa | xargs docker rm"
 alias brew="arch -x86_64 brew"
-alias brew-arm="/opt/homebrew/bin/brew"
+alias brew-arm="arch -arm64 /opt/homebrew/bin/brew"
 alias changelog='git log --no-merges --pretty=format:"%s" $TARGET..$SOURCE'
 alias psql='/Applications/Postgres.app/Contents/Versions/12/bin/psql'
 

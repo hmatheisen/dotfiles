@@ -10,6 +10,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Tree view
+  use 'tpope/vim-vinegar'
   use {
     'preservim/nerdtree',
     config = function() require('config.nerdtree') end
@@ -21,7 +22,7 @@ return require('packer').startup(function()
   use 'easymotion/vim-easymotion'
   use 'godlygeek/tabular'
   use 'junegunn/vim-easy-align'
-  use 'Raimondi/delimitMate'
+  use 'jiangmiao/auto-pairs'
   use 'tpope/vim-endwise'
 
   -- Prose writing
@@ -37,12 +38,18 @@ return require('packer').startup(function()
     config = function() require('config.treesitter') end
   }
 
+  -- Lint
+  use 'mfussenegger/nvim-lint'
+
   -- Search
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
     config = function() require('config.telescope') end
   }
+
+  -- Line
+  use 'nvim-lualine/lualine.nvim'
 
   -- Highlight colors
   use {
@@ -55,7 +62,9 @@ return require('packer').startup(function()
 
   -- Version Control
   use 'tpope/vim-fugitive'
+  use 'kdheepak/lazygit.nvim'
 
   -- Lang
   use 'maxbane/vim-asm_ca65'
+  use 'fatih/vim-go'
 end)
