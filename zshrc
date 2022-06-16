@@ -37,6 +37,9 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # Disable ctrl-s to freeze terminal.
 stty stop undef
 
+# Postgres bins
+export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:$PATH"
+
 # rbenv
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="$HOME/.rbenv/shims:$PATH"

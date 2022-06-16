@@ -9,7 +9,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-colorscheme moonfly
+colorscheme better
 
 " Enable 24-bit RGB color
 set termguicolors

@@ -54,9 +54,9 @@ return require('packer').startup(function()
   -- Highlight colors
   use {
     'norcalli/nvim-colorizer.lua',
-    ft = { 'css', 'javascript', 'vim', 'html' },
+    ft = { 'css', 'javascript', 'vim', 'html', 'lua' },
     config = function()
-      require('colorizer').setup {'css', 'javascript', 'vim', 'html'}
+      require('colorizer').setup { 'css', 'javascript', 'vim', 'html', 'lua' }
     end
   }
 
