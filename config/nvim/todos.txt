@@ -1,2 +1,1 @@
-- Convert text settings to Lua
 - Easier buffer switching

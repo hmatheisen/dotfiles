@@ -1,3 +1,6 @@
+--- Better default colors
+
+-- Clear syntax {{{
 if vim.g.colors_name ~= nil then
   vim.api.nvim_command('highlight clear')
 
@@ -7,7 +10,13 @@ if vim.g.colors_name ~= nil then
 end
 
 vim.g.colors_name = 'better'
+-- }}}
 
+-- Utils {{{
+
+local debug = false
+
+--- Adds multiple elements to a table
 local function add(_table, ...)
   local args = {...}
   local size = table.getn(_table)
@@ -19,6 +28,7 @@ local function add(_table, ...)
   return _table
 end
 
+--- Generates a highlight table and runs is as a vim command
 local function hi(group, fg, bg, style)
   local highlight = { 'hi', group }
 
@@ -36,9 +46,13 @@ local function hi(group, fg, bg, style)
     add(highlight, 'cterm=' .. style, 'gui=' .. style)
   end
 
-  -- print(table.concat(highlight, ' '))
+  if debug == true then
+    print(table.concat(highlight, ' '))
+  end
+
   vim.api.nvim_command(table.concat(highlight, ' '))
 end
+-- }}}
 
 local palette = {
   -- Basic colors
@@ -84,7 +98,7 @@ hi('LineNr',       palette.grey245, palette.black,   'none')
 hi('CursorLineNr', palette.blue,    palette.grey234, 'bold')
 hi('VertSplit',    palette.grey245, palette.black,   'none')
 hi('StatusLine',   palette.black,   palette.grey254, 'bold')
-hi('StatusLineNC', palette.black,   palette.grey235, 'none')
+hi('StatusLineNC', palette.white,   palette.grey230, 'none')
 
 -- Text
 hi('Normal',       palette.white,   palette.black,   'none')
@@ -92,3 +106,5 @@ hi('Statement',    palette.blue,    nil,             'none')
 hi('Comment',      palette.grey245, nil,             'none')
 hi('NonText',      palette.grey245, nil,             'none')
 hi('Identifier',   palette.magenta, nil,             'none')
+
+-- vim: foldlevel=0

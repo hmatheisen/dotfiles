@@ -4,6 +4,7 @@ local M = {}
 function M.settings()
   vim.wo.linebreak = true
   vim.wo.wrap = true
+  vim.wo.spell = true
   vim.bo.textwidth = 80
 
   buf_map(0, 'i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u', {noremap = true})
