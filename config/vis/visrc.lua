@@ -19,7 +19,7 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	vis:command("set expandtab")
 	vis:command("set tabwidth 2")
 
-	use_tabs = { "c", "lua" }
+	use_tabs = { "ansi_c", "lua", "makefile" }
 	for _, lang in ipairs(use_tabs) do
 		if win.syntax == lang then
 			vis:command("set expandtab off")

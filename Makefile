@@ -1,41 +1,44 @@
-sync: create-dirs nvim vis ranger bash zsh tmux scripts
+sync: create-dirs nvim vis alacritty bash zsh tmux scripts
 
 create-dirs:
-
 	@echo Creating directories...
-	[ -d ~/.config ]      || mkdir ~/.config
-	[ -d ~/.local ]       || mkdir ~/.local
+	[ -d ~/.config ] || mkdir ~/.config
+	[ -d ~/.local ]  || mkdir ~/.local
 	@echo Done!
 
+vimrc:
+	ln -s config/nvim/init.vim vimrc
+	ln -s config/nvim/init.vim ~/.vimrc
+
 nvim:
-	ln -s $(PWD)/config/nvim           ~/.config/nvim
+	ln -s config/nvim      ~/.config/nvim
 
 vis:
-	ln -s $(PWD)/config/vis           ~/.config/vis
+	ln -s config/vis       ~/.config/vis
 
-ranger:
-	ln -s $(PWD)/config/ranger         ~/.config/ranger
+alacritty:
+	ln -s config/alacritty ~/.config/alacritty
 
 bash:
-	ln -s $(PWD)/bashrc                ~/.bashrc
-	ln -s $(PWD)/bash_aliases          ~/.bash_aliases
+	ln -s bashrc           ~/.bashrc
+	ln -s bash_aliases     ~/.bash_aliases
 
 zsh:
-	ln -s $(PWD)/zshrc                 ~/.zshrc
+	ln -s zshrc            ~/.zshrc
 
 tmux:
-	ln -s $(PWD)/tmux.conf             ~/.tmux.conf
+	ln -s tmux.conf        ~/.tmux.conf
 
 scripts:
-	ln -s $(PWD)/scripts               ~/.local/bin
+	ln -s scripts          ~/.local/bin
 
 clean:
 	@# nvim
 	rm -rf ~/.config/nvim
 	@# vis
 	rm -rf ~/.config/vis
-	@# ranger
-	rm -rf ~/.config/ranger
+	@# alacritty
+	rm -rf ~/.config/alacritty
 	@# bash
 	rm -f  ~/.bashrc
 	rm -f  ~/.bash_aliases
@@ -46,5 +49,4 @@ clean:
 	@# scripts
 	rm -rf ~/.local/bin
 
-.PHONY: create-dirs nvim vis ranger bash zsh tmux scripts scripts clean
-
+.PHONY: create-dirs nvim vis alacritty bash zsh tmux scripts scripts clean

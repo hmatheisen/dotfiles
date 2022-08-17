@@ -18,6 +18,9 @@ set cursorline
 " Indentation
 set smartindent " Indent from syntax
 
+" Use backspace on anything
+set backspace=indent,eol,start
+
 " Tab config
 set tabstop=2      " Number of spaces per tab
 set softtabstop=2  " Number of spaces for tab operations
@@ -75,7 +78,9 @@ set shell=/usr/bin/env\ zsh
 set mouse=a
 
 " Show split preview for some commands
-set inccommand=split
+if has('nvim')
+  set inccommand=split
+endif
 
 " Insert two spaces after a period with every joining of lines.
 set joinspaces
