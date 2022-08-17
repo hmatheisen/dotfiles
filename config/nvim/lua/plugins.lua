@@ -38,18 +38,12 @@ return require('packer').startup(function()
     config = function() require('config.treesitter') end
   }
 
-  -- Lint
-  use 'mfussenegger/nvim-lint'
-
   -- Search
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
     config = function() require('config.telescope') end
   }
-
-  -- Line
-  use 'nvim-lualine/lualine.nvim'
 
   -- Highlight colors
   use {
@@ -65,6 +59,8 @@ return require('packer').startup(function()
   use 'kdheepak/lazygit.nvim'
 
   -- Lang
+  use 'OmniSharp/omnisharp-vim'
   use 'maxbane/vim-asm_ca65'
   use 'fatih/vim-go'
+  use 'vim-ruby/vim-ruby'
 end)

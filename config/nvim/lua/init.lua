@@ -1,2 +1,3 @@
-require('plugins')       
-require('modules.trim_whitespaces')
+-- Load Packer config
+require('plugins')
+

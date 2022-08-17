@@ -88,6 +88,9 @@ set confirm
 " Treat underscore as a word break
 set iskeyword-=_
 
+" guifont
+set guifont=Iosevka:h15
+
 " Custom status line
 set statusline=
 set statusline+=\ %f     " Path to file
@@ -120,13 +123,10 @@ imap <C-e> <End>
 
 " Toggle spell check
 nnoremap <leader>o :setlocal spell!<CR>
-
 " Edit the neovim config file
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
-
 " Toggle Highlighted search
 nnoremap <leader>s :setlocal hls!<CR>
-
 " Copy all file content to clipboard
 nnoremap <leader>c :!pbcopy < %<CR>
 
@@ -142,7 +142,9 @@ nnoremap ]Q :clast<CR>
 " Open Help on the side
 cnoreabbrev help vert help
 
+let @q = 'dt:$a (p0xxj'
+
 " }}}
 
-" Load plugins
+" Load lua config
 lua require('init')

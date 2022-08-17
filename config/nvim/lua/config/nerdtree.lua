@@ -6,7 +6,7 @@ g.NERDTreeIgnore = { "^\\.git$", "^\\.idea$", ".swp" }
 g.NERDTreeMinimalUI = 1
 g.NERDTreeWinSize=45
 
-map('n', '<leader>t', ':NERDTreeToggle<CR>', {noremap = true})
+map('n', '<leader>tt', ':NERDTreeToggle<CR>', {noremap = true})
 map('n', '<leader>tf', ':NERDTreeFind<CR>', {noremap = true})
 
 vim.cmd([[
