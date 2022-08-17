@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-FILE_PATH=$(fzf-tmux --reverse)
-
-# Simply exit program if no file was selected
-[[ -z $FILE_PATH ]] && exit 0
-
-nvim $FILE_PATH

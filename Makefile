@@ -1,4 +1,4 @@
-sync: create-dirs nvim ranger bash zsh tmux scripts
+sync: create-dirs nvim vis ranger bash zsh tmux scripts
 
 create-dirs:
 
@@ -9,6 +9,9 @@ create-dirs:
 
 nvim:
 	ln -s $(PWD)/config/nvim           ~/.config/nvim
+
+vis:
+	ln -s $(PWD)/config/vis           ~/.config/vis
 
 ranger:
 	ln -s $(PWD)/config/ranger         ~/.config/ranger
@@ -29,6 +32,8 @@ scripts:
 clean:
 	@# nvim
 	rm -rf ~/.config/nvim
+	@# vis
+	rm -rf ~/.config/vis
 	@# ranger
 	rm -rf ~/.config/ranger
 	@# bash
@@ -41,5 +46,5 @@ clean:
 	@# scripts
 	rm -rf ~/.local/bin
 
-.PHONY: create-dirs nvim ranger bash zsh tmux scripts scripts clean
+.PHONY: create-dirs nvim vis ranger bash zsh tmux scripts scripts clean
 
