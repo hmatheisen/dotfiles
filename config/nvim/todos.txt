@@ -1,2 +1,0 @@
-- Mare init.vim barebones vim
-- Easier buffer switching

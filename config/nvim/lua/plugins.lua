@@ -11,10 +11,6 @@ return require('packer').startup(function()
 
   -- Tree view
   use 'tpope/vim-vinegar'
-  use {
-    'preservim/nerdtree',
-    config = function() require('config.nerdtree') end
-  }
 
   -- Some editor additions
   use 'tpope/vim-surround'
@@ -22,7 +18,6 @@ return require('packer').startup(function()
   use 'easymotion/vim-easymotion'
   use 'godlygeek/tabular'
   use 'junegunn/vim-easy-align'
-  use 'jiangmiao/auto-pairs'
   use 'tpope/vim-endwise'
 
   -- Prose writing
@@ -30,20 +25,6 @@ return require('packer').startup(function()
 
   -- Snippets
   use 'SirVer/ultisnips'
-
-  -- Treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function() require('config.treesitter') end
-  }
-
-  -- Search
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} },
-    config = function() require('config.telescope') end
-  }
 
   -- Highlight colors
   use {
@@ -56,10 +37,8 @@ return require('packer').startup(function()
 
   -- Version Control
   use 'tpope/vim-fugitive'
-  use 'kdheepak/lazygit.nvim'
 
   -- Lang
-  use 'OmniSharp/omnisharp-vim'
   use 'maxbane/vim-asm_ca65'
   use 'fatih/vim-go'
   use 'vim-ruby/vim-ruby'

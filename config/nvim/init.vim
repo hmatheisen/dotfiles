@@ -9,8 +9,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-colorscheme better
-
 " Enable 24-bit RGB color
 set termguicolors
 
@@ -88,9 +86,6 @@ set confirm
 " Treat underscore as a word break
 set iskeyword-=_
 
-" guifont
-set guifont=Iosevka:h15
-
 " Custom status line
 set statusline=
 set statusline+=\ %f     " Path to file
@@ -142,9 +137,9 @@ nnoremap ]Q :clast<CR>
 " Open Help on the side
 cnoreabbrev help vert help
 
-let @q = 'dt:$a (p0xxj'
+if has("nvim")
+  lua require("plugins")
+  colorscheme better
+endif
 
 " }}}
-
-" Load lua config
-lua require('init')
