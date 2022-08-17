@@ -7,7 +7,6 @@ create-dirs:
 	@echo Done!
 
 vimrc:
-	ln -s config/nvim/init.vim vimrc
 	ln -s config/nvim/init.vim ~/.vimrc
 
 nvim:
@@ -31,6 +30,29 @@ tmux:
 
 scripts:
 	ln -s scripts          ~/.local/bin
+	ln -s $(PWD)/config/nvim/init.vim ~/.vimrc
+
+nvim:
+	ln -s $(PWD)/config/nvim      ~/.config/nvim
+
+vis:
+	ln -s $(PWD)/config/vis       ~/.config/vis
+
+alacritty:
+	ln -s $(PWD)/config/alacritty ~/.config/alacritty
+
+bash:
+	ln -s $(PWD)/bashrc           ~/.bashrc
+	ln -s $(PWD)/bash_aliases     ~/.bash_aliases
+
+zsh:
+	ln -s $(PWD)/zshrc            ~/.zshrc
+
+tmux:
+	ln -s $(PWD)/tmux.conf        ~/.tmux.conf
+
+scripts:
+	ln -s $(PWD)/scripts          ~/.local/bin
 
 clean:
 	@# nvim
