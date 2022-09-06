@@ -27,13 +27,13 @@ return require('packer').startup(function()
   use 'SirVer/ultisnips'
 
   -- Highlight colors
-  use {
-    'norcalli/nvim-colorizer.lua',
-    ft = { 'css', 'javascript', 'vim', 'html', 'lua' },
-    config = function()
-      require('colorizer').setup { 'css', 'javascript', 'vim', 'html', 'lua' }
-    end
-  }
+  -- use {
+  --   'norcalli/nvim-colorizer.lua',
+  --   ft = { 'css', 'javascript', 'vim', 'html', 'lua' },
+  --   config = function()
+  --     require('colorizer').setup { 'css', 'javascript', 'vim', 'html', 'lua' }
+  --   end
+  -- }
 
   -- Version Control
   use 'tpope/vim-fugitive'

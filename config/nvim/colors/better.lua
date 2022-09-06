@@ -9,6 +9,9 @@ if vim.g.colors_name ~= nil then
   end
 end
 
+-- Enable 24-bit RGB color
+vim.api.nvim_command('set termguicolors')
+
 vim.g.colors_name = 'better'
 -- }}}
 

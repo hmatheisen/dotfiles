@@ -9,8 +9,10 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-" Enable 24-bit RGB color
 set termguicolors
+
+" Colorscheme
+colorscheme classic
 
 " Show cursor line
 set cursorline
@@ -143,8 +145,8 @@ nnoremap ]Q :clast<CR>
 cnoreabbrev help vert help
 
 if has("nvim")
+  " Require lua plugins
   lua require("plugins")
-  colorscheme better
 endif
 
 " }}}
