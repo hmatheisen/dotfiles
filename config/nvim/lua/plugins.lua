@@ -10,7 +10,11 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Tree view
-  use 'tpope/vim-vinegar'
+  use {
+    'preservim/nerdtree',
+    config = function() require('config.nerdtree') end
+  }
+  -- use 'tpope/vim-vinegar'
 
   -- Some editor additions
   use 'tpope/vim-surround'

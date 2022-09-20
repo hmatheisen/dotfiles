@@ -11,9 +11,6 @@ set fileencodings=utf-8
 
 set termguicolors
 
-" Colorscheme
-colorscheme classic
-
 " Show cursor line
 set cursorline
 
@@ -147,6 +144,8 @@ cnoreabbrev help vert help
 if has("nvim")
   " Require lua plugins
   lua require("plugins")
+  " Colorscheme
+  colorscheme classic
 endif
 
 " }}}

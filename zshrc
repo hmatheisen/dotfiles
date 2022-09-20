@@ -15,12 +15,11 @@ export LANG=en_US.UTF-8
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
-export EDITOR='vise'
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Source aliases
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
