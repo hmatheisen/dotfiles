@@ -9,8 +9,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-set termguicolors
-
 " Show cursor line
 set cursorline
 
@@ -88,7 +86,10 @@ set joinspaces
 set confirm
 
 " Treat underscore as a word break
-set iskeyword-=_
+" set iskeyword-=_
+
+" Omnifunc
+set omnifunc=syntaxcomplete#Complete
 
 " Custom status line
 set statusline=
@@ -140,12 +141,12 @@ nnoremap ]Q :clast<CR>
 
 " Open Help on the side
 cnoreabbrev help vert help
+" New tab is not accessible enough
+cnoreabbrev new tabnew
 
 if has("nvim")
   " Require lua plugins
-  lua require("plugins")
-  " Colorscheme
-  colorscheme classic
+  lua require("hma")
 endif
 
 " }}}

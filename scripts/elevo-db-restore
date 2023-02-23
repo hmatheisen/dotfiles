@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export RAILS_ENV=development
+
+bundle exec rails db:reset
+bundle exec rake "preview_app:create_demo[Internal Henry, 100]"

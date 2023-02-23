@@ -2,11 +2,11 @@ local g = vim.g
 local map = vim.api.nvim_set_keymap
 
 g.NERDTreeShowHidden = 1
-g.NERDTreeIgnore = { "^\\.git$", "^\\.idea$", ".swp" }
+g.NERDTreeIgnore = { "^\\.git$", "^\\.idea$", ".swp", "^__pycache__$" }
 g.NERDTreeMinimalUI = 1
 g.NERDTreeWinSize=45
 
-map('n', '<leader>t', ':NERDTreeToggle<CR>', {noremap = true})
+map('n', '<leader>tt', ':NERDTreeToggle<CR>', {noremap = true})
 map('n', '<leader>tf', ':NERDTreeFind<CR>', {noremap = true})
 
 vim.cmd([[

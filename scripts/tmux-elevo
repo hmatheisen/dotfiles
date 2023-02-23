@@ -8,3 +8,6 @@ tmux send-keys 'start-sidekiq' Enter
 
 tmux split-window -v
 tmux send-keys 'cd client && yarn start' Enter
+
+tmux new-window -d -n 'code'
+tmux new-window -d

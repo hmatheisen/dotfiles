@@ -5,8 +5,16 @@ export ZSH="/Users/henry/.oh-my-zsh"
 # source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# Reload zsh config
+function zsh_reload() { source ~/.zshrc }
+
 # Personal scripts
 export PATH=$PATH:~/.local/bin
+
+# Go to personal scripts dir
+function bins() { cd ~/.local/bin }
+# Go to config dir
+function config() { cd ~/.config }
 
 # Be sure locale is utf8
 export LANG=en_US.UTF-8
@@ -30,9 +38,6 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 # Disable ctrl-s to freeze terminal.
 stty stop undef
 
-# Postgres bins
-export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:$PATH"
-
 # Java
 export PATH="/usr/local/Cellar/openjdk/18.0.1.1/bin:$PATH"
 
@@ -49,8 +54,21 @@ export NVM_DIR="$HOME/.nvm"
 # devkitarm compilers
 export PATH="$PATH:/opt/devkitpro/devkitARM/bin"
 
+# Add ARM Elixir
+export PATH="$PATH:/opt/homebrew/Cellar/elixir/1.13.0/bin"
+export PATH="$PATH:/opt/homebrew/Cellar/erlang/24.1.7/bin"
+
 # Solve <C-y> issues on MacOS
 stty dsusp undef
 
 # FZF utils
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/henry/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/henry/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/henry/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/henry/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

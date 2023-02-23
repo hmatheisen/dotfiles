@@ -14,14 +14,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -128,7 +128,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Iosevka Term
+    family: Iosevka Term
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -139,10 +139,10 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Iosevka Term
+    family: Iosevka Term
 
     # The `style` can be specified to pick a specific face.
-    style: Oblique
+    style: Italic
 
   # Bold italic font face
   bold_italic:
@@ -150,10 +150,10 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Iosevka Term
+    family: Iosevka Term
 
     # The `style` can be specified to pick a specific face.
-    style: Bold Oblique
+    style: Bold Italic
 
   # Point size
   size: 17.0
@@ -187,7 +187,7 @@ colors:
   # Default colors
   primary:
     background: '#000000'
-    foreground: '#ffffff'
+  #   foreground: '#ffffff'
 
     # Bright and dim foreground colors
     #
@@ -441,7 +441,7 @@ shell:
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
-#mouse:
+mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -451,7 +451,7 @@ shell:
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+  hide_when_typing: true
 
 # Regex hints
 #

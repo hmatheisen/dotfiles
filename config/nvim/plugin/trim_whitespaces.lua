@@ -7,7 +7,6 @@ local function trim()
   -- Early return if filetype is in blacklist
   for _, v in pairs(blacklist) do
     if vim.bo.filetype == v then
-      print(vim.bo.filetype)
       return
     end
   end

@@ -74,26 +74,76 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
   ["goyo.vim"] = {
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/goyo.vim",
     url = "https://github.com/junegunn/goyo.vim"
   },
+  ["jellybeans.vim"] = {
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/opt/jellybeans.vim",
+    url = "https://github.com/nanotech/jellybeans.vim"
+  },
   nerdtree = {
-    config = { "\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20config.nerdtree\frequire\0" },
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  tabular = {
+  ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/tabular",
-    url = "https://github.com/godlygeek/tabular"
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ultisnips = {
     loaded = true,
@@ -148,10 +198,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nerdtree
-time([[Config for nerdtree]], true)
-try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20config.nerdtree\frequire\0", "config", "nerdtree")
-time([[Config for nerdtree]], false)
+-- Setup for: jellybeans.vim
+time([[Setup for jellybeans.vim]], true)
+try_loadstring("\27LJ\2\n~\0\0\3\0\b\0\t6\0\0\0009\0\1\0005\1\4\0005\2\3\0=\2\5\0015\2\6\0=\2\a\1=\1\2\0K\0\1\0\14VertSplit\1\0\1\nguibg\v000000\15background\1\0\0\1\0\1\nguibg\v000000\25jellybeans_overrides\6g\bvim\0", "setup", "jellybeans.vim")
+time([[Setup for jellybeans.vim]], false)
+time([[packadd for jellybeans.vim]], true)
+vim.cmd [[packadd jellybeans.vim]]
+time([[packadd for jellybeans.vim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

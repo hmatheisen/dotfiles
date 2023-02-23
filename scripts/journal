@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-nvim -c 'Goyo 120' ~/Notes/journal.txt
+if [[ -n $TMUX ]]; then
+  tmux rename-window 'journal'
+fi
+
+nvim -c 'Goyo 100' ~/Notes/journal.txt
