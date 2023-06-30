@@ -4,3 +4,5 @@ export RAILS_ENV=development
 
 bundle exec rails db:reset
 bundle exec rake "preview_app:create_demo[Internal Henry, 100]"
+
+echo "org = set_tenant 1; org.settings.update!(emails_enabled: true)" | rails c

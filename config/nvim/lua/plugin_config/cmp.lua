@@ -1,34 +1,34 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lspconfig = require('lspconfig')
-local cmp = require('cmp')
-
--- LSP servers to start
-local servers = { 'solargraph', 'tsserver' }
-
-for _, server in ipairs(servers) do
-  lspconfig[server].setup{
-    capabilities = capabilities
-  }
-end
-
--- Vim config
-vim.opt.completeopt = "menu,menuone,noselect"
+local cmp = require 'cmp'
 
 -- Default completion
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+    end,
+  },
   mapping = cmp.mapping.preset.insert({
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'nvim_lua' },
+    { name = 'ultisnips' },
   }, {
     { name = 'buffer' },
-  }),
-  view = {
-    entries = "native"
-  }
+  })
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
+  })
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).

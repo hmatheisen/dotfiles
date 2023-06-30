@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+CONTAINER_NAME="devops-toolbox"
+
+docker kill devops-toolbox
+docker run \
+  -ti \
+  --rm \
+  --name=$CONTAINER_NAME \
+  -v "`git rev-parse --show-toplevel`:/data" \
+  registry.gitlab.com/elevo/elevo-devops/toolbox:latest bash &
+DOCKER_RUN_PID=$!
+
+until [ "`docker inspect -f {{.State.Running}} $CONTAINER_NAME`" = "true" ]; do
+  sleep 0.1;
+done;
+
+docker exec -ti $CONTAINER_NAME mkdir /root/.ssh
+docker cp ~/.ssh/id_rsa $CONTAINER_NAME:/root/.ssh/
+docker exec -ti $CONTAINER_NAME chown root: -R /root/.ssh
+docker exec -ti $CONTAINER_NAME bash

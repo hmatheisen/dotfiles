@@ -1,4 +1,4 @@
-sync: create-dirs nvim vis alacritty bash zsh tmux scripts
+sync: create-dirs alacritty nvim vis scripts bash tmux vimrc zsh
 
 create-dirs:
 	@echo Creating directories...
@@ -6,69 +6,41 @@ create-dirs:
 	[ -d ~/.local ]  || mkdir ~/.local
 	@echo Done!
 
+alacritty:
+	ln -s $(PWD)/config/alacritty            ~/.config/alacritty
+nvim:
+	ln -s $(PWD)/config/nvim                 ~/.config/nvim
+vis:
+	ln -s $(PWD)/config/vis                  ~/.config/vis
+scripts:
+	ln -s $(PWD)/scripts                     ~/.local/bin
+bash:
+	ln -s $(PWD)/bashrc                      ~/.bashrc
+	ln -s $(PWD)/bash_aliases                ~/.bash_aliases
+tmux:
+	ln -s $(PWD)/tmux.conf                   ~/.tmux.conf
 vimrc:
-	ln -s config/nvim/init.vim ~/.vimrc
-
-nvim:
-	ln -s config/nvim      ~/.config/nvim
-
-vis:
-	ln -s config/vis       ~/.config/vis
-
-alacritty:
-	ln -s config/alacritty ~/.config/alacritty
-
-bash:
-	ln -s bashrc           ~/.bashrc
-	ln -s bash_aliases     ~/.bash_aliases
-
+	ln -s $(PWD)/vimrc                       ~/.vimrc
 zsh:
-	ln -s zshrc            ~/.zshrc
-
-tmux:
-	ln -s tmux.conf        ~/.tmux.conf
-
-scripts:
-	ln -s scripts          ~/.local/bin
-	ln -s $(PWD)/config/nvim/init.vim ~/.vimrc
-
-nvim:
-	ln -s $(PWD)/config/nvim      ~/.config/nvim
-
-vis:
-	ln -s $(PWD)/config/vis       ~/.config/vis
-
-alacritty:
-	ln -s $(PWD)/config/alacritty ~/.config/alacritty
-
-bash:
-	ln -s $(PWD)/bashrc           ~/.bashrc
-	ln -s $(PWD)/bash_aliases     ~/.bash_aliases
-
-zsh:
-	ln -s $(PWD)/zshrc            ~/.zshrc
-
-tmux:
-	ln -s $(PWD)/tmux.conf        ~/.tmux.conf
-
-scripts:
-	ln -s $(PWD)/scripts          ~/.local/bin
+	ln -s $(PWD)/zshrc                       ~/.zshrc
 
 clean:
+	@# alacritty
+	rm -rf ~/.config/alacritty
 	@# nvim
 	rm -rf ~/.config/nvim
 	@# vis
 	rm -rf ~/.config/vis
-	@# alacritty
-	rm -rf ~/.config/alacritty
+	@# scripts
+	rm -rf ~/.local/bin
 	@# bash
 	rm -f  ~/.bashrc
 	rm -f  ~/.bash_aliases
-	@# zsh
-	rm -f  ~/.zshrc
 	@# tmux
 	rm -f  ~/.tmux.conf
-	@# scripts
-	rm -rf ~/.local/bin
+	@# vimrc
+	rm -f  ~/.vimrc
+	@# zsh
+	rm -f  ~/.zshrc
 
-.PHONY: create-dirs nvim vis alacritty bash zsh tmux scripts scripts clean
+.PHONY: create-dirs alacritty nvim vis scripts bash tmux vimrc zsh clean
