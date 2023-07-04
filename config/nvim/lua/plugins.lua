@@ -11,10 +11,7 @@ local packer = require('packer').startup(function(use)
 
   -- Theme
   use 'morhetz/gruvbox'
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
+  use 'nvim-lualine/lualine.nvim'
 
   -- Editor
   use 'tpope/vim-surround'
@@ -26,12 +23,14 @@ local packer = require('packer').startup(function(use)
   use 'tommcdo/vim-lion'
   use 'easymotion/vim-easymotion'
   use 'windwp/nvim-autopairs'
+  use 'preservim/vimux'
 
   -- Snippets
   use 'SirVer/ultisnips'
 
   -- Lang
   use 'vim-ruby/vim-ruby'
+  use 'tpope/vim-rails'
 
   -- Search
   use 'junegunn/fzf'
@@ -47,6 +46,7 @@ local packer = require('packer').startup(function(use)
   use 'hrsh7th/cmp-path' -- Path source for nvim-cmp
   use 'hrsh7th/cmp-nvim-lua' -- Neovim's Lua API source for nvim-cmp
   use 'hrsh7th/cmp-cmdline' -- nvim-cmp source for vim's cmdline
+  use 'hrsh7th/cmp-nvim-lsp-signature-help' -- Signature help
   use 'quangnguyen30192/cmp-nvim-ultisnips' -- nvim-cmp source for ultisnips
 end)
 

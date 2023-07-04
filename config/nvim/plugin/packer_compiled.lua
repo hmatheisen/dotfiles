@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lsp-signature-help"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
+  },
   ["cmp-nvim-lua"] = {
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
@@ -144,12 +149,6 @@ _G.packer_plugins = {
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/nvim-spectre",
     url = "https://github.com/nvim-pack/nvim-spectre"
   },
-  ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/henry/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
-    url = "https://github.com/nvim-tree/nvim-web-devicons"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -195,6 +194,11 @@ _G.packer_plugins = {
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/vim-lion",
     url = "https://github.com/tommcdo/vim-lion"
   },
+  ["vim-rails"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/vim-rails",
+    url = "https://github.com/tpope/vim-rails"
+  },
   ["vim-rsi"] = {
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/vim-rsi",
@@ -209,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  vimux = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/vimux",
+    url = "https://github.com/preservim/vimux"
   }
 }
 

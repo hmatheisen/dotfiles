@@ -8,9 +8,6 @@ vim.o.fileencodings = "utf-8"
 -- Show cursor line
 -- vim.o.cursorline = true
 
--- Indentation
-vim.o.smartindent = true
-
 -- No hidden buffers
 vim.o.hidden = false
 
@@ -21,6 +18,8 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.smarttab = true
 vim.o.expandtab = true
+
+-- Indentation
 vim.o.autoindent = true
 vim.o.smartindent = true
 
@@ -36,7 +35,7 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 -- Set command completion
-vim.o.wildmode = "list:longest,full"
+vim.o.wildmode = "list:longest,list:full"
 vim.o.wildignorecase = true
 
 -- Set width for line numbers
@@ -80,23 +79,11 @@ vim.o.joinspaces = true
 vim.o.confirm = true
 
 -- Format options
+-- TODO: move in after/ftplugin since overriden by default vim config
 vim.opt.formatoptions:remove { "c", "r", "o" }
 
 -- Term GUI Colors
 vim.o.termguicolors = true
 
--- Custom status line
--- TODO: Handle this in a better lua-esque way
--- vim.cmd[[
--- set statusline=
--- set statusline+=\ %f     " Path to file
--- set statusline+=\ %m     " Modified flag
--- set statusline+=\ %q     " quick list
--- set statusline+=\ %w     " Preview flag
--- set statusline+=\ %r     " Read-only flag
--- set statusline+=%=       " Go to other side
--- set statusline+=%y       " File type
--- set statusline+=\ %4l:%c " line number : column number
--- set statusline+=\ %4P    " Percentage
--- set statusline+=\        " Leave empty space
--- ]]
+-- Use rg as grep program
+vim.o.grepprg = "rg --vimgrep --smart-case --follow"

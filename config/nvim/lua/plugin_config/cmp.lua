@@ -4,7 +4,7 @@ local cmp = require 'cmp'
 cmp.setup({
   snippet = {
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({
@@ -14,24 +14,15 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    -- { name = 'nvim_lsp_signature_help' },
     { name = 'path' },
     { name = 'nvim_lua' },
     { name = 'ultisnips' },
-  }, {
     { name = 'buffer' },
   })
 })
 
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+-- Use buffer source for `/` and `?`
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
@@ -42,12 +33,11 @@ cmp.setup.cmdline({ '/', '?' }, {
   }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- Use cmdline & path source for ':'
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
+    { name = 'path' },
     { name = 'cmdline' }
   }),
   view = {

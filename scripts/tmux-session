@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
-SESSION_NAME='Elevo'
-if [[ -d $1 ]]; then
-  $SESSION_NAME = $1
+DEFAULT_SESSION_NAME='Elevo'
+
+if [[ -n $1 ]]; then
+  DEFAULT_SESSION_NAME=$1
 fi
 
 # First, check if tmux is installed
 type tmux &> /dev/null || { echo "tmux is not installed" >&2; exit 1; }
 
 if [[ -z $TMUX ]]; then
-    tmux new-session -A -s $SESSION_NAME
+    tmux new-session -A -s $DEFAULT_SESSION_NAME
 else
   echo "Already in a tmux session" >&2; exit 1
 fi

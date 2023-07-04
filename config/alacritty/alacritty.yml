@@ -21,7 +21,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  TERM: alacritty
 
 window:
   # Window dimensions (changes require restart)
@@ -79,7 +79,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  startup_mode: Fullscreen
 
   # Window title
   title: Terminal
@@ -111,7 +111,7 @@ window:
   #   - OnlyRight
   #   - Both
   #   - None (default)
-  #option_as_alt: None
+  option_as_alt: OnlyLeft
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -804,7 +804,8 @@ live_config_reload: true
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
+  - { key: Back, mods: Command, chars: "\x15" } # Cmc+Delete deletes the whole line
   # - { key: Paste,                                       action: Paste          }
   # - { key: Copy,                                        action: Copy           }
   # - { key: L,         mods: Control,                    action: ClearLogNotice }
