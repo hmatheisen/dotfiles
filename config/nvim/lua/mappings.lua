@@ -15,8 +15,6 @@ vim.keymap.set("n", "<leader>o", ":setlocal spell!<CR>", { noremap = true }) -- 
 vim.keymap.set("n", "<leader>s", ":setlocal hls!<CR>",   { noremap = true }) -- Toggle Highlighted search
 vim.keymap.set("n", "<leader>c", ":!pbcopy < %<CR>",     { noremap = true }) -- Copy all file content to clipboard
 vim.keymap.set("n", "<leader>t", ":VimuxOpenRunner<CR>", { noremap = true }) -- Vimux Open Runner
-vim.keymap.set("n", "<leader>f", ":Files<CR>",           { noremap = true }) -- FZF list files
-vim.keymap.set("n", "<leader>g", ":Rg<CR>",              { noremap = true }) -- FZF rg
 
 -- Escape terminal easily
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
@@ -30,5 +28,4 @@ vim.keymap.set("n", "[b", ":bprevious<CR>", { noremap = true })
 vim.keymap.set("n", "]b", ":bnext<CR>",     { noremap = true })
 
 -- Some command abbrevs
-vim.cmd.cnoreabbrev("help", "vert help")
 vim.cmd.cnoreabbrev("new",  "tabnew")
