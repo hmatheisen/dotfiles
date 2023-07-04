@@ -12,7 +12,6 @@ vim.keymap.set("", "<C-l>", "<C-w>l", {})
 
 -- Some nice commands
 vim.keymap.set("n", "<leader>o", ":setlocal spell!<CR>", { noremap = true }) -- Toggle spell check
-vim.keymap.set("n", "<leader>s", ":setlocal hls!<CR>",   { noremap = true }) -- Toggle Highlighted search
 vim.keymap.set("n", "<leader>c", ":!pbcopy < %<CR>",     { noremap = true }) -- Copy all file content to clipboard
 vim.keymap.set("n", "<leader>t", ":VimuxOpenRunner<CR>", { noremap = true }) -- Vimux Open Runner
 

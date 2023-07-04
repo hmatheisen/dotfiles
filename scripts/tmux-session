@@ -10,7 +10,7 @@ fi
 type tmux &> /dev/null || { echo "tmux is not installed" >&2; exit 1; }
 
 if [[ -z $TMUX ]]; then
-    tmux new-session -A -s $DEFAULT_SESSION_NAME
+  tmux new-session -A -s $DEFAULT_SESSION_NAME
 else
   echo "Already in a tmux session" >&2; exit 1
 fi

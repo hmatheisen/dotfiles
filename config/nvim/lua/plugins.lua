@@ -24,6 +24,13 @@ local packer = require('packer').startup(function(use)
   use 'easymotion/vim-easymotion'
   use 'windwp/nvim-autopairs'
   use 'preservim/vimux'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
+  }
 
   -- Snippets
   use 'SirVer/ultisnips'
@@ -56,5 +63,6 @@ require('plugin_config/easyalign')
 require('plugin_config/cmp')
 require('plugin_config/lualine')
 require('plugin_config/telescope')
+require('plugin_config/treesitter')
 
 return packer

@@ -12,7 +12,7 @@ alias gcof='git checkout .forestadmin-schema.json'
 alias w="watch -n 1"
 
 alias ts="tmux-session"
-alias elevo="tmux-elevo"
+alias elevo="cd ~/Code/elevo-rails && tmux-elevo"
 
 alias docker-rmi="docker images -q | xargs docker rmi"
 alias docker-rm="docker ps -qa | xargs docker rm"
