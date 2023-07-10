@@ -4,13 +4,16 @@
 "      \ V /  | || |  | |
 "       \_/  |___|_|  |_|
 
+" syntax
+syntax on
+
 " Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
 " Show cursor line
-set cursorline
+" set cursorline
 
 " Indentation
 set smartindent " Indent from syntax
@@ -18,7 +21,7 @@ set smartindent " Indent from syntax
 " Use backspace on anything
 set backspace=indent,eol,start
 
-" Tab config
+" Default Tab config
 set tabstop=2      " Number of spaces per tab
 set softtabstop=2  " Number of spaces for tab operations
 set shiftwidth=2   " Number of spaces for autoindent
@@ -63,7 +66,7 @@ set foldmethod=marker
 set foldlevel=99
 
 " Clipboard support
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 " Write to undo file
 set undofile
@@ -131,9 +134,10 @@ nnoremap ]q :cnext<CR>
 nnoremap [Q :cfirst<CR>
 nnoremap ]Q :clast<CR>
 
-" Open Help on the side
-cnoreabbrev help vert help
 " New tab is not accessible enough
 cnoreabbrev new tabnew
 
 " }}}
+
+" Autocommands
+autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab

@@ -6,6 +6,7 @@ local lspconfig = require('lspconfig')
 -- Servers config
 lspconfig.tsserver.setup   { capabilities = capabilities }
 lspconfig.solargraph.setup { capabilities = capabilities }
+lspconfig.gopls.setup { capabilities = capabilities }
 lspconfig.clangd.setup {
   cmd = {
     "/opt/homebrew/opt/llvm/bin/clangd",

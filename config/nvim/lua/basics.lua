@@ -27,7 +27,7 @@ vim.o.smartindent = true
 vim.g.mapleader = ","
 
 -- Searching
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 vim.o.ignorecase = true
 
 -- Split the right way
@@ -87,3 +87,6 @@ vim.o.termguicolors = true
 
 -- Use rg as grep program
 vim.o.grepprg = "rg --vimgrep --smart-case --follow"
+
+-- Colorscheme
+vim.cmd.colorscheme("moonfly")

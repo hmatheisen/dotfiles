@@ -10,7 +10,7 @@ local packer = require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Theme
-  use 'morhetz/gruvbox'
+  use { "bluz71/vim-moonfly-colors", as = "moonfly" }
   use 'nvim-lualine/lualine.nvim'
 
   -- Editor
@@ -24,6 +24,7 @@ local packer = require('packer').startup(function(use)
   use 'easymotion/vim-easymotion'
   use 'windwp/nvim-autopairs'
   use 'preservim/vimux'
+  use 'windwp/nvim-ts-autotag'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -31,6 +32,7 @@ local packer = require('packer').startup(function(use)
       ts_update()
     end,
   }
+  use 'folke/zen-mode.nvim'
 
   -- Snippets
   use 'SirVer/ultisnips'
@@ -57,12 +59,12 @@ local packer = require('packer').startup(function(use)
   use 'quangnguyen30192/cmp-nvim-ultisnips' -- nvim-cmp source for ultisnips
 end)
 
-require('plugin_config/gruvbox')
+require('plugin_config/lualine')
 require('plugin_config/autopairs')
 require('plugin_config/easyalign')
 require('plugin_config/cmp')
-require('plugin_config/lualine')
 require('plugin_config/telescope')
 require('plugin_config/treesitter')
+require('plugin_config/zenmode')
 
 return packer

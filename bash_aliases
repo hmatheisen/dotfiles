@@ -3,7 +3,6 @@ alias l="ll -a"
 
 alias vim=nvim
 alias ivm=nvim # yes I went there
-alias vi=vise  # vis editor is "vise" on Darwin
 
 alias glog="git log --decorate --oneline --graph"
 alias changelog='git log --no-merges --pretty=format:"%s" $TARGET..$SOURCE'
