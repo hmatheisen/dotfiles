@@ -32,6 +32,8 @@ local packer = require('packer').startup(function(use)
       ts_update()
     end,
   }
+
+  -- UI
   use 'folke/zen-mode.nvim'
 
   -- Snippets

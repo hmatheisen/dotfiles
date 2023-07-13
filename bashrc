@@ -42,3 +42,6 @@ export NVM_DIR="$HOME/.nvm"
 . "$HOME/.cargo/env"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Stop ranger from loading default AND local conf
+export RANGER_LOAD_DEFAULT_RC=false

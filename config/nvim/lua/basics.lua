@@ -80,7 +80,7 @@ vim.o.confirm = true
 
 -- Format options
 -- TODO: move in after/ftplugin since overriden by default vim config
-vim.opt.formatoptions:remove { "c", "r", "o" }
+-- vim.opt.formatoptions:remove { "c", "r", "o" }
 
 -- Term GUI Colors
 vim.o.termguicolors = true
