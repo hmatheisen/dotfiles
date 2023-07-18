@@ -6,7 +6,7 @@
 local catppuccin = require("catppuccin")
 local lualine = require("lualine")
 
--- Default theme is kept here for easy restore
+--- Default theme is kept here for easy restore
 local default_state = {
   theme = "catppuccin",
   laststatus = 2,
@@ -14,6 +14,8 @@ local default_state = {
   termguicolors = true,
 }
 
+---@param args { theme: string, background: string, laststatus: number, termguicolors: boolean }
+---@return nil
 local function change_theme(args)
   vim.cmd.colorscheme(args.theme or default_state.theme)
   vim.o.background = args.background or default_state.background
@@ -30,6 +32,7 @@ local function change_theme(args)
   end
 end
 
+---@return nil
 local function restore()
   vim.cmd.colorscheme(default_state.theme)
   vim.o.background = default_state.background
@@ -37,6 +40,7 @@ local function restore()
   vim.o.termguicolors = default_state.termguicolors
 end
 
+---@return nil
 local function init_themes()
   catppuccin.setup({
     background = { light = "latte", dark = "mocha" },
@@ -60,22 +64,27 @@ local function init_themes()
   restore()
 end
 
+---@return nil
 local function quiet_dark()
   change_theme({ theme = "quiet", background = "dark", laststatus = 0 })
 end
 
+---@return nil
 local function quiet_light()
   change_theme({ theme = "quiet", background = "light", laststatus = 0 })
 end
 
+---@return nil
 local function dark()
   change_theme({ background = "dark" })
 end
 
+---@return nil
 local function light()
   change_theme({ background = "light" })
 end
 
+---@return nil
 local function retro()
   change_theme({
     theme = "default",
