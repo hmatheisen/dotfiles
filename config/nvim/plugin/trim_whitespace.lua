@@ -17,7 +17,4 @@ local function trim()
   vim.fn.winrestview(win_save)
 end
 
-autocmd("BufWritePre", {
-  pattern = "*",
-  callback = trim
-})
+autocmd("BufWritePre", { pattern = "*", callback = trim })

@@ -1,8 +1,8 @@
 require('zen-mode').setup {
   window = {
-    width = 80, -- width of the Zen window
+    width = 80,               -- width of the Zen window
     options = {
-      number = false, -- disable number column
+      number = false,         -- disable number column
       relativenumber = false, -- disable relative numbers
     },
   },

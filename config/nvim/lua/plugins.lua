@@ -10,8 +10,8 @@ local packer = require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Theme
-  use { "bluz71/vim-moonfly-colors", as = "moonfly" }
   use 'nvim-lualine/lualine.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Editor
   use 'tpope/vim-surround'
@@ -35,6 +35,7 @@ local packer = require('packer').startup(function(use)
 
   -- UI
   use 'folke/zen-mode.nvim'
+  use 'tpope/vim-vinegar'
 
   -- Snippets
   use 'SirVer/ultisnips'
@@ -50,23 +51,23 @@ local packer = require('packer').startup(function(use)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- LSP
-  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  use 'hrsh7th/cmp-buffer' -- Buffer source for nvim-cmp
-  use 'hrsh7th/cmp-path' -- Path source for nvim-cmp
-  use 'hrsh7th/cmp-nvim-lua' -- Neovim's Lua API source for nvim-cmp
-  use 'hrsh7th/cmp-cmdline' -- nvim-cmp source for vim's cmdline
+  use 'neovim/nvim-lspconfig'               -- Configurations for Nvim LSP
+  use 'hrsh7th/nvim-cmp'                    -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp'                -- LSP source for nvim-cmp
+  use 'hrsh7th/cmp-buffer'                  -- Buffer source for nvim-cmp
+  use 'hrsh7th/cmp-path'                    -- Path source for nvim-cmp
+  use 'hrsh7th/cmp-nvim-lua'                -- Neovim's Lua API source for nvim-cmp
+  use 'hrsh7th/cmp-cmdline'                 -- nvim-cmp source for vim's cmdline
   use 'hrsh7th/cmp-nvim-lsp-signature-help' -- Signature help
   use 'quangnguyen30192/cmp-nvim-ultisnips' -- nvim-cmp source for ultisnips
 end)
 
-require('plugin_config/lualine')
 require('plugin_config/autopairs')
 require('plugin_config/easyalign')
 require('plugin_config/cmp')
 require('plugin_config/telescope')
 require('plugin_config/treesitter')
+require('plugin_config/vimux')
 require('plugin_config/zenmode')
 
 return packer

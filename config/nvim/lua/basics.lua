@@ -67,7 +67,7 @@ vim.o.clipboard = "unnamedplus"
 vim.o.undofile = true
 
 -- Default shell
-vim.o.shell="/usr/bin/env zsh"
+vim.o.shell = "/usr/bin/env zsh"
 
 -- Show split preview for some commands
 vim.o.inccommand = "split"
@@ -82,11 +82,8 @@ vim.o.confirm = true
 -- TODO: move in after/ftplugin since overriden by default vim config
 -- vim.opt.formatoptions:remove { "c", "r", "o" }
 
--- Term GUI Colors
-vim.o.termguicolors = true
-
 -- Use rg as grep program
 vim.o.grepprg = "rg --vimgrep --smart-case --follow"
 
--- Colorscheme
-vim.cmd.colorscheme("moonfly")
+-- Netrw tree listing
+vim.g.netrw_liststyle = "tree"

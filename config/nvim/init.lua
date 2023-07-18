@@ -1,5 +1,5 @@
 require("basics")
 require("mappings")
 require("plugins")
+require("theme")
 require("lsp")
-

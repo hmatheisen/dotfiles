@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  catppuccin = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -113,11 +118,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  moonfly = {
-    loaded = true,
-    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/moonfly",
-    url = "https://github.com/bluz71/vim-moonfly-colors"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -223,6 +223,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/henry/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-vinegar"] = {
+    loaded = true,
+    path = "/Users/henry/.local/share/nvim/site/pack/packer/start/vim-vinegar",
+    url = "https://github.com/tpope/vim-vinegar"
   },
   vimux = {
     loaded = true,
