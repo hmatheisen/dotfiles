@@ -1,2 +1,3 @@
 config/nvim/.netrwhist
 config/nvim/spell/
+.luarc.json

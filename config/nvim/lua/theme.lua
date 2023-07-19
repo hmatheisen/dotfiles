@@ -3,103 +3,96 @@
 -- These functions allow me to quickly change these options by having default
 -- presets and commands for them.
 
-local catppuccin = require("catppuccin")
-local lualine = require("lualine")
+---@alias Preset { colorscheme: string, laststatus: 0|1|2|3, background: "light"|"dark", termguicolors: boolean }
 
---- Default theme is kept here for easy restore
-local default_state = {
-  theme = "catppuccin",
-  laststatus = 2,
-  background = "dark",
-  termguicolors = true,
+---@class MyTheme
+local M = {}
+
+---@class MyThemeConfig
+M.config = {
+  ---@type Preset
+  default_preset = {
+    colorscheme = "default",
+    laststatus = 2,
+    background = "dark",
+    termguicolors = true,
+  },
+  before_hook = function() end,
+  ---@type table<string, Preset>
+  presets = {}
 }
 
----@param args { theme: string, background: string, laststatus: number, termguicolors: boolean }
+---@param args Preset
 ---@return nil
 local function change_theme(args)
-  vim.cmd.colorscheme(args.theme or default_state.theme)
-  vim.o.background = args.background or default_state.background
-  vim.o.laststatus = args.laststatus or default_state.laststatus
+  local default_preset = M.config.default_preset
 
-  if vim.o.laststatus == 0 then
-    lualine.hide()
-  end
+  vim.cmd.colorscheme(args.colorscheme or default_preset.colorscheme)
+  vim.o.background = args.background or default_preset.background
+  vim.o.laststatus = args.laststatus or default_preset.laststatus
 
   if type(args.termguicolors) == "boolean" then
     vim.o.termguicolors = args.termguicolors
   else
-    vim.o.termguicolors = default_state.termguicolors
+    vim.o.termguicolors = default_preset.termguicolors
   end
 end
 
 ---@return nil
-local function restore()
-  vim.cmd.colorscheme(default_state.theme)
-  vim.o.background = default_state.background
-  vim.o.laststatus = default_state.laststatus
-  vim.o.termguicolors = default_state.termguicolors
+local function create_commands()
+  for key, preset in pairs(M.config.presets) do
+    vim.api.nvim_create_user_command(
+      key,
+      function() change_theme(preset) end,
+      {}
+    )
+  end
 end
 
 ---@return nil
-local function init_themes()
-  catppuccin.setup({
-    background = { light = "latte", dark = "mocha" },
-    color_overrides = { mocha = { base = "#000000" } }
-  })
+local function restore_default()
+  local default_preset = M.config.default_preset
 
-  lualine.setup({
-    options = {
-      icons_enabled = false,
-    },
-    sections = {
-      lualine_a = { 'mode' },
-      lualine_b = { 'branch', 'diff', 'diagnostics' },
-      lualine_c = { 'filename' },
-      lualine_x = { 'encoding', 'fileformat', 'filetype' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location' }
-    },
-  })
-
-  restore()
+  vim.cmd.colorscheme(default_preset.colorscheme)
+  vim.o.background = default_preset.background
+  vim.o.laststatus = default_preset.laststatus
+  vim.o.termguicolors = default_preset.termguicolors
 end
 
----@return nil
-local function quiet_dark()
-  change_theme({ theme = "quiet", background = "dark", laststatus = 0 })
-end
+vim.api.nvim_create_user_command("RestoreDefault", restore_default, {})
 
----@return nil
-local function quiet_light()
-  change_theme({ theme = "quiet", background = "light", laststatus = 0 })
-end
-
----@return nil
-local function dark()
-  change_theme({ background = "dark" })
-end
-
----@return nil
-local function light()
-  change_theme({ background = "light" })
-end
-
----@return nil
-local function retro()
-  change_theme({
-    theme = "default",
-    background = "light",
-    laststatus = 0,
-    termguicolors = false
+---@param preset Preset
+local function validate_preset(preset)
+  vim.validate({
+    colorscheme = { preset.colorscheme, 'string', true },
+    background = { preset.background, 'string', true },
+    laststatus = { preset.laststatus, 'number', true },
+    termguicolors = { preset.termguicolors, 'boolean', true }
   })
 end
 
-vim.api.nvim_create_user_command('Light', light, {})
-vim.api.nvim_create_user_command('Dark', dark, {})
-vim.api.nvim_create_user_command('QuietLight', quiet_light, {})
-vim.api.nvim_create_user_command('QuietDark', quiet_dark, {})
-vim.api.nvim_create_user_command('Retro', retro, {})
-vim.api.nvim_create_user_command('RestoreTheme', restore, {})
+---@param config MyThemeConfig
+local function validate_config(config)
+  validate_preset(config.default_preset)
 
--- Calling init here sets the default theme preset
-init_themes()
+  for _, preset in pairs(config.presets) do
+    validate_preset(preset)
+  end
+end
+
+---@param config MyThemeConfig
+---@return nil
+function M.setup(config)
+  vim.validate({ config = { config, 'table', true } })
+  config = vim.tbl_deep_extend('force', M.config, config or {})
+
+  validate_config(config)
+
+  M.config = config
+
+  M.config.before_hook()
+  create_commands()
+  restore_default()
+end
+
+return M

@@ -27,5 +27,9 @@ vim.keymap.set("n", "]Q", ":clast<CR>", { noremap = true })
 vim.keymap.set("n", "[b", ":bprevious<CR>", { noremap = true })
 vim.keymap.set("n", "]b", ":bnext<CR>", { noremap = true })
 
+-- Tabs cycling
+vim.keymap.set("n", "<C-Tab>", "gt", { noremap = true })
+vim.keymap.set("n", "<C-S-Tab>", "gT", { noremap = true })
+
 -- Some command abbrevs
 vim.cmd.cnoreabbrev("new", "tabnew")
