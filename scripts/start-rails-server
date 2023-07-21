@@ -8,15 +8,13 @@ elif [[ $1 == "p" ]]; then
   SERVER_ENV="production"
 fi
 
-FEATURE_FLAGS=$(cat ~/.local/share/elevo-rails/feature-flags.json) \
-  USE_DEV_SSL=false \
+USE_DEV_SSL=false \
   RACK_TIMEOUT_SERVICE_TIMEOUT=0 \
   IMPERSONATION_DURATION_IN_MINUTES=999999 \
   VITALLY_ENABLED=false \
   PAPER_TRAIL_ENABLED=true \
   ELEVO_BACKEND_HOST=localhost \
   ELEVO_FRONTEND_HOST=localhost \
-  HEROKU_ENV=production \
   SECRET_KEY_BASE='secret' \
   WEB_CONCURRENCY=1 \
   CORS_ORIGINS=$(cat ~/.local/share/elevo-rails/cors_origins.json) \

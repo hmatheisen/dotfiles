@@ -5,9 +5,6 @@ vim.o.encoding = "utf-8"
 vim.o.fileencoding = "utf-8"
 vim.o.fileencodings = "utf-8"
 
--- Show cursor line
--- vim.o.cursorline = true
-
 -- No hidden buffers
 vim.o.hidden = false
 
@@ -78,12 +75,8 @@ vim.o.joinspaces = true
 -- Give me a prompt instead of just rejecting risky :write, :saveas
 vim.o.confirm = true
 
--- Format options
--- TODO: move in after/ftplugin since overriden by default vim config
--- vim.opt.formatoptions:remove { "c", "r", "o" }
-
 -- Use rg as grep program
 vim.o.grepprg = "rg --vimgrep --smart-case --follow"
 
 -- Netrw tree listing
-vim.g.netrw_liststyle = "tree"
+-- vim.g.netrw_liststyle = 3

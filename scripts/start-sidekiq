@@ -12,4 +12,5 @@ ADP_SSL_CLIENT_CERT=$(cat ~/.local/share/elevo-rails/adp_ssl_client_cert) \
   ADP_SSL_CLIENT_KEY=$(cat ~/.local/share/elevo-rails/adp_ssl_client_key) \
   ADP_BASE_API_URL=https://api.eu.adp.com \
   ADP_BASE_OAUTH_API_URL=https://accounts.eu.adp.com \
+  env $(cat ~/.local/share/elevo-rails/secrets.txt | xargs) \
   bundle exec sidekiq -e $SERVER_ENV

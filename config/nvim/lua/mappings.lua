@@ -37,6 +37,9 @@ set_keymap("n", "<C-S-Tab>", "gT", { noremap = true })
 
 -- Some command abbrevs
 vim.cmd.cnoreabbrev("new", "tabnew")
+vim.cmd.cnoreabbrev("help", "vert help")
+vim.cmd.cnoreabbrev("prt", "lua vim.print()<Left>")
+
 
 -- Commands
 
@@ -51,4 +54,9 @@ autocmd('TextYankPost', {
 })
 
 -- Don't auto comment new lines
-autocmd('BufEnter', { pattern = '', command = 'set fo-=cro' })
+autocmd('BufEnter', {
+  pattern = '',
+  callback = function()
+    vim.opt.formatoptions:remove { "c", "r", "o" }
+  end
+})

@@ -10,5 +10,7 @@ tmux split-window -v
 tmux send-keys 'yarn start' Enter
 
 tmux new-window -n 'code'
-
+tmux new-window -n 'console'
+tmux new-window -n 'notes'
+tmux new-window -n 'dotfiles'
 tmux new-window -d
