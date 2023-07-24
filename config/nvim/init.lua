@@ -1,5 +1,1 @@
-require("basics")
-require("mappings")
-require("plugins")
-require("lsp")
-require("theme")
+require("config").setup()

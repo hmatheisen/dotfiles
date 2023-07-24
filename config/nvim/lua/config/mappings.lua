@@ -1,8 +1,6 @@
 -- Mappings & commands
 
 local set_keymap = vim.keymap.set
-local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
-local trim = require("hma.utils").trim
 
 -- Life changer
 set_keymap("n", " ", ":", { noremap = true })
@@ -39,24 +37,3 @@ set_keymap("n", "<C-S-Tab>", "gT", { noremap = true })
 vim.cmd.cnoreabbrev("new", "tabnew")
 vim.cmd.cnoreabbrev("help", "vert help")
 vim.cmd.cnoreabbrev("prt", "lua vim.print()<Left>")
-
-
--- Commands
-
--- Trim whitespaces on save
-autocmd("BufWritePre", { pattern = "*", callback = trim })
-
--- Highlight text that has been yanked
-autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '500' })
-  end
-})
-
--- Don't auto comment new lines
-autocmd('BufEnter', {
-  pattern = '',
-  callback = function()
-    vim.opt.formatoptions:remove { "c", "r", "o" }
-  end
-})
