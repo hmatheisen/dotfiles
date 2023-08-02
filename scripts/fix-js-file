@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-FILE_NAME=$1
-
-yarn prettier --write $FILE_NAME
-yarn flow $FILE_NAME

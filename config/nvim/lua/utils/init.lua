@@ -1,5 +1,7 @@
 local M = {}
 
+--- TRIM {{{
+
 -- Filetypes blacklist where NOT to apply trim
 M.trim_blacklist = { 'markdown' }
 
@@ -16,5 +18,33 @@ function M.trim()
   vim.cmd([[keepjumps keeppatterns silent! %s/\s\+$//e]])
   vim.fn.winrestview(win_save)
 end
+
+--- }}}
+
+--- FORMAT {{{
+
+M.format_config = {
+  ruby            = "bundle exec stree write --print-width=100 %",
+  typescript      = "yarn prettier --write %",
+  typescriptreact = "yarn prettier --write %",
+  javascript      = "yarn prettier --write %",
+}
+
+-- Requires vim-dispatch
+function M.format()
+  for ft, command in pairs(M.format_config) do
+    if ft ~= vim.bo.filetype then
+      goto continue
+    end
+
+    vim.cmd("Dispatch! " .. command)
+
+    ::continue::
+  end
+end
+
+vim.api.nvim_create_user_command("Format", M.format, {})
+
+--- }}}
 
 return M

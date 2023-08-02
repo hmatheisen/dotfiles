@@ -18,3 +18,18 @@ autocmd('BufEnter', {
     vim.opt.formatoptions:remove { "c", "r", "o" }
   end
 })
+
+-- Close some file tupes wit `q`
+autocmd("FileType", {
+  pattern = {
+    "help",
+    "man",
+    "spectre_panel",
+    "checkhealth",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
+})
+

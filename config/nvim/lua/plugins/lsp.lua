@@ -1,80 +1,80 @@
--- Add additional capabilities supported by nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- Setup language servers.
-local lspconfig = require('lspconfig')
-
--- Servers config
-lspconfig.tsserver.setup { capabilities = capabilities }
-lspconfig.solargraph.setup { capabilities = capabilities }
-lspconfig.gopls.setup { capabilities = capabilities }
-lspconfig.lua_ls.setup {
-  settings = {
-    Lua = {
-      runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
-      diagnostics = { globals = { 'vim' } },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      telemetry = {
-        enable = false,
-      },
-    }
-  },
-  capabilities = capabilities
-}
-
-lspconfig.clangd.setup {
-  cmd = {
-    "/opt/homebrew/opt/llvm/bin/clangd",
-    "--background-index",
-    "--clang-tidy",
-    "--all-scopes-completion",
-    "--pretty",
-    "--inlay-hints",
-    "--header-insertion-decorators",
-    "--completion-style=detailed",
-    "--pch-storage=memory",
-    "--pretty",
-    "-j=4",
-    "--function-arg-placeholders",
-  },
-  capabilities = capabilities
-}
-
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
-
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
-    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', '<C-f>', function() vim.lsp.buf.format { async = true } end, opts)
-    -- Replaced by Telescope
-    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  end,
-})
-
 return {
-  "neovim/nvim-lspconfig", -- Configurations for Nvim LSP
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = "hrsh7th/cmp-nvim-lsp",
+    config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local lspconfig = require('lspconfig')
+
+      -- Servers config
+      lspconfig.tsserver.setup { capabilities = capabilities }
+      lspconfig.solargraph.setup { capabilities = capabilities }
+      lspconfig.gopls.setup { capabilities = capabilities }
+      lspconfig.omnisharp.setup {
+        cmd = { "dotnet", "/Users/henry/.local/omnisharp/OmniSharp.dll" },
+        capabilities = capabilities
+      }
+
+      lspconfig.lua_ls.setup {
+        settings = {
+          Lua = {
+            runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
+            diagnostics = { globals = { 'vim' } },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false
+            },
+            telemetry = {
+              enable = false,
+            },
+          }
+        },
+        capabilities = capabilities
+      }
+
+      lspconfig.clangd.setup {
+        cmd = {
+          "/opt/homebrew/opt/llvm/bin/clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--all-scopes-completion",
+          "--pretty",
+          "--inlay-hints",
+          "--header-insertion-decorators",
+          "--completion-style=detailed",
+          "--pch-storage=memory",
+          "--pretty",
+          "-j=4",
+          "--function-arg-placeholders",
+        },
+        capabilities = capabilities
+      }
+
+      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+        callback = function(ev)
+          -- Buffer local mappings.
+          local opts = { buffer = ev.buf }
+          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, opts)
+          vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+          vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+          vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
+          vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+          vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', '<C-f>', function() vim.lsp.buf.format { async = true } end, opts)
+        end,
+      })
+    end
+  },
   {
     "hrsh7th/nvim-cmp",
     config = function()
@@ -83,9 +83,7 @@ return {
       -- Default completion
       cmp.setup({
         snippet = {
-          expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
-          end,
+          expand = function(args) vim.fn["UltiSnips#Anon"](args.body) end,
         },
         mapping = cmp.mapping.preset.insert({
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
@@ -94,15 +92,14 @@ return {
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
+          { name = 'nvim_lua' },
           { name = 'nvim_lsp_signature_help' },
           { name = 'path' },
           { name = 'ultisnips' },
           {
             name = 'buffer',
             option = {
-              get_bufnrs = function()
-                return vim.api.nvim_list_bufs()
-              end
+              get_bufnrs = function() return vim.api.nvim_list_bufs() end
             }
           },
         })
@@ -114,9 +111,7 @@ return {
         sources = {
           { name = 'buffer' }
         },
-        view = {
-          entries = "wildmenu"
-        }
+        view = { entries = "wildmenu" }
       })
 
       -- Use cmdline & path source for ':'
@@ -126,9 +121,7 @@ return {
           { name = 'path' },
           { name = 'cmdline' }
         }),
-        view = {
-          entries = "wildmenu"
-        }
+        view = { entries = "wildmenu" }
       })
     end
   },                                     -- Autocompletion plugin
@@ -136,6 +129,7 @@ return {
   "hrsh7th/cmp-buffer",                  -- Buffer source for nvim-cmp
   "hrsh7th/cmp-path",                    -- Path source for nvim-cmp
   "hrsh7th/cmp-cmdline",                 -- nvim-cmp source for vim",s cmdline
+  "hrsh7th/cmp-nvim-lua",                -- nvim lua api
   "hrsh7th/cmp-nvim-lsp-signature-help", -- Signature help
   "quangnguyen30192/cmp-nvim-ultisnips", -- nvim-cmp source for ultisnips
 }

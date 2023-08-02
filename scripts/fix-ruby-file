@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-FILE_NAME=$1
-
-bundle exec stree write --print-width=100 $FILE_NAME
-bundle exec rubocop -a $FILE_NAME
