@@ -4,6 +4,8 @@ alias l="ll -a"
 alias vim=nvim
 alias ivm=nvim # yes I went there
 
+alias ran=ranger
+
 alias glog="git log --decorate --oneline --graph"
 alias changelog='git log --no-merges --pretty=format:"%s" $TARGET..$SOURCE'
 alias gcof='git checkout .forestadmin-schema.json'

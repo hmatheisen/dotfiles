@@ -28,6 +28,7 @@ M.format_config = {
   typescript      = "yarn prettier --write %",
   typescriptreact = "yarn prettier --write %",
   javascript      = "yarn prettier --write %",
+  sql             = "pg_format --inplace %",
 }
 
 -- Requires vim-dispatch
@@ -44,6 +45,33 @@ function M.format()
 end
 
 vim.api.nvim_create_user_command("Format", M.format, {})
+
+--- }}}
+
+--- INDENT {{{
+
+M.indent_config = {
+  cs   = { size = 4, use_tabs = false },
+  sql  = { size = 4, use_tabs = false },
+  c    = { size = 4, use_tabs = true },
+  go   = { size = 4, use_tabs = true },
+  make = { size = 4, use_tabs = true },
+}
+
+function M.set_indent()
+  for ft, config in pairs(M.indent_config) do
+    if ft ~= vim.bo.filetype then
+      goto continue
+    end
+
+    vim.opt_local.tabstop = config.size
+    vim.opt_local.softtabstop = config.size
+    vim.opt_local.shiftwidth = config.size
+    vim.opt_local.expandtab = not config.use_tabs
+
+    ::continue::
+  end
+end
 
 --- }}}
 

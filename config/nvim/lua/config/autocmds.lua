@@ -1,8 +1,13 @@
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
-local trim = require("utils").trim
+
+local utils = require("utils")
+local set_indent, trim = utils.set_indent, utils.trim
 
 -- Trim whitespaces on save
 autocmd("BufWritePre", { pattern = "*", callback = trim })
+
+-- Set proper indent
+autocmd("BufEnter", { pattern = "*", callback = set_indent })
 
 -- Highlight text that has been yanked
 autocmd('TextYankPost', {
@@ -32,4 +37,3 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
-

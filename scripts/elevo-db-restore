@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 export RAILS_ENV=development
 
 bundle exec rails db:reset
