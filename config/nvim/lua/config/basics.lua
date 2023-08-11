@@ -21,11 +21,12 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 
 -- Map Leader
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 -- Searching
 vim.o.hlsearch = false
 vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Split the right way
 vim.o.splitbelow = true
@@ -79,4 +80,4 @@ vim.o.confirm = true
 vim.o.grepprg = "rg --vimgrep --smart-case --follow"
 
 -- Netrw tree listing
--- vim.g.netrw_liststyle = 3
+vim.g.netrw_liststyle = 3

@@ -2,11 +2,18 @@
 
 SERVER_ENV="development"
 
-if [[ $1 == "t" ]]; then
-  SERVER_ENV="test"
-elif [[ $1 == "p" ]]; then
-  SERVER_ENV="production"
-fi
+while getopts "tp" OPTIONS; do
+  case $OPTIONS in
+    t)
+      echo "Starting in test mode"
+      SERVER_ENV="test"
+      ;;
+    p)
+      echo "Starting in production mode"
+      SERVER_ENV="production"
+      ;;
+  esac
+done
 
 USE_DEV_SSL=false \
   RACK_TIMEOUT_SERVICE_TIMEOUT=0 \

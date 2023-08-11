@@ -73,6 +73,9 @@ return {
           vim.keymap.set('n', '<C-f>', function() vim.lsp.buf.format { async = true } end, opts)
         end,
       })
+
+      vim.api.nvim_create_user_command("DisableDiagnostics", function() vim.diagnostic.disable(0) end, {})
+      vim.api.nvim_create_user_command("EnableDiagnostics", function() vim.diagnostic.enable(0) end, {})
     end
   },
   {
@@ -86,7 +89,7 @@ return {
           expand = function(args) vim.fn["UltiSnips#Anon"](args.body) end,
         },
         mapping = cmp.mapping.preset.insert({
-          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<CR>'] = cmp.mapping.confirm({ select = false }),
           ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
           ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
         }),

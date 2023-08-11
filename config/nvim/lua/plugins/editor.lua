@@ -8,17 +8,12 @@ return {
   "tommcdo/vim-lion",
   "easymotion/vim-easymotion",
   "windwp/nvim-ts-autotag",
+  "justinmk/vim-sneak",
   {
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup()
     end
-  },
-  {
-    "preservim/vimux",
-    keys = {
-      { "<leader>t", ":VimuxOpenRunner<CR>", { noremap = true } }
-    }
   },
   {
     'nvim-treesitter/nvim-treesitter',

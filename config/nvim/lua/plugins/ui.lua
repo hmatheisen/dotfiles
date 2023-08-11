@@ -36,4 +36,10 @@ return {
     cmd = 'ZenMode'
   },
   "tpope/vim-vinegar",
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end
+  }
 }

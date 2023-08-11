@@ -27,23 +27,19 @@ end
 local function init_theme()
   theme.setup({
     default_preset = {
-      colorscheme = "catppuccin",
+      colorscheme = "github_dark_high_contrast",
       background = "dark",
       laststatus = 2,
       termguicolors = true,
     },
     presets = {
       ["DefaultTheme"] = { colorscheme = "default", termguicolors = false },
-      ["Light"] = { background = "light" },
+      ["Light"] = { colorscheme = "github_light", background = "light" },
       ["QuietDark"] = { colorscheme = "quiet", laststatus = 0, background = "dark", },
       ["QuietLight"] = { colorscheme = "quiet", laststatus = 0, background = "light", },
-      ["SimpleLight"] = { colorscheme = "alabaster", background = "light" },
-      ["SimpleDark"] = { colorscheme = "alabaster", background = "dark" },
-      ["RetroDark"] = {
-        colorscheme = "default",
-        laststatus = 0,
-        background = "light",
-        termguicolors = false
+      ["SimpleLight"] = { colorscheme = "alabaster", background = "light", termguicolors = true },
+      ["SimpleDark"] = { colorscheme = "alabaster", background = "dark", termguicolors = true },
+      ["RetroDark"] = { colorscheme = "default", laststatus = 0, background = "light", termguicolors = false
       }
     }
   })

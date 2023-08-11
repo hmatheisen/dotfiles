@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+while getopts "f" OPTIONS; do
+  case $OPTIONS in
+    f)
+      echo "Clearing cache"
+      rm -rf client/node_modules/.cache
+      ;;
+  esac
+done
+
+yarn start

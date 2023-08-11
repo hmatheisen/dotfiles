@@ -3,8 +3,8 @@
 local set_keymap = vim.keymap.set
 
 -- Life changer
-set_keymap("n", " ", ":", { noremap = true })
-set_keymap("x", " ", ":", { noremap = true })
+-- set_keymap("n", " ", ":", { noremap = true })
+-- set_keymap("x", " ", ":", { noremap = true })
 
 -- Shortcutting split navigation, saving a keypress
 set_keymap("", "<C-h>", "<C-w>h", {})
@@ -37,3 +37,5 @@ set_keymap("n", "<C-S-Tab>", "gT", { noremap = true })
 vim.cmd.cnoreabbrev("new", "tabnew")
 vim.cmd.cnoreabbrev("help", "vert help")
 vim.cmd.cnoreabbrev("prt", "lua vim.print()<Left>")
+vim.cmd.cnoreabbrev("Q", "q")
+

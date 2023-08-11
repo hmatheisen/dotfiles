@@ -45,6 +45,7 @@ function M.format()
 end
 
 vim.api.nvim_create_user_command("Format", M.format, {})
+vim.api.nvim_create_user_command("Fmt", M.format, {})
 
 --- }}}
 
@@ -72,6 +73,26 @@ function M.set_indent()
     ::continue::
   end
 end
+
+--- }}}
+
+--- STATUSLINE {{{
+
+local statusline = table.concat {
+  " %f",     -- path to file
+  " %S",     -- path to file
+  " %m",     -- modified flag
+  " %q",     -- quick list
+  " %w",     -- preview flag
+  " %r",     -- read-only flag
+  "%=",      -- go to other side of line
+  "%y",      -- filetype
+  " %4l:%c", -- line number : column number
+  " %4P",    -- position in file
+  " "        -- leave an empty space
+}
+
+vim.opt.statusline = statusline
 
 --- }}}
 
