@@ -1,4 +1,4 @@
-alias ll="exa -lhg --group-directories-first"
+alias ll="eza -lhg --group-directories-first"
 alias l="ll -a"
 
 alias vim=nvim
@@ -17,3 +17,8 @@ alias elevo="cd ~/Code/elevo-rails && tmux-elevo"
 
 alias docker-rmi="docker images -q | xargs docker rmi"
 alias docker-rm="docker ps -qa | xargs docker rm"
+
+alias ec="emacsclient -c"
+
+alias grep="ggrep --color=auto --line-number --exclude-dir={node_modules,.git}"
+alias rgrep="grep -R"

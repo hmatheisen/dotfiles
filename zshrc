@@ -1,12 +1,11 @@
 # Zsh plugins
-plugins=(git)
+plugins=(git brew macos rake ripgrep docker)
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/henry/.oh-my-zsh"
 # source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# Reload zsh config
-function zsh_reload() { source ~/.zshrc }
+export ZSH_THEME=simple
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -22,18 +21,8 @@ function config() { cd ~/.config }
 # Be sure locale is utf8
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
-
 # Source aliases
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
-
-# Set prompt
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # Disable ctrl-s to freeze terminal.
 stty stop undef
@@ -42,9 +31,6 @@ stty stop undef
 export PATH="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin:$PATH"
 
 # rbenv
-# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-# export PATH="$HOME/.rbenv/shims:$PATH"
-# eval "$(rbenv init -)"
 eval "$(rbenv init - zsh)"
 
 # NVM
@@ -73,5 +59,21 @@ if [ -f '/Users/henry/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/henry/goo
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/henry/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/henry/google-cloud-sdk/completion.zsh.inc'; fi
 
+# Postgres
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
 # LLVM bins
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+# LaTeX classes
+export TEXINPUTS=:/Users/henry/Notes/classes
+
+# bun completions
+[ -s "/Users/henry/.bun/_bun" ] && source "/Users/henry/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Chez scheme
+export CHEZSCHEMELIBDIRS="/Users/henry/Code/scheme/lib:"

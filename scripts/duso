@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+DIR="."
+
+if [[ -d $1 ]]
+then
+  DIR=$1
+fi
+
+du -h -d 1 $DIR | sort -h

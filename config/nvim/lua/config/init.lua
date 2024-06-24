@@ -58,7 +58,9 @@ function M.setup()
   init_lazy()
 
   -- Theme settings
-  init_theme()
+  if not vim.g.vscode then
+    init_theme()
+  end
 end
 
 return M

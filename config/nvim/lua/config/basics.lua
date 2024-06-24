@@ -56,7 +56,6 @@ vim.o.wrap = false
 -- Fold
 vim.o.foldenable = true
 vim.o.foldmethod = "marker"
-vim.o.foldenable = 99
 
 -- Clipboard support
 vim.o.clipboard = "unnamedplus"

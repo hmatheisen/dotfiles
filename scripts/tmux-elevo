@@ -9,6 +9,4 @@ tmux send-keys 'start-sidekiq' Enter
 tmux split-window -v
 tmux send-keys 'start-client' Enter
 
-tmux new-window -n 'code'
-tmux new-window -d -n 'notes'
 tmux new-window -d

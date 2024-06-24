@@ -9,4 +9,4 @@ while getopts "f" OPTIONS; do
   esac
 done
 
-yarn start
+BROWSER=none yarn start
