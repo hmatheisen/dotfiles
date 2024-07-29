@@ -1,4 +1,4 @@
-sync: create-dirs alacritty nvim ranger vis scripts bash tmux vimrc zsh
+sync: create-dirs alacritty nvim vis scripts aliases tmux zsh
 
 create-dirs:
 	@echo Creating directories...
@@ -10,14 +10,11 @@ alacritty:
 	ln -s $(PWD)/config/alacritty ~/.config/alacritty
 nvim:
 	ln -s $(PWD)/config/nvim      ~/.config/nvim
-ranger:
-	ln -s $(PWD)/config/ranger    ~/.config/ranger
 vis:
 	ln -s $(PWD)/config/vis       ~/.config/vis
 scripts:
 	ln -s $(PWD)/scripts          ~/.local/bin
-bash:
-	ln -s $(PWD)/bashrc           ~/.bashrc
+aliases:
 	ln -s $(PWD)/bash_aliases     ~/.bash_aliases
 tmux:
 	ln -s $(PWD)/tmux.conf        ~/.tmux.conf
@@ -31,20 +28,13 @@ clean:
 	rm -rf ~/.config/alacritty
 	@# nvim
 	rm -rf ~/.config/nvim
-	@# ranger
-	rm -rf ~/.config/ranger
 	@# vis
 	rm -rf ~/.config/vis
 	@# scripts
 	rm -rf ~/.local/bin
-	@# bash
-	rm -f  ~/.bashrc
+	@# aliases
 	rm -f  ~/.bash_aliases
 	@# tmux
 	rm -f  ~/.tmux.conf
-	@# vimrc
-	rm -f  ~/.vimrc
 	@# zsh
 	rm -f  ~/.zshrc
-
-.PHONY: create-dirs alacritty nvim vis scripts bash tmux vimrc zsh clean

@@ -1,1 +1,3 @@
-require("config").setup()
+require("config.options")
+require("config.lazy")
+require("config.mappings")

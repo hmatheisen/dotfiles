@@ -1,0 +1,7 @@
+{
+  "workspace": {
+    "library": [
+      "/opt/homebrew/share/nvim/runtime/lua"
+    ]
+  }
+}

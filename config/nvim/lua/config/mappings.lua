@@ -1,41 +1,21 @@
--- Mappings & commands
+local keymap = vim.keymap
 
-local set_keymap = vim.keymap.set
+-- <CR> is <C-y> (accept completion) in command mode when wildmenu is displayed
+keymap.set("c", "<CR>", function()
+  return vim.fn.wildmenumode() == 1 and "<C-y>" or "<CR>"
+end, { expr = true, remap = false })
 
--- Life changer
--- set_keymap("n", " ", ":", { noremap = true })
--- set_keymap("x", " ", ":", { noremap = true })
+-- <CR> is <C-y> (accept completion) in insert mode when pumvisible
+keymap.set("i", "<CR>", function()
+  return vim.fn.pumvisible() == 1 and "<C-y>" or "<CR>"
+end, { expr = true, remap = false })
 
--- Shortcutting split navigation, saving a keypress
-set_keymap("", "<C-h>", "<C-w>h", {})
-set_keymap("", "<C-j>", "<C-w>j", {})
-set_keymap("", "<C-k>", "<C-w>k", {})
-set_keymap("", "<C-l>", "<C-w>l", {})
+-- <Tab> is <C-n> (next completion) in insert mode when pumvisible
+vim.keymap.set('i', '<Tab>', function()
+  return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
+end, { expr = true, remap = false })
 
--- Some nice commands
-set_keymap("n", "<leader>o", ":setlocal spell!<CR>", { noremap = true }) -- Toggle spell check
-set_keymap("n", "<leader>c", ":!pbcopy < %<CR>", { noremap = true })     -- Copy all file content to clipboard
-
--- Escape terminal easily
-set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
-
--- Mappings for quicklist navigation
-set_keymap("n", "[q", ":cprevious<CR>", { noremap = true })
-set_keymap("n", "]q", ":cnext<CR>", { noremap = true })
-set_keymap("n", "[Q", ":cfirst<CR>", { noremap = true })
-set_keymap("n", "]Q", ":clast<CR>", { noremap = true })
-
--- Mappings for buffer navigation
-set_keymap("n", "[b", ":bprevious<CR>", { noremap = true })
-set_keymap("n", "]b", ":bnext<CR>", { noremap = true })
-
--- Tabs cycling
-set_keymap("n", "<C-Tab>", "gt", { noremap = true })
-set_keymap("n", "<C-S-Tab>", "gT", { noremap = true })
-
--- Some command abbrevs
-vim.cmd.cnoreabbrev("new", "tabnew")
-vim.cmd.cnoreabbrev("help", "vert help")
-vim.cmd.cnoreabbrev("prt", "lua vim.print()<Left>")
-vim.cmd.cnoreabbrev("Q", "q")
-
+-- <S-Tab> is <C-p> (previous completion) in insert mode when pumvisible
+vim.keymap.set('i', '<S-Tab>', function()
+  return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
+end, { expr = true, remap = false })

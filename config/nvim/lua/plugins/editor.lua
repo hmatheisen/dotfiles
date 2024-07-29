@@ -1,18 +1,15 @@
 return {
   "tpope/vim-surround",
-  "tpope/vim-commentary",
-  "tpope/vim-dispatch",
   "tpope/vim-fugitive",
   "tpope/vim-endwise",
   "tpope/vim-rsi",
   "tommcdo/vim-lion",
   "easymotion/vim-easymotion",
-  "windwp/nvim-ts-autotag",
   "justinmk/vim-sneak",
   {
-    "windwp/nvim-autopairs",
+    'windwp/nvim-autopairs',
     config = function()
-      require("nvim-autopairs").setup()
+      require('nvim-autopairs').setup {}
     end
   },
   {
@@ -31,5 +28,5 @@ return {
       vim.o.foldenable = false
     end
   },
-  "SirVer/ultisnips"
+  "github/copilot.vim"
 }
