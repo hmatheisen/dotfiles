@@ -4,8 +4,10 @@ plugins=(git brew macos rake ripgrep docker)
 export ZSH="/Users/henry/.oh-my-zsh"
 # source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-
 export ZSH_THEME=simple
+
+# Default editor
+export EDITOR=/opt/homebrew/bin/nvim
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -52,13 +54,6 @@ stty dsusp undef
 
 # FZF utils
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-autoload -U +X bashcompinit && bashcompinit
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/henry/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/henry/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/henry/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/henry/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Postgres
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
