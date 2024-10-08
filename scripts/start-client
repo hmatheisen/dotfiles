@@ -9,4 +9,4 @@ while getopts "f" OPTIONS; do
   esac
 done
 
-BROWSER=none yarn start
+cd client && BROWSER=none yarn start

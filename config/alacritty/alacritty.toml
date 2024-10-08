@@ -1,5 +1,6 @@
 import = [
-  "~/.config/alacritty/tomorrow_night_bright.toml"
+  "~/.config/alacritty/solarized_light.toml",
+  "~/.config/alacritty/tomorrow_night_bright.toml",
 ]
 
 live_config_reload = true
@@ -8,10 +9,6 @@ live_config_reload = true
 option_as_alt = "OnlyLeft"
 dynamic_title = false
 
-[window.dimensions]
-columns = 200
-lines = 150
-
 [scrolling]
 history = 100000
 
@@ -19,7 +16,8 @@ history = 100000
 size = 14
 
 [font.normal]
-family = "Iosevka"
+family = "Go Mono"
+style = "Regular"
 
 [mouse]
 hide_when_typing = true

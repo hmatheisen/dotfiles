@@ -1,12 +1,6 @@
 -- load standard vis module, providing parts of the Lua API
 require("vis")
 
-vis.events.subscribe(vis.events.INIT, function()
-  -- Your global configuration options
-  vis:map(vis.modes.NORMAL, " ", ":")
-  vis:map(vis.modes.VISUAL, " ", ":")
-end)
-
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	-- Your per window configuration options e.g.
 	vis:command("set autoindent")
@@ -21,6 +15,13 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 		if win.syntax == lang then
 			vis:command("set expandtab off")
 			vis:command("set tabwidth 4")
+		end
+	end
+
+	show_cursor_column = { "ansi_c", "makefile" }
+	for _, lang in ipairs(show_cursor_column) do
+		if win.syntax == lang then
+			vis:command("set cursorcolumn 80")
 		end
 	end
 end)

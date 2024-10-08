@@ -1,5 +1,5 @@
 # Zsh plugins
-plugins=(git brew macos rake ripgrep docker)
+plugins=(git brew macos rake docker)
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/henry/.oh-my-zsh"
 # source oh-my-zsh

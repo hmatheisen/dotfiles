@@ -1,5 +1,4 @@
-require("config.options")
-require("config.statusline")
-require("config.lazy")
-require("config.mappings")
-
+require("options")
+require("mappings")
+require("treesitter")
+require("lsp")

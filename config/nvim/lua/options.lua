@@ -48,4 +48,7 @@ vim.o.joinspaces = true
 -- Give me a prompt instead of just rejecting risky :write, :saveas
 vim.o.confirm = true
 
-vim.cmd[[ colorscheme wildcharm ]]
+-- Ruler is enough
+vim.o.laststatus=0
+
+vim.cmd[[ colorscheme default ]]
