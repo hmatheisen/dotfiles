@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Stop on error in case `git checkout` fails
+set -e
+
+CURRENT_BRANCH=$(git branch --show-current)
+
+git checkout master
+git pull origin master
+git checkout $CURRENT_BRANCH

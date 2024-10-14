@@ -1,5 +1,7 @@
+ZSH_THEME="simple" # set by `omz`
+
 # Zsh plugins
-plugins=(git brew macos rake docker)
+plugins=(git)
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/henry/.oh-my-zsh"
 # source oh-my-zsh
@@ -9,7 +11,7 @@ export ZSH_THEME=simple
 # Default editor
 export EDITOR=/opt/homebrew/bin/nvim
 
-# Homebrew
+# Homebre
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Path to libs and includes for homebrew

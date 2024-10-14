@@ -1,5 +1,5 @@
 import = [
-  "~/.config/alacritty/solarized_light.toml",
+  # "~/.config/alacritty/solarized_light.toml",
   "~/.config/alacritty/tomorrow_night_bright.toml",
 ]
 
@@ -8,9 +8,18 @@ live_config_reload = true
 [window]
 option_as_alt = "OnlyLeft"
 dynamic_title = false
+decorations = "Full"
+
+[window.dimensions]
+columns = 150
+lines = 80
+
+[window.padding]
+x = 5
+y = 2
 
 [scrolling]
-history = 100000
+history = 10000
 
 [font]
 size = 14

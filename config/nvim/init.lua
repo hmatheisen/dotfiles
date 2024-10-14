@@ -1,4 +1,5 @@
 require("options")
 require("mappings")
-require("treesitter")
-require("lsp")
+require("commands")
+
+if vim.fn.isdirectory("pack") then require("plugins") end

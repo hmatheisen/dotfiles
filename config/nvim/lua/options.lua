@@ -17,6 +17,7 @@ vim.o.smartindent = true
 vim.g.mapleader = " "
 
 -- Searching
+vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.hlsearch = false
 
@@ -49,6 +50,12 @@ vim.o.joinspaces = true
 vim.o.confirm = true
 
 -- Ruler is enough
-vim.o.laststatus=0
+vim.o.laststatus = 0
 
-vim.cmd[[ colorscheme default ]]
+-- grep program
+vim.o.grepprg = "rg --vimgrep"
+
+-- Set leader
+vim.g.mapleader = " "
+
+vim.cmd [[ colorscheme quiet ]]
