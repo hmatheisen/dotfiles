@@ -28,12 +28,11 @@ command("Format", format, {nargs = 0})
 
 -- open bottom tmux pane
 local function tmux_term() vim.cmd("silent !tmux split-window -v -l 15") end
-
 command("TmuxTerm", tmux_term, {nargs = 0})
 
--- read !git log --format="%s" 22.465.0..22.466.0
+-- read !git log --no-merges --format="%s" 22.465.0..22.466.0
 local function read_git_log(args)
-  local cmd = "read !git log --format=\"\\%s\""
+  local cmd = "read !git log --no-merges --format=\"\\%s\""
 
   if (args['args']) then cmd = cmd .. " " .. args['args'] end
 
@@ -51,3 +50,6 @@ local function read_migrate_diff(args)
 end
 
 command("ReadMigrateDiff", read_migrate_diff, {nargs = 1})
+
+-- Insert date
+command("Date", "read !date +\"\\%a \\%b \\%d \\%Y\"", {nargs = 0})

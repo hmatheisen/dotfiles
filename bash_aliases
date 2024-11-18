@@ -5,7 +5,9 @@ alias vim=nvim
 alias ivm=nvim
 
 alias gcof='git checkout .forestadmin-schema.json'
-alias gst='git status -sb'
+# alias gst='git status -sb'
+alias gpo='git push origin $(git branch --show-current)'
+alias gpfo='git push --force-with-lease origin $(git branch --show-current)'
 
 alias w="watch -n 1"
 

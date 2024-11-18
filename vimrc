@@ -36,5 +36,5 @@ set hidden
 
 set splitbelow splitright
 
-set bg=dark
-colorscheme quiet
+" set bg=dark
+" colorscheme quiet

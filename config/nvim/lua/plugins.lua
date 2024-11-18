@@ -1,3 +1,9 @@
+vim.cmd [[
+  packadd nvim-lspconfig
+  packadd nvim-treesitter
+  packadd copilot.vim
+]]
+
 local lspconfig = require("lspconfig")
 local treesitter = require("nvim-treesitter.configs")
 local command = vim.api.nvim_create_user_command
@@ -5,8 +11,15 @@ local command = vim.api.nvim_create_user_command
 -- Treesitter
 treesitter.setup {
   highlight = {enable = true},
-  incremental_selection = {enable = true},
-  indent = {enable = true}
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<leader>s",
+      node_incremental = "<leader>i",
+      node_decremental = "<leader>o",
+    }
+  },
+  indent = {enable = true, disable = {"ruby"}}
 }
 
 -- LSP
@@ -21,7 +34,11 @@ local function toggle_diagnostics()
 end
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(ev)
+  callback = function(args)
+    -- Disable LSP semantic highlighting
+    -- local client = vim.lsp.get_client_by_id(args.data.client_id)
+    -- client.server_capabilities.semanticTokensProvider = nil
+
     -- Disable diagnostics on attach
     vim.diagnostic.enable(false)
     command("ToggleDiagnostics", toggle_diagnostics, {})
@@ -30,7 +47,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- LSP mappings
     vim.keymap.set("n", "gca", vim.lsp.buf.code_action)
     vim.keymap.set("n", "grr", vim.lsp.buf.references)
+    vim.keymap.set("n", "grn", vim.lsp.buf.rename)
     vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-  end,
+  end
 })
+
+-- Disable Copilot in some filetypes
+vim.g.copilot_filetypes = {text = false}

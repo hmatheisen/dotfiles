@@ -58,4 +58,10 @@ vim.o.grepprg = "rg --vimgrep"
 -- Set leader
 vim.g.mapleader = " "
 
-vim.cmd [[ colorscheme quiet ]]
+-- quiet with no bg
+vim.cmd("colorscheme quiet")
+vim.api.nvim_set_hl(0, 'Normal', { guibg = nil, ctermbg = nil })
+vim.api.nvim_set_hl(0, 'NonText', { guibg = nil, ctermbg = nil })
+
+-- Set paths
+vim.o.path = vim.o.path .. "app/**,lib/**,config/**,spec/**,db/**,client/src/**"

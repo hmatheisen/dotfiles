@@ -11,7 +11,7 @@ export ZSH_THEME=simple
 # Default editor
 export EDITOR=/opt/homebrew/bin/nvim
 
-# Homebre
+# Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Path to libs and includes for homebrew
@@ -26,6 +26,9 @@ export PATH=$PATH:~/.local/bin
 function bins() { cd ~/.local/bin }
 # Go to config dir
 function config() { cd ~/.config }
+
+# Open journal
+function journal() { $EDITOR ~/Notes/journal.txt }
 
 # Be sure locale is utf8
 export LANG=en_US.UTF-8
