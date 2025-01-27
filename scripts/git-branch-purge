@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+current_branch=$(git branch --show-current)
+branches=$(git branch | grep -v master | grep -v $current_branch)
+
+if [[ -z $branches ]]; then
+    echo "No branches to delete"
+    exit 0
+fi
+
+git branch -D $branches

@@ -9,4 +9,7 @@ while getopts "f" OPTIONS; do
   esac
 done
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+
 cd client && BROWSER=none yarn start

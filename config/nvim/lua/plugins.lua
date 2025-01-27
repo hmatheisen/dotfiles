@@ -16,7 +16,7 @@ treesitter.setup {
     keymaps = {
       init_selection = "<leader>s",
       node_incremental = "<leader>i",
-      node_decremental = "<leader>o",
+      node_decremental = "<leader>o"
     }
   },
   indent = {enable = true, disable = {"ruby"}}
@@ -24,10 +24,20 @@ treesitter.setup {
 
 -- LSP
 lspconfig.ts_ls.setup {}
+lspconfig.eslint.setup {}
+lspconfig.tailwindcss.setup {}
 lspconfig.solargraph.setup {}
 lspconfig.lua_ls.setup {}
 lspconfig.gopls.setup {}
-lspconfig.clangd.setup {}
+lspconfig.clangd.setup {
+  cmd = {
+    "clangd", "--offset-encoding=utf-16", "--background-index",
+    "--all-scopes-completion", "--suggest-missing-includes", "--pretty",
+    "--header-insertion-decorators", "--function-arg-placeholders",
+    "--completion-style=detailed"
+  },
+  -- init_options = {fallbackFlags = {'-std=c++17'}}
+}
 
 local function toggle_diagnostics()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())

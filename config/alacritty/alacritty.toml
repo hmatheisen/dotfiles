@@ -1,14 +1,6 @@
-import = [
-  # "~/.config/alacritty/solarized_light.toml",
-  "~/.config/alacritty/tomorrow_night_bright.toml",
-]
-
-live_config_reload = true
-
 [window]
 option_as_alt = "OnlyLeft"
 dynamic_title = false
-decorations = "Full"
 
 [window.dimensions]
 columns = 150
@@ -28,5 +20,8 @@ size = 14
 family = "Go Mono"
 style = "Regular"
 
-[mouse]
-hide_when_typing = true
+[general]
+live_config_reload = true
+import = [
+  "~/.config/alacritty/tomorrow_night_bright.toml"
+]

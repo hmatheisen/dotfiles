@@ -28,3 +28,6 @@ keymap.set("n", "[Q", "<cmd>cfirst<CR>", {silent = true})
 keymap.set("n", "[q", "<cmd>cprevious<CR>", {silent = true})
 keymap.set("n", "]q", "<cmd>cnext<CR>", {silent = true})
 keymap.set("n", "]Q", "<cmd>clast<CR>", {silent = true})
+
+-- Setup FZF main command
+keymap.set("n", "<C-p>", "<cmd>FZF<CR>", {silent = true})

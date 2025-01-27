@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
 ps aux | grep -e "puma.*elevo-rails" | grep -v "grep" | awk '{ print $2 }' | xargs kill -9
+ps aux | grep -e "elevo-rails.*fsevent_watch" | grep -v "grep" | awk '{ print $2 }' | xargs kill -9
