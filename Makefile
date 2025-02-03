@@ -6,6 +6,10 @@ create-dirs:
 	[ -d ~/.local ]  || mkdir ~/.local
 	@echo Done!
 
+yabai:
+	ln -s $(PWD)/config/yabai      ~/.config/yabai
+skhd:
+	ln -s $(PWD)/config/skhd       ~/.config/skhd
 alacritty:
 	ln -s $(PWD)/config/alacritty ~/.config/alacritty
 nvim:
@@ -24,6 +28,10 @@ zsh:
 	ln -s $(PWD)/zshrc            ~/.zshrc
 
 clean:
+	@# yabai
+	rm -rf ~/.config/yabai
+	@# skhd
+	rm -rf ~/.config/skhd
 	@# alacritty
 	rm -rf ~/.config/alacritty
 	@# nvim

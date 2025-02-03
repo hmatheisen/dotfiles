@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
-# I use this program to easily unmount a read-only filesystem
-# and remount it as reas-write, since my machine mounts is as
-# readonly automatically
+# I use this program to easily unmount a read-only filesystem and remount it as
+# reas-write, since my machine mounts is as readonly automatically
 
-# Quit program if a command fails
 set -e
 
-# Display usage when missing parameters
 usage () {
   echo -e "Usage: $0 [-h] [-v volume] [-t fstype]\n\
     -h Displays this help message\n\
@@ -15,7 +12,6 @@ usage () {
     -f The filesystem's type of the concerned disk" >&2; exit 1;
 }
 
-# Parse arguments
 while getopts ":v:t:h" opt; do
   case $opt in
     v) volume=$OPTARG ;;
@@ -45,9 +41,7 @@ mkdir "$mountPoint"
 # Mount the volume again as read-write, in the same place
 mount -w -t $fstype $volume "$mountPoint"
 
-# End message
 echo "The read-only volume: $volume was unmounted"
 echo "And remounted as read-write in: $mountPoint"
 
-# Exit program with code 0
 exit 0
