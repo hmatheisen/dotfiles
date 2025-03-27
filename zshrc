@@ -1,11 +1,32 @@
-ZSH_THEME="simple"
+# -*- mode: sh -*-
+# History
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
 
-# Zsh plugins
-plugins=(git)
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/henry/.oh-my-zsh"
-# source oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# Some default options
+setopt autocd extendedglob
+unsetopt beep nomatch notify
+bindkey -e
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/henry/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+# show menu
+zstyle ":completion:*" menu select
+# Case insensitive
+zstyle ":completion:*" matcher-list 'm:{a-z}={A-Za-z}'
+
+autoload -Uz promptinit
+promptinit
+prompt redhat
+
+# More natural text editing
+autoload -U select-word-style
+select-word-style bash
 
 # Default editor
 export EDITOR=/opt/homebrew/bin/nvim
@@ -42,6 +63,9 @@ eval "$(rbenv init - zsh)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # Go
 export GOPATH="$(go env GOPATH)"
 export PATH="${PATH}:${GOPATH}/bin"
@@ -51,6 +75,10 @@ stty dsusp undef
 
 # FZF utils
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Link emacs built from source
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+export PATH="/Applications/Emacs.app/Contents/MacOS/bin:$PATH"
 
 # Postgres
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"

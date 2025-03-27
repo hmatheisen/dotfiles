@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+RAILS_ENV=test \
+  HEADLESS=false \
+  bundle exec rspec $@

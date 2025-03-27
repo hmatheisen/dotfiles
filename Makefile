@@ -1,10 +1,8 @@
-sync: create-dirs alacritty nvim vis scripts aliases tmux zsh
+sync: create-dirs yabai skhd alacritty nvim vis scripts aliases tmux vimrc zsh
 
 create-dirs:
-	@echo Creating directories...
 	[ -d ~/.config ] || mkdir ~/.config
 	[ -d ~/.local ]  || mkdir ~/.local
-	@echo Done!
 
 yabai:
 	ln -s $(PWD)/config/yabai      ~/.config/yabai
@@ -46,3 +44,5 @@ clean:
 	rm -f  ~/.tmux.conf
 	@# zsh
 	rm -f  ~/.zshrc
+
+.PHONY: scripts vimrc

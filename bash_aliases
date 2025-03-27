@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 alias ll="eza -lhg --group-directories-first"
 alias l="ll -a"
 
@@ -6,12 +7,16 @@ alias ivm=nvim
 
 alias ec="emacsclient -c -nw"
 alias em="emacs -nw"
-alias mg="mg -n"
 
 alias gcof='git checkout .forestadmin-schema.json'
-# alias gst='git status -sb'
+alias gst='git status'
+alias gd='git diff'
+alias gc='git commit -v'
 alias gpo='git push origin $(git branch --show-current)'
 alias gpfo='git push --force-with-lease origin $(git branch --show-current)'
+alias glo='git log --oneline'
+alias gco='git checkout'
+alias ga='git add'
 
 alias w="watch -n 1"
 

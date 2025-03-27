@@ -14,15 +14,16 @@ while getopts "tp" OPTIONS; do
   esac
 done
 
-USE_DEV_SSL=false \
-  RACK_TIMEOUT_SERVICE_TIMEOUT=0 \
-  WEB_CONCURRENCY=1 \
-  IMPERSONATION_DURATION_IN_MINUTES=999999 \
-  VITALLY_ENABLED=false \
-  PAPER_TRAIL_ENABLED=true \
-  ELEVO_BACKEND_HOST=localhost \
-  ELEVO_FRONTEND_HOST=localhost \
-  SECRET_KEY_BASE='secret' \
-  CORS_ORIGINS=$(cat ~/.local/share/elevo-rails/cors_origins.json) \
-  env $(cat ~/.local/share/elevo-rails/secrets.txt | xargs) \
+USE_DEV_SSL=false                                                   \
+  RACK_TIMEOUT_SERVICE_TIMEOUT=0                                    \
+  WEB_CONCURRENCY=1                                                 \
+  RAILS_MAX_THREADS=1                                               \
+  IMPERSONATION_DURATION_IN_MINUTES=999999                          \
+  VITALLY_ENABLED=false                                             \
+  PAPER_TRAIL_ENABLED=true                                          \
+  ELEVO_BACKEND_HOST=localhost                                      \
+  ELEVO_FRONTEND_HOST=localhost                                     \
+  SECRET_KEY_BASE='secret'                                          \
+  CORS_ORIGINS=$(cat ~/.local/share/elevo-rails/cors_origins.json)  \
+  env $(cat ~/.local/share/elevo-rails/secrets.txt | xargs)         \
   bundle exec rails server -e $SERVER_ENV -b 0.0.0.0 -p 3001

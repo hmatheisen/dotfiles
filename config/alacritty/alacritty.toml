@@ -2,10 +2,6 @@
 option_as_alt = "OnlyLeft"
 dynamic_title = false
 
-[window.dimensions]
-columns = 150
-lines = 80
-
 [window.padding]
 x = 5
 y = 2
@@ -18,7 +14,6 @@ size = 14
 
 [font.normal]
 family = "Go Mono"
-style = "Regular"
 
 [general]
 live_config_reload = true
