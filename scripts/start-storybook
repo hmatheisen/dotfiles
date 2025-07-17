@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cd client && BROWSER=none yarn run storybook

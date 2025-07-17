@@ -1,6 +1,6 @@
-# -*- mode: sh -*-
-alias ll="eza -lhg --group-directories-first"
-alias l="ll -a"
+alias ll="gls -lh --group-directories-first --color=auto"
+# alias ll="eza -lhg --group-directories-first"
+alias l="ll -A"
 
 alias vim=nvim
 alias ivm=nvim

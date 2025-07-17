@@ -1,4 +1,3 @@
-# -*- mode: sh -*-
 # History
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -27,6 +26,13 @@ prompt redhat
 # More natural text editing
 autoload -U select-word-style
 select-word-style bash
+
+# Search when prefix is inserted
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 
 # Default editor
 export EDITOR=/opt/homebrew/bin/nvim
@@ -88,3 +94,22 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # LaTeX classes
 export TEXINPUTS=:/Users/henry/Notes/classes
+
+# Kamal
+kamal_staging() {
+    ACCOUNT=$(op account get | head -n 1 | awk '{ print $2 }')              \
+           DOCKER_REGISTRY_TOKEN=$(gpg -d ~/.gitlab/token.gpg 2>/dev/null)  \
+           ENVIRONMENT=STAGING                                              \
+           kamal $@ -d staging
+}
+
+kamal_production() {
+    echo "\033[0;31mPRODUCTION ALERT !!\033[0m"
+    read "reply?Are you sure? (Yy) "
+    [[ ! $reply =~ ^[yY]$ ]] && return
+
+    ACCOUNT=$(op account get | head -n 1 | awk '{ print $2 }')              \
+           DOCKER_REGISTRY_TOKEN=$(gpg -d ~/.gitlab/token.gpg 2>/dev/null)  \
+           ENVIRONMENT=PRODUCTION                                           \
+           kamal $@ -d production
+}
