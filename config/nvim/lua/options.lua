@@ -25,8 +25,9 @@ vim.o.hlsearch = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 
--- Wildmode
-vim.o.wildmode = "longest,full"
+-- cmd completion options
+vim.o.wildmode = "list:longest,full"
+vim.o.wildoptions = "pum,tagfile"
 
 -- Don't redraw while executing macros
 vim.o.lazyredraw = true
@@ -55,22 +56,17 @@ vim.o.laststatus = 0
 -- grep program
 vim.o.grepprg = "rg --vimgrep"
 
--- Set leader
-vim.g.mapleader = " "
-
 -- Cursorline on
 vim.o.cursorline = true
 
 -- Theme
--- vim.cmd("colorscheme quiet")
--- vim.o.termguicolors = false
--- vim.api.nvim_set_hl(0, 'Normal', { guibg = nil, ctermbg = nil })
--- vim.api.nvim_set_hl(0, 'NonText', { guibg = nil, ctermbg = nil })
+vim.o.termguicolors = false
 
--- Set paths
-vim.o.path = vim.o.path .. "app/**,lib/**,config/**,spec/**,db/**,client/src/**"
-
+-- FZF
 vim.o.runtimepath = vim.o.runtimepath .. ",/opt/homebrew/opt/fzf"
 
 -- Remove Netrw banner
 vim.g.netrw_banner = 0
+
+-- Completion options
+vim.o.completeopt = "fuzzy,menuone,noinsert,noselect,popup,preview"

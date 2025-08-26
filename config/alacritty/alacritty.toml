@@ -1,6 +1,8 @@
 [window]
 option_as_alt = "OnlyLeft"
 dynamic_title = false
+decorations = "Full"
+startup_mode = "Maximized"
 
 [window.padding]
 x = 5
@@ -13,7 +15,7 @@ history = 10000
 size = 14
 
 [font.normal]
-family = "Hack"
+family = "Go Mono"
 
 [general]
 live_config_reload = true

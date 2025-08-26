@@ -2,16 +2,10 @@ local lsp = vim.lsp
 local command = vim.api.nvim_create_user_command
 local autocmd = vim.api.nvim_create_autocmd
 
-lsp.config["clangd"] = {
-  cmd = { "clangd", "--background-index" }
-}
-
-lsp.config["solargraph"] = {
-  cmd = { "solargraph", "stdio" }
-}
-
-lsp.enable("clangd")
-lsp.enable("solargraph")
+-- Requires 'https://github.com/neovim/nvim-lspconfig' to be installed
+-- vim.lsp.enable('solargraph')
+vim.lsp.enable('ruby_lsp')
+vim.lsp.enable('lua_ls')
 
 local function toggle_diagnostics()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
@@ -19,6 +13,10 @@ end
 
 autocmd('LspAttach', {
   callback = function(args)
+    -- Disable semantic providers
+    -- local client = vim.lsp.get_client_by_id(args.data.client_id)
+    -- client.server_capabilities.semanticTokensProvider = nil
+
     -- Disable diagnostics on attach
     vim.diagnostic.enable(false)
     command("ToggleDiagnostics", toggle_diagnostics, {})

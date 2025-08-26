@@ -23,6 +23,8 @@ end, {expr = true, remap = false})
 -- [ ] keymaps
 keymap.set("n", "]b", "<cmd>bnext<CR>", {silent = true})
 keymap.set("n", "[b", "<cmd>bprevious<CR>", {silent = true})
+keymap.set("n", "]t", "<cmd>tabnext<CR>", {silent = true})
+keymap.set("n", "[t", "<cmd>tabprevious<CR>", {silent = true})
 
 keymap.set("n", "[Q", "<cmd>cfirst<CR>", {silent = true})
 keymap.set("n", "[q", "<cmd>cprevious<CR>", {silent = true})

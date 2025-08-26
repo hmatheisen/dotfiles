@@ -1,5 +1,4 @@
-alias ll="gls -lh --group-directories-first --color=auto"
-# alias ll="eza -lhg --group-directories-first"
+alias ll="ls -lh --group-directories-first --color=auto"
 alias l="ll -A"
 
 alias vim=nvim
@@ -26,4 +25,8 @@ alias elevo="itermocil elevo --here"
 alias docker-rmi="docker images -q | xargs docker rmi"
 alias docker-rm="docker ps -qa | xargs docker rm"
 
-alias grep="grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv,node_modules,vendor}"
+alias grep="grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv,node_modules}"
+
+alias be="bundle exec"
+
+alias serve="python3 -m http.server 8000"
