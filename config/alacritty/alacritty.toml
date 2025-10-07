@@ -2,7 +2,6 @@
 option_as_alt = "OnlyLeft"
 dynamic_title = false
 decorations = "Full"
-startup_mode = "Maximized"
 
 [window.padding]
 x = 5

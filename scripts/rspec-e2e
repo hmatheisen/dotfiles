@@ -2,4 +2,6 @@
 
 RAILS_ENV=test \
   HEADLESS=false \
+  CI=false \
+  CONNECT_EXISTING=true \
   bundle exec rspec $@

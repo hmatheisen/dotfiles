@@ -6,6 +6,8 @@ local format_functions = {
   c = "clang-format",
   cpp = "clang-format",
   lua = "lua-format --indent-width=2",
+  xml = "xmllint --format -",
+  sh = "shfmt",
   -- TODO: maybe find a better way to handle `prettier` path
   typescriptreact = "client/node_modules/.bin/prettier",
   typescript = "client/node_modules/.bin/prettier",
@@ -53,3 +55,6 @@ command("ReadMigrateDiff", read_migrate_diff, {nargs = 1})
 
 -- Insert date
 command("Date", "read !date +\"\\%a \\%b \\%d \\%Y\"", {nargs = 0})
+
+-- Copy buffer content
+command("Copy", "!pbcopy < %", {nargs = 0})

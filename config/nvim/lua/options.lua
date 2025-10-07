@@ -4,7 +4,7 @@ vim.o.relativenumber = true
 vim.o.numberwidth = 8
 
 -- Tab config
-vim.o.tabstop = 2
+vim.o.tabstop = 4
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.smarttab = true
@@ -59,14 +59,19 @@ vim.o.grepprg = "rg --vimgrep"
 -- Cursorline on
 vim.o.cursorline = true
 
--- Theme
-vim.o.termguicolors = false
+-- Default textwidth
+vim.o.textwidth = 100
 
 -- FZF
 vim.o.runtimepath = vim.o.runtimepath .. ",/opt/homebrew/opt/fzf"
 
 -- Remove Netrw banner
 vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
 
 -- Completion options
-vim.o.completeopt = "fuzzy,menuone,noinsert,noselect,popup,preview"
+vim.o.completeopt = "menuone,noinsert,noselect,popup,preview"
+
+-- Fold markers
+vim.o.foldmethod = 'marker'
+vim.o.foldlevel = 1000

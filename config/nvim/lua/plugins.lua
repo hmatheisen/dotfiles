@@ -6,3 +6,6 @@ treesitter.setup {
   indent = { enable = true },
   incremental_selection = { enable = true }
 }
+
+-- Themes
+vim.cmd("colorscheme rose-pine")
