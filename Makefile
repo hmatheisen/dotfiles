@@ -1,13 +1,9 @@
-sync: create-dirs yabai skhd alacritty nvim vis scripts aliases tmux vimrc zsh
+sync: create-dirs alacritty nvim vis scripts aliases tmux vimrc zsh
 
 create-dirs:
 	[ -d ~/.config ] || mkdir ~/.config
 	[ -d ~/.local ]  || mkdir ~/.local
 
-yabai:
-	ln -s $(PWD)/config/yabai      ~/.config/yabai
-skhd:
-	ln -s $(PWD)/config/skhd       ~/.config/skhd
 alacritty:
 	ln -s $(PWD)/config/alacritty ~/.config/alacritty
 nvim:
@@ -26,10 +22,6 @@ zsh:
 	ln -s $(PWD)/zshrc            ~/.zshrc
 
 clean:
-	@# yabai
-	rm -rf ~/.config/yabai
-	@# skhd
-	rm -rf ~/.config/skhd
 	@# alacritty
 	rm -rf ~/.config/alacritty
 	@# nvim

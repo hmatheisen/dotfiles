@@ -8,6 +8,7 @@ vim.lsp.enable('ruby_lsp')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('gopls')
+vim.lsp.enable('clangd')
 
 local function toggle_diagnostics()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())

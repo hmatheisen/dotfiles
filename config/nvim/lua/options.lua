@@ -51,7 +51,7 @@ vim.o.joinspaces = true
 vim.o.confirm = true
 
 -- Ruler is enough
-vim.o.laststatus = 0
+-- vim.o.laststatus = 0
 
 -- grep program
 vim.o.grepprg = "rg --vimgrep"

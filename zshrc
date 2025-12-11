@@ -1,4 +1,5 @@
-                                          # ZSH SETTINGS #
+# ZSH SETTINGS #
+
 # History
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -22,9 +23,14 @@ zstyle ":completion:*" matcher-list 'm:{a-z}={A-Za-z}'
 # Somehow S-Tab is not bound by default
 bindkey '^[[Z' reverse-menu-complete
 
-autoload -Uz promptinit
-promptinit
-prompt redhat
+# Simple prompt with VCS
+autoload -Uz vcs_info
+precmd() { vcs_info; }
+zstyle ':vcs_info:git:*' formats '%b'
+setopt PROMPT_SUBST
+
+PROMPT='%~ $ '
+RPROMPT='${vcs_info_msg_0_}'
 
 # More natural text editing
 autoload -U select-word-style
@@ -43,7 +49,7 @@ stty dsusp undef
 # Disable ctrl-s to freeze terminal.
 stty stop undef
 
-                                            # ENV VARS #
+# ENV VARS #
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -84,59 +90,93 @@ export PATH="/opt/homebrew/opt/gsed/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
-alias which=/opt/homebrew/opt/gnu-which/libexec/gnubin/which
+export PATH="/opt/homebrew/opt/gnu-which/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 
 # LaTeX classes
 export TEXINPUTS=:/Users/henry/Notes/classes
 
+# LLVM
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export CXX="/opt/homebrew/opt/llvm/bin/clang++"
+export CC="/opt/homebrew/opt/llvm/bin/clang"
+export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
+
+# Emacs
+export PATH="/Applications/Emacs.app/Contents/MacOS/bin:$PATH"
+
+# Ruby SSL issues
+export RUBY_OPENSSL_CERT_DIR=/opt/homebrew/opt/openssl@3/certs
+export SSL_CERT_FILE=/opt/homebrew/opt/openssl@3/cert.pem
+
 # rbenv
 eval "$(rbenv init - zsh)"
 
 # Lazy version of NVM since it takes ages to startup
-function nvm {
+nvm() {
   unset -f nvm
 
   export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" # This loads nvm
 
   nvm $@
 }
 
-                                           # FUNCTIONS #
+# FUNCTIONS #
 
-function kamal_staging {
+kamal_staging() {
   ACCOUNT=$(op account get | head -n 1 | awk '{ print $2 }') \
-    DOCKER_REGISTRY_TOKEN=$(security find-generic-password -a ${USER} -s gitlab-api-token -w) \
-    ENVIRONMENT=STAGING \
+  DOCKER_REGISTRY_TOKEN=$(security find-generic-password -a ${USER} -s gitlab-api-token -w) \
+  ENVIRONMENT=STAGING \
     kamal $@ -d staging
 }
 
-function kamal_production {
+kamal_production() {
   echo "\033[0;31mPRODUCTION ALERT !!\033[0m"
-  read "reply?Are you sure? (Yy)"
+  read "reply?Are you sure? (yY): "
   [[ ! $reply =~ ^[yY]$ ]] && return
 
   ACCOUNT=$(op account get | head -n 1 | awk '{ print $2 }') \
-    DOCKER_REGISTRY_TOKEN=$(security find-generic-password -a ${USER} -s gitlab-api-token -w) \
-    ENVIRONMENT=PRODUCTION \
+  DOCKER_REGISTRY_TOKEN=$(security find-generic-password -a ${USER} -s gitlab-api-token -w) \
+  ENVIRONMENT=PRODUCTION \
     kamal $@ -d production
 }
 
 # Go to personal scripts dir
-function bins { cd ~/.local/bin }
+bins() { cd ~/.local/bin; }
 # Go to config dir
-function config { cd ~/.config }
+config() { cd ~/.config; }
 
 # Notes
-function notes { cd ~/Notes }
-function inbox { nvim ~/Notes/inbox.txt }
-function ttouch { touch $(date +%Y%m%d%H%M%S)-$1 }
+notes() { cd ~/Notes; }
+inbox() { nvim ~/Notes/inbox.txt; }
+ttouch() {
+  if [[ -z $1 ]]; then
+    echo "ttouch: must provide 1 path argument" 1>&2
+    return 1
+  fi
 
-                                             # MISC. #
+  local dir=$(dirname $1)
+  local filename=$(basename $1)
+  local new_filename=$(date +%Y%m%d%H%M%S)-$filename
+
+  touch $dir/$new_filename
+}
+archive() {
+  mkdir -p $(dirname archived/$1)
+  mv $1 archived/$1
+}
+
+# zshrc
+ezsh() { nvim ~/.zshrc; }
+reload() { source ~/.zshrc; }
+
+# MISC. #
 
 # Source aliases
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 [[ -f ~/.zsh-complete/_fzf ]] && source ~/.zsh-complete/_fzf
 
-# vim:tw=100:cc=+1
+# vim:tw=100:cc=+1:ft=bash

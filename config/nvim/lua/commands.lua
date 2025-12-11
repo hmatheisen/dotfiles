@@ -1,4 +1,5 @@
 local command = vim.api.nvim_create_user_command
+local autocmd = vim.api.nvim_create_autocmd
 
 -- format file
 local format_functions = {
@@ -43,18 +44,29 @@ end
 
 command("ReadGitLog", read_git_log, {nargs = '*'})
 
--- read !git diff --name-only 22.464.0..22.465.0 | grep db/migrate/
-local function read_migrate_diff(args)
-  local range = args['args']
-  local cmd = "read !git diff --name-only " .. range .. " | grep db/migrate"
-
-  vim.cmd(cmd)
+local function git_diff_split(args)
+  vim.cmd("new")
+  vim.cmd("read !git -P diff")
+  vim.cmd("0")
+  vim.cmd("set filetype=diff")
+  vim.cmd("set buftype=nofile")
 end
+command("Gdiff", git_diff_split, {nargs = 0})
 
-command("ReadMigrateDiff", read_migrate_diff, {nargs = 1})
+local function git_diff_vsplit(args)
+  vim.cmd("vnew")
+  vim.cmd("read !git -P diff")
+  vim.cmd("0")
+  vim.cmd("set filetype=diff")
+  vim.cmd("set buftype=nofile")
+end
+command("Gvdiff", git_diff_vsplit, {nargs = 0})
 
 -- Insert date
 command("Date", "read !date +\"\\%a \\%b \\%d \\%Y\"", {nargs = 0})
 
 -- Copy buffer content
 command("Copy", "!pbcopy < %", {nargs = 0})
+
+-- Highlight on yank
+autocmd("TextYankPost", {callback = function() vim.highlight.on_yank() end})

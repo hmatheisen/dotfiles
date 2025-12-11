@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+import sys
+import re
+import subprocess
+import os
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: viml path/to/file:line_number")
+        print("Example: viml .zshrc:45")
+        sys.exit(1)
+    
+    input_string = ' '.join(sys.argv[1:])
+    
+    # Use EDITOR environment variable, default to nvim
+    editor = os.environ.get('EDITOR', 'nvim')
+    
+    # Match pattern: filename:line_number
+    match = re.match(r'^(.+):(\d+)$', input_string.strip())
+    
+    if match:
+        filepath = match.group(1)
+        line_number = match.group(2)
+        # Execute editor directly
+        subprocess.run([editor, filepath, '-c', f':{line_number}'])
+    else:
+        # If no match, just open file normally
+        subprocess.run([editor, input_string.strip()])
+
+if __name__ == '__main__':
+    main()

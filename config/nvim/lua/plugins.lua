@@ -8,4 +8,4 @@ treesitter.setup {
 }
 
 -- Themes
-vim.cmd("colorscheme rose-pine")
+-- vim.cmd("colorscheme alabaster")
