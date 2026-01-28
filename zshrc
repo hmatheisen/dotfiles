@@ -115,14 +115,28 @@ export SSL_CERT_FILE=/opt/homebrew/opt/openssl@3/cert.pem
 eval "$(rbenv init - zsh)"
 
 # Lazy version of NVM since it takes ages to startup
-nvm() {
-  unset -f nvm
-
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" # This loads nvm
-
-  nvm $@
-}
+# _load_nvm() {
+#   unset -f nvm node npm
+#
+#   export NVM_DIR="$HOME/.nvm"
+#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# }
+#
+# nvm() {
+#   _load_nvm
+#   nvm $@
+# }
+#
+# node() {
+#   _load_nvm
+#   node $@
+# }
+#
+# npm() {
+#   _load_nvm
+#   npm $@
+# }
 
 # FUNCTIONS #
 
@@ -160,9 +174,10 @@ ttouch() {
 
   local dir=$(dirname $1)
   local filename=$(basename $1)
-  local new_filename=$(date +%Y%m%d%H%M%S)-$filename
+  local new_filename=$(date +%Y-%m-%d-%H%M%S)-$filename
 
   touch $dir/$new_filename
+  echo $dir/$new_filename
 }
 archive() {
   mkdir -p $(dirname archived/$1)

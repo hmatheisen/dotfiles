@@ -1,3 +1,9 @@
 config/nvim/.netrwhist
 config/nvim/spell/
 config/nvim/pack/
+
+scripts/elevo-db-restore
+scripts/start-client
+scripts/start-rails-server
+scripts/start-sidekiq
+scripts/start-storybook
