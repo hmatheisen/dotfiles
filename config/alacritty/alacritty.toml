@@ -14,7 +14,7 @@ history = 10000
 size = 14
 
 [font.normal]
-family = "Liberation Mono"
+family = "Hack"
 
 [general]
 live_config_reload = true

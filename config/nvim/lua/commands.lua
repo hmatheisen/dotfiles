@@ -70,3 +70,12 @@ command("Copy", "!pbcopy < %", {nargs = 0})
 
 -- Highlight on yank
 autocmd("TextYankPost", {callback = function() vim.highlight.on_yank() end})
+
+-- Full line text
+local function full_line_text(args)
+  vim.bo.textwidth = 0
+  vim.wo.wrap = true
+  vim.wo.linebreak = true
+end
+
+command("FullLineText", full_line_text, {nargs = 0})

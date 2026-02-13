@@ -195,3 +195,6 @@ reload() { source ~/.zshrc; }
 [[ -f ~/.zsh-complete/_fzf ]] && source ~/.zsh-complete/_fzf
 
 # vim:tw=100:cc=+1:ft=bash
+
+# Added by Antigravity
+export PATH="/Users/henry/.antigravity/antigravity/bin:$PATH"
